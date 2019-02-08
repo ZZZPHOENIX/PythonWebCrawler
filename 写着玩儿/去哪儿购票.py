@@ -2,16 +2,17 @@ import requests
 from urllib.parse import urlencode
 import pymysql
 import sched
+import re
 import datetime
 import time
 import smtplib
 import email.mime.multipart
 import email.mime.text
-from multiprocessing import Process, Lock
+from multiprocessing import Pool
 import warnings
 
-
 warnings.filterwarnings("ignore")
+
 
 class Book_Ticket():
 
@@ -23,10 +24,6 @@ class Book_Ticket():
         self.db.commit()
 
     def get_info_passenger(self):
-        """
-        获取需要用户输入的信息并存入数据库
-        :return:
-        """
         while True:
             self.cursor.execute('SELECT * FROM PassengerInfo')
             result = self.cursor.fetchall()
@@ -46,6 +43,7 @@ class Book_Ticket():
                         print("输入错误！")
                         continue
                 else:
+
                     self.pName = input("输入乘客姓名：")
                     self.pIdNo = input("输入乘客身份证号：")
             else:
@@ -58,7 +56,7 @@ class Book_Ticket():
                 print("\n===================数据库中已有联系人信息===================")
 
                 for i in range(0, len(result)):
-                    print("\n编号：" + str(i + 1) + '\t联系人姓名：' +result[i][0] + '\t联系人电话：' + result[i][1])
+                    print("\n编号：" + str(i + 1) + '\t联系人姓名：' + result[i][0] + '\t联系人电话：' + result[i][1])
                 print('\n')
                 choice2 = input("是否使用数据库中已有联系人信息？(y/n) >>>")
                 if choice2 == 'y':
@@ -105,7 +103,7 @@ class Book_Ticket():
 
                 if len(self.pIdNo) == 15:
                     self.pGender = 1 if int(self.pIdNo[14]) % 2 == 1 else 2
-                    self.pBirthday = '19'+self.pIdNo[6:12]
+                    self.pBirthday = '19' + self.pIdNo[6:12]
                     self.pInsureNo = '1002103,YD' if self.pInsureNo == 'y' else '-1'
                     break
                 elif len(self.pIdNo) == 18:
@@ -118,11 +116,7 @@ class Book_Ticket():
             else:
                 print("\n重新输入！")
 
-    def get_ticket_info(self):
-        """
-        获取单程票信息
-        :return:
-        """
+    def get_info_single_way(self):
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3528.4 Safari/537.36'
         }
@@ -141,15 +135,11 @@ class Book_Ticket():
         try:
             response = requests.get(url, params=params, headers=headers, verify=False)
             self.data = response.json()['data']['s2sBeanList']
-        except:
+        except Exception as  e:
+            print(e)
             print("\n* * * 日期信息错误！* * *")
 
     def parse_and_show_data(self):
-        """
-        处理并显示数据
-        :param data: 数据
-        :return: 用于购票的字典类型数据
-        """
         try:
             if not self.data:
                 print('* * * 无相关车次信息')
@@ -160,17 +150,17 @@ class Book_Ticket():
 
         self.DATA = []
         for item in self.data:
-            #终点信息
+            # 终点信息
             arrStation = item['arrStationName']
             arrTime = item['arrTime']
             arrDate = item['extraBeanMap']['arrDate']
 
-            #起点信息
+            # 起点信息
             dptStation = item['dptStationName']
             dptTime = item['dptTime']
             dptDate = item['extraBeanMap']['dptDate']
 
-            #车次信息
+            # 车次信息
             intervalTime = item['extraBeanMap']['interval']
             intervalMiles = item['extraBeanMap']['intervalMiles']
             try:
@@ -180,7 +170,7 @@ class Book_Ticket():
             trainNo = item['trainNo']
             startSaleTime = item['extraBeanMap']['startSaleTime']
 
-            #座位信息
+            # 座位信息
             saleId = item['saleStatus']['saleId']
             try:
                 note = item['saleStatus']['note']
@@ -200,7 +190,7 @@ class Book_Ticket():
                     seats_status.append('可抢票')
                 elif seats[type]['seatMap']['ticketNumStatus'] == 2:
                     seats_status.append('可购票')
-                elif (seats[type]['seatMap']['ticketNumStatus'] == 6  or item['saleStatus']['desc'] == "可预约购票")and saleId != 30:
+                elif seats[type]['seatMap']['ticketNumStatus'] == 6 and saleId != 30:
                     seats_status.append('可预约抢票')
                     seats_remain.pop(-1)
                     seats_remain.append(100)
@@ -208,16 +198,19 @@ class Book_Ticket():
                     seats_status.append('')
 
             print('========================================================================')
-            print('车次：'+trainNo+'\t'+trainType) if trainType else print('车次：'+trainNo+'\t')
-            print(dptStation+' '+dptDate+' '+dptTime+'\t>>>>> '+intervalTime+' >>>>>>\t'+arrStation+' '+arrDate+' '+arrTime)
-            print('\n*' + saleStatus + '\t' + note + '\t' + startSaleTime + '\n') if note else print('\n*' + saleStatus + '\n')
+            print('车次：' + trainNo + '\t' + trainType) if trainType else print('车次：' + trainNo + '\t')
+            print(
+                dptStation + ' ' + dptDate + ' ' + dptTime + '\t>>>>> ' + intervalTime + ' >>>>>>\t' + arrStation + ' ' + arrDate + ' ' + arrTime)
+            print('\n*' + saleStatus + '\t' + note + '\t' + startSaleTime + '\n') if note else print(
+                '\n*' + saleStatus + '\n')
             for i in range(0, len(seats_type)):
-                print(seats_type[i]+'\t'+'￥'+str(seats_price[i])+'\t'+'余票：'+str(seats_remain[i])+'\t'+seats_status[i])
+                print(seats_type[i] + '\t' + '￥' + str(seats_price[i]) + '\t' + '余票：' + str(seats_remain[i]) + '\t' +
+                      seats_status[i])
             print('\n')
 
             purchasable_type = []
             for i in range(0, len(seats_type)):
-                if seats_status[i] == '可购票' or seats_status[i] == "可预约抢票" :
+                if seats_status[i] == '可购票' or seats_status[i] == "可预约抢票":
                     purchasable_type.append((seats_type[i], seats_price[i], seats_status[i], seats_remain[i]))
                 elif isinstance(seats_remain[i], int) and seats_status[i] == "可抢票":
                     if 0 < seats_remain[i]:
@@ -241,11 +234,6 @@ class Book_Ticket():
                 self.DATA.append(data)
 
     def form_post(self):
-        """
-        选择要购买的车票并提交购票订单等待付款
-        :param DATA: 用于购票的数据
-        :return:
-        """
         count = 0
         self.Menu = []
         if not self.DATA:
@@ -256,10 +244,13 @@ class Book_Ticket():
             for j in range(0, len(self.DATA[i]['seat'])):
                 count += 1
                 print('编号：', count, end='')
-                print('\t车次：'+self.DATA[i]['train']+'\t由 '+self.DATA[i]['fromstation']+' 到 '+self.DATA[i]['tostation'], end='')
-                print('   出发时间：'+self.DATA[i]['starttime']+' '+self.DATA[i]['dptHm']+'   '+self.DATA[i]['seat'][j][0]+'：￥'+str(self.DATA[i]['seat'][j][1])+'  '+'余票：'+str(self.DATA[i]['seat'][j][3])+'  '+self.DATA[i]['seat'][j][2], end='')
+                print('\t车次：' + self.DATA[i]['train'] + '\t由 ' + self.DATA[i]['fromstation'] + ' 到 ' + self.DATA[i][
+                    'tostation'], end='')
+                print('   出发时间：' + self.DATA[i]['starttime'] + ' ' + self.DATA[i]['dptHm'] + '   ' +
+                      self.DATA[i]['seat'][j][0] + '：￥' + str(self.DATA[i]['seat'][j][1]) + '  ' + '余票：' + str(
+                    self.DATA[i]['seat'][j][3]) + '  ' + self.DATA[i]['seat'][j][2], end='')
                 if self.DATA[i]['seat'][j][2] == '可预约抢票':
-                    print('\t开始售票时间：'+self.DATA[i]['startSaleTime'])
+                    print('\t开始售票时间：' + self.DATA[i]['startSaleTime'])
                 else:
                     print('\n')
                 info = {
@@ -287,19 +278,17 @@ class Book_Ticket():
             print('\n')
 
         while True:
-            index = int(input("输入要购买的车次编号："))-1
-            print('确认信息：')
-            print('编号:', index+1, end='\t')
-            print('车次：' + self.Menu[index]['train'] + '\t由 ' + self.Menu[index]['fromstation'] + ' 到 ' + self.Menu[index]['tostation'], end='')
-            print('   出发时间：' + self.Menu[index]['starttime'] + ' ' + self.Menu[index]['dptHm'], end='   ')
-            print(self.Menu[index]['seat']+'：￥'+str(self.Menu[index]['price'])+'\t余票：'+self.Menu[index]['seatsRemain'])
-
+            index = int(input("输入要购买的车次编号：")) - 1
+            self.ticket_information = '车次：' + self.Menu[index]['train'] + '\t由 ' + self.Menu[index]['fromstation'] \
+                                      + ' 到 ' + self.Menu[index]['tostation'] + '出发时间：' + self.Menu[index]['starttime'] \
+                                      + ' ' + self.Menu[index]['dptHm'] + '  ' + self.Menu[index]['seat'] \
+                                      + '：￥' + str(self.Menu[index]['price'])
+            print(self.ticket_information)
             choice = input('\n确认购买？(y/n)')
             if choice == 'y':
                 self.index = index
                 break
 
-        # TODO headers中没有设置 Cookies 和构造 Referer, 购票数默认为1,  paperType, passenger_menber不清楚
         self.url = 'http://tieyo.trade.qunar.com/site/booking/purchaseCheck.jsp'
         self.post_data = [
             ('insuranceCorpCode', 'TK'),
@@ -307,12 +296,13 @@ class Book_Ticket():
             ('ticketCount', '1'),
             ('trainFrom', self.Menu[index]['fromstation']),
             ('trainTo', self.Menu[index]['tostation']),
-            ('trainStartTime', self.Menu[index]['starttime'].replace('-', '') + self.Menu[index]['dptHm'].replace(':', '')),
+            ('trainStartTime',
+             self.Menu[index]['starttime'].replace('-', '') + self.Menu[index]['dptHm'].replace(':', '')),
             ('trainDistance', self.Menu[index]['trainDistance']),
             ('trainDuration', self.Menu[index]['trainDuration']),
             ('trainNo', self.Menu[index]['train']),
             ('ex_track', 'noextrack'),
-            #('pricesInformation', self.Menu[index]['seat']+':'+str(self.Menu[index]['price'])),
+            # ('pricesInformation', self.Menu[index]['seat']+':'+str(self.Menu[index]['price'])),
             ('isCheckPrice', '0'),
             ('needCheckHistoryOrder', 'false'),
             ('pTicketType_0', '1'),
@@ -326,8 +316,10 @@ class Book_Ticket():
             ('contact_name', self.cName),
             ('contact_phone', self.cPhone),
             ('license', 'on'),
-            ('paramjson', '{"contactusers":[],"consumerusers":[{"usersource":"train","credentialses":[{"credentialstype":1,"credentialsid":115716894,"credentialsno":"511126199908160014"}],"name":"张蔚鹏","id":"119571228","contactid":"119571228","gender":"1","birthday":"1999-08-16"}]}'),
-            ('paramjson', '{"consumerusers":[],"contactusers":[{"contactid":"119571228","usersource":"train","mobile":"18190687825","name":"张蔚鹏"}]}'),
+            ('paramjson',
+             '{"contactusers":[],"consumerusers":[{"usersource":"train","credentialses":[{"credentialstype":1,"credentialsid":115716894,"credentialsno":"511126199908160014"}],"name":"张蔚鹏","id":"119571228","contactid":"119571228","gender":"1","birthday":"1999-08-16"}]}'),
+            ('paramjson',
+             '{"consumerusers":[],"contactusers":[{"contactid":"119571228","usersource":"train","mobile":"18190687825","name":"张蔚鹏"}]}'),
             ('passenger_member', 'gjn'),
             ('isRecommendPaper', 'false'),
             ('isNeedPaper', 'false'),
@@ -349,34 +341,29 @@ class Book_Ticket():
         }
 
     def update_data(self):
-        """
-        购票失败后刷新票务数据
-        :return: 是否有余票
-        """
-        self.get_ticket_info()
+        self.get_info_single_way()
         for item in self.data:
-            match_case = item['dptStationName']==self.Menu[self.index]['fromstation'] and item['arrStationName']==self.Menu[self.index]['tostation'] and item['trainNo']==self.Menu[self.index]['train'] and item['dptTime']==self.Menu[self.index]['dptHm']
+            match_case = item['dptStationName'] == self.Menu[self.index]['fromstation'] and item['arrStationName'] == \
+                         self.Menu[self.index]['tostation'] and item['trainNo'] == self.Menu[self.index]['train'] and \
+                         item['dptTime'] == self.Menu[self.index]['dptHm']
             if match_case:
                 seats = item['seats']
                 for type in seats:
-                    if type==self.Menu[self.index]['seat']:
+                    if type == self.Menu[self.index]['seat']:
                         seats_remain = seats[type]['count'] if seats[type]['count'] != -1 else '已售空'
         return True if seats_remain != '已售空' else False
 
     def purchase_ticket(self, No):
-        """
-        普通购票
-        :return:
-        """
         self.purchase_status = False
-        print("\n线程%s\t正在提交订单信息\t当前时间：%s" % ((No+1), datetime.datetime.now()))
+        print("\n进程%s\t正在提交订单信息\t当前时间：%s" % ((No + 1), datetime.datetime.now()))
         error_count = 1
         retry_count = 0
+
         while True:
             while retry_count < 3:
                 response = requests.post(self.url, data=self.post_data, headers=self.headers)
                 if "orderDetailUrl" in response.text:
-                    print("\n线程%s\t提交订单信息成功，请及时前往去哪儿网支付！当前时间：%s" % ((No+1), datetime.datetime.now()))
+                    print("\n进程%s\t提交订单信息成功，请及时前往去哪儿网支付！" % (No + 1))
                     self.purchase_status = True
                     break
                 else:
@@ -384,24 +371,27 @@ class Book_Ticket():
             if self.purchase_status == True:
                 break
             else:
-                try:
-                    print(response.text['msg'])
-                except:
-                    print(response.text)
+                print(response.text)
                 if error_count == 3:
-                    print('抱歉，线程%s抢票失败！' % (No+1))
+                    print('抱歉，进程%s抢票失败！' % (No + 1))
                     break
                 remain_seat = self.update_data()
                 if not remain_seat:
                     break
                 error_count += 1
+        """
+        while retry_count < 3:
+            requests.post(self.url, data=self.post_data, headers=self.headers)
+            retry_count += 1
+        """
 
     def check(self):
-        """
-        检查是否购票完成
-        :return:
-        """
-        print(datetime.datetime.now())
+        if self.purchase_status == True:
+            self.send_email()
+            wait = input("\n输入任意键退出...")
+            exit()
+
+    def send_email(self):
         try:
             smtp = smtplib.SMTP('smtp.163.com')
             smtp.starttls()
@@ -411,10 +401,10 @@ class Book_Ticket():
 
             msg = email.mime.multipart.MIMEMultipart()
 
-            msg['Subject'] = '去哪儿网购票'
+            msg['Subject'] = '抢票'
             msg['From'] = sender
             msg['To'] = receiver
-            content = '提交订单信息成功，请及时前往去哪儿网支付' if self.purchase_status else '抱歉，购票失败！'
+            content = '提交订单信息成功:\t%s\n，请及时前往去哪儿网支付' % self.ticket_information if self.purchase_status else '抱歉，抢票失败！'
             txt = email.mime.text.MIMEText(content)
             msg.attach(txt)
 
@@ -423,13 +413,8 @@ class Book_Ticket():
             print("发送邮件成功！")
         except:
             print('发送邮件失败！')
-        exit()
 
     def rob_ticket(self):
-        """
-        抢票
-        :return:
-        """
         schedule = sched.scheduler(time.time, time.sleep)
 
         startSaleTime = self.Menu[self.index]['startSaleTime']
@@ -442,42 +427,32 @@ class Book_Ticket():
         if now.month == month and now.day == day:
             time_before_start = int(round((startSaleTime - now).total_seconds()))
             print("\n开始售票时间为：%s\t还有\t%s秒\t开始抢票..." % (startSaleTime, str(time_before_start)))
-            self.mutex = Lock()
-            schedule.enter(time_before_start, 0, self.multiprocess, ())
+            schedule.enter(time_before_start - 0.5, 0, self.multiprocess, ())
             schedule.run()
 
         else:
             print("\n开始售票时间为\t%s\t请在购票的当日打开此程序！" % startSaleTime)
             return
 
-    def multiprocess(self,):
-        """
-        多进程购票
-        :return:
-        """
+    def multiprocess(self):
+        p = Pool(4)
         for i in range(4):
-            p = Process(target=self, args=(i,))
-            p.start()
-            self.mutex.acquire()
-            self.check()
-            self.mutex.release()
-            def __call__(i):
-                return self.purchase_ticket(i)
-
+            p.apply_async(self.purchase_ticket(i))
+            # p.apply_async(self.purchase_ticket(i), callback=self.check())
+        self.send_email()
 
     def run(self):
         self.connect_database()
         self.get_info_passenger()
         print("\n正在获取车票信息...")
-        self.get_ticket_info()
+        self.get_info_single_way()
         self.parse_and_show_data()
         self.form_post()
         if self.Menu[self.index]['seatStatus'] == '可预约抢票':
             self.rob_ticket()
         else:
             self.multiprocess()
-
-
+        self.check()
 
 
 if __name__ == '__main__':
