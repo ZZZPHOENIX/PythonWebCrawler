@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/JaneNancy/article/details/81431283"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="[root@server1 ~]# yum install -y cmake-2.8.12.2-4.el6.x86_64.rpm 
+
+开始编译：
+
+
+
+[root@server1 mysql-5.7.17]# cmake -DCMAKE_INSTALL_PREFIX=/usr/local/lnmp/mysql -DMYSQL_DATADIR=/usr/local/lnmp/mysql/data..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>LNMP 架构工作原理  &amp;&amp; 源码编译  LNMP - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-8195ccbe2d.min.css">
+
+    <script type="text/javascript">
+        var username = "JaneNancy";
+        var blog_address = "https://blog.csdn.net/janenancy";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/JaneNancy/article/details/81431283"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin3-template";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/janenancy">JaneNancy的博客...</a></span>
+			<i>></i>
+			<span>LNMP 架构工作原理  &amp;&amp; 源码编译  LNMP...</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">LNMP 架构工作原理  &amp;&amp; 源码编译  LNMP</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 21:09:56</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：2</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <div class="markdown_views">
+                <p>LNMP==Linux+Nginx+Mysql+PHP</p>
+
+<p><strong>LNMP的工作原理</strong></p>
+
+<p>LNMP是指LNMP==Linux+Nginx+Mysql+PHP的结构体系。其工作原理如下：</p>
+
+<p>首先，浏览器发送http request请求到服务器（Nginx）,服务器响应并处理web请求，将一些静态资源（CSS，图片，视频等）保存服务器上，然后将php脚本通过接口传输协议（网关协议）PHP-FCGI（fast-cgi）传输给PHP-FPM（进程管理程序）,PHP-FPM不做处理，然后PHP-FPM调用PHP解析器进程，PHP解析器解析php脚本信息。PHP解析器进程可以启动多个，进行并发执行。然后将解析后的脚本返回到PHP-FPM，PHP-FPM再通过fast-cgi的形式将脚本信息传送给Nginx.服务器再通过Http response的形式传送给浏览器。浏览器再进行解析与渲染然后进行呈现。</p>
+
+<p>以上整个就是LNMP的工作过程。</p>
+
+<p><strong>一、Mysql源码安装</strong></p>
+
+<p>1.安装：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># yum install -y gcc</span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># tar zxf mysql-boost-5.7.11.tar.gz</span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># yum install cmake-2.8.12.2-4.el6.x86_64.rpm</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805095027827?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p>2、开始编译：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs coffeescript">[root<span class="hljs-property">@server1</span> ~]<span class="hljs-comment"># cd mysql-5.7.17/</span>
+[root<span class="hljs-property">@server1</span> mysql-<span class="hljs-number">5.7</span><span class="hljs-number">.17</span>]<span class="hljs-comment"># cmake -DCMAKE_INSTALL_PREFIX=/usr/local/lnmp/mysql \    #安装路径</span>
+&gt; -DMYSQL_DATADIR=/usr/local/lnmp/mysql/data \    <span class="hljs-comment">#数据库存放路径</span>
+&gt; -DMYSQL_UNIX_ADDR=/usr/local/lnmp/mysql/data/mysql.sock \   <span class="hljs-comment">#文件路径</span>
+&gt; -DWITH_MYISAM_STORAGE_ENGINE=<span class="hljs-number">1</span> \    <span class="hljs-comment">#安装 myisam 存储引擎</span>
+&gt; -DWITH_INNOBASE_STORAGE_ENGINE=<span class="hljs-number">1</span> \  <span class="hljs-comment">#安装 innodb 存储引擎</span>
+&gt; -DDEFAULT_CHARSET=utf8 \     <span class="hljs-comment">#使用 utf8 字符</span>
+&gt; -DDEFAULT_COLLATION=utf8_general_ci \   <span class="hljs-comment">#校验字符 </span>
+&gt; -DEXTRA_CHARSETS=all     <span class="hljs-comment">#安装所有扩展字符集</span>
+</code></pre>
+
+<p>会出现报错：（逐一解决）</p>
+
+<p><img src="https://img-blog.csdn.net/20180805213834839?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p>再次将编译程序跑一边，后面加上boots指定路径</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs javascript">[root@server1 mysql-<span class="hljs-number">5.7</span><span class="hljs-number">.17</span>]# cmake -DCMAKE_INSTALL_PREFIX=<span class="hljs-regexp">/usr/</span>local/lnmp/mysql -DMYSQL_DATADIR=<span class="hljs-regexp">/usr/</span>local/lnmp/mysql/data -DMYSQL_UNIX_ADDR=<span class="hljs-regexp">/usr/</span>local/lnmp/mysql/data/mysql.sock -DWITH_MYISAM_STORAGE_ENGINE=<span class="hljs-number">1</span> -DWITH_INNOBASE_STORAGE_ENGINE=<span class="hljs-number">1</span> -DDEFAULT_CHARSET=utf8 -DDEFAULT_COLLATION=utf8_general_ci -DEXTRA_CHARSETS=all -DWITH_BOOST=boost/boost_1_59_0/   #boots指定路径</code></pre>
+
+<p>其余的报错应该都是一些缺少的开发包的报错，但注意： 报错后一定要先清除缓存后再次编译</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> mysql-<span class="hljs-number">5.7</span>.<span class="hljs-number">17</span>]<span class="hljs-comment"># rm -fr CMakeCache.txt #清空缓存文件</span>
+[root<span class="hljs-variable">@server5</span> mysql-<span class="hljs-number">5.7</span>.<span class="hljs-number">11</span>]<span class="hljs-comment"># yum install ncurses-devel gcc-c++ -y #解决依赖包</span>
+[root<span class="hljs-variable">@server1</span> mysql-<span class="hljs-number">5.7</span>.<span class="hljs-number">17</span>]<span class="hljs-comment"># yum install bison -y    #系统可以跳过warning错误</span>
+[root<span class="hljs-variable">@server1</span> mysql-<span class="hljs-number">5.7</span>.<span class="hljs-number">17</span>]<span class="hljs-comment"># make   #编译，链接，生成可执行文件</span>
+[root<span class="hljs-variable">@server1</span> mysql-<span class="hljs-number">5.7</span>.<span class="hljs-number">17</span>]<span class="hljs-comment"># make install    #安装</span></code></pre>
+
+<p>3、mysql简单配置</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> mysql-<span class="hljs-number">5.7</span>.<span class="hljs-number">17</span>]<span class="hljs-comment"># cd /usr/local/lnmp/mysql/</span>
+[root<span class="hljs-variable">@server1</span> mysql]<span class="hljs-comment"># rpm -qa|grep mysql</span>
+mysql-libs-<span class="hljs-number">5.1</span>.<span class="hljs-number">71</span>-<span class="hljs-number">1</span>.el6.x86_64
+[root<span class="hljs-variable">@server1</span> mysql]<span class="hljs-comment"># cd support-files/</span>
+[root<span class="hljs-variable">@server1</span> support-files]<span class="hljs-comment"># cp my-default.cnf /etc/my.cnf </span>
+<span class="hljs-symbol">cp:</span> overwrite `/etc/my.cnf<span class="hljs-string">'? y
+[root@server1 support-files]# vim /etc/my.cnf </span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/2018080522074773?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> support-files]<span class="hljs-comment"># file mysql.server   #查看文件是一个脚本</span>
+mysql.<span class="hljs-symbol">server:</span> <span class="hljs-constant">POSIX</span> shell script text executable
+[root<span class="hljs-variable">@server1</span> support-files]<span class="hljs-comment"># cp mysql.server /etc/init.d/mysqld  #服务器配置文件</span>
+[root<span class="hljs-variable">@server1</span> mysql]<span class="hljs-comment"># groupadd -g 27 mysql</span>
+[root<span class="hljs-variable">@server1</span> mysql]<span class="hljs-comment"># useradd -u 27 -g 27 -M -d /usr/loca /lnmp/mysql/data -s /sbin/nologin mysql     #创建mysql用户</span>
+[root<span class="hljs-variable">@server1</span> mysql]<span class="hljs-comment"># ll</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805220821183?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs perl">[root<span class="hljs-variable">@server1</span> mysql]<span class="hljs-comment"># chown -R mysql.mysql .  #修改mysql目录下文件的权限</span>
+[root<span class="hljs-variable">@server1</span> mysql]<span class="hljs-comment"># cd bin</span>
+[root<span class="hljs-variable">@server1</span> bin]<span class="hljs-comment"># pwd</span>
+/usr/<span class="hljs-keyword">local</span>/lnmp/mysql/bin
+[root<span class="hljs-variable">@server1</span> bin]<span class="hljs-comment"># cd</span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># vim .bash_profile   #将mysql添加到系统的环境变量里</span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># source .bash_profile   #刷新环境变量文件</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805220844802?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs brainfuck"><span class="hljs-comment">root@server1</span> <span class="hljs-comment">~</span><span class="hljs-title">]</span><span class="hljs-comment">#</span> <span class="hljs-comment">mysqld</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">initialize</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">user=mysql</span>  <span class="hljs-comment">#初始化mysql</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805220906139?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs sql">[root@server1 mysql]# /etc/init.d/mysqld <span class="hljs-operator"><span class="hljs-keyword">start</span>
+[root@server1 mysql]# chown root . -R    #为了安全，改回权限
+[root@server1 mysql]# chown mysql data/ -R   #只将data文件设为mysql用户可写
+[root@server1 mysql]# mysql_secure_installation   
+    Enter password <span class="hljs-keyword">for</span> <span class="hljs-keyword">user</span> root:            #输入初始化密码
+    New password:                   #输入新密码
+    enter new password: 
+    Re-Change the password <span class="hljs-keyword">for</span> root ? ((Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other <span class="hljs-keyword">key</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">No</span>) :      
+    Remove anonymous users? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other <span class="hljs-keyword">key</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">No</span>) : y     #删除匿名
+    Disallow root login remotely? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other <span class="hljs-keyword">key</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">No</span>) : y    #不允许远程root登陆
+    Remove test <span class="hljs-keyword">database</span> <span class="hljs-keyword">and</span> access <span class="hljs-keyword">to</span> it? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other <span class="hljs-keyword">key</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">No</span>) : y    #删除测试数据库并访问
+    Reload privilege tables now? (Press y|Y <span class="hljs-keyword">for</span> Yes, <span class="hljs-keyword">any</span> other <span class="hljs-keyword">key</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">No</span>) : y   #重新加载权限表
+[root@server1 mysql]# mysql -p     #登陆mysql</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805220931498?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p><strong>二、PHP 源码安装</strong></p>
+
+<p>1.安装</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># tar jxf php-5.6.35.tar.bz2   #解压</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805221843350?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p>2.安装php所有依赖性</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># yum install -y openssl-devel </span>
+curl-devel 
+gd-devel-<span class="hljs-number">2.0</span>.<span class="hljs-number">35</span>-<span class="hljs-number">11</span>.el6.x86_64.rpm 
+gmp-devel libmcrypt-* 
+net-snmp-devel  l
+ibxml2-devel libpng-devel
+[roo[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># rpm -ivh re2c-0.13.5-1.el6.x86_64.rpm </span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805223949883?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""> <br>
+3.编译php</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs brainfuck"><span class="hljs-title">[</span><span class="hljs-comment">root@server1</span> <span class="hljs-comment">~</span><span class="hljs-title">]</span><span class="hljs-comment">#</span> <span class="hljs-comment">cd</span> <span class="hljs-comment">php</span><span class="hljs-literal">-</span><span class="hljs-comment">5</span><span class="hljs-string">.</span><span class="hljs-comment">6</span><span class="hljs-string">.</span><span class="hljs-comment">35</span>
+<span class="hljs-title">[</span><span class="hljs-comment">root@server1</span> <span class="hljs-comment">php</span><span class="hljs-literal">-</span><span class="hljs-comment">5</span><span class="hljs-string">.</span><span class="hljs-comment">6</span><span class="hljs-string">.</span><span class="hljs-comment">35</span><span class="hljs-title">]</span><span class="hljs-comment">#</span> <span class="hljs-string">.</span><span class="hljs-comment">/configure</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">prefix=/usr/local/lnmp/php</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">config</span><span class="hljs-literal">-</span><span class="hljs-comment">file</span><span class="hljs-literal">-</span><span class="hljs-comment">path=/usr/local/lnmp/php/etc</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">mysql=mysqlnd</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">enable</span><span class="hljs-literal">-</span><span class="hljs-comment">mysqlnd</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">mysqli=mysqlnd</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">pdo</span><span class="hljs-literal">-</span><span class="hljs-comment">mysql=mysqlnd</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">openssl</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">openssl</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">snmp</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">gd</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">zlib</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">curl</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">libxml</span><span class="hljs-literal">-</span><span class="hljs-comment">dir</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">png</span><span class="hljs-literal">-</span><span class="hljs-comment">dir</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">jpeg</span><span class="hljs-literal">-</span><span class="hljs-comment">dir</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">freetype</span><span class="hljs-literal">-</span><span class="hljs-comment">dir</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">pear</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">gettext</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">gmp</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">enable</span><span class="hljs-literal">-</span><span class="hljs-comment">inline</span><span class="hljs-literal">-</span><span class="hljs-comment">optimization</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">enable</span><span class="hljs-literal">-</span><span class="hljs-comment">soap</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">enable</span><span class="hljs-literal">-</span><span class="hljs-comment">ftp</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">enable</span><span class="hljs-literal">-</span><span class="hljs-comment">sockets</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">enable</span><span class="hljs-literal">-</span><span class="hljs-comment">mbstring</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">enable</span><span class="hljs-literal">-</span><span class="hljs-comment">fpm</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">fpm</span><span class="hljs-literal">-</span><span class="hljs-comment">user=nginx</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">fpm</span><span class="hljs-literal">-</span><span class="hljs-comment">group=nginx</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">mcrypt</span> <span class="hljs-literal">-</span><span class="hljs-literal">-</span><span class="hljs-comment">with</span><span class="hljs-literal">-</span><span class="hljs-comment">mhash</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805224003493?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""> <br>
+看到这个界面说明编译成功,如果还有报错，说明还有依赖的安装包没有解决完，根据最后的error提示继续安装依赖包，再次将编译程序跑一遍，直到没有error为止。</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> php-<span class="hljs-number">5.6</span>.<span class="hljs-number">35</span>]<span class="hljs-comment"># make   #编译，链接，生成可执行文件</span>
+[root<span class="hljs-variable">@server1</span> php-<span class="hljs-number">5.6</span>.<span class="hljs-number">35</span>]<span class="hljs-comment"># make install </span></code></pre>
+
+<p>4.php简单配置</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs coffeescript">[root<span class="hljs-property">@server1</span> ~]<span class="hljs-comment"># cd /usr/local/lnmp/php/</span>
+[root<span class="hljs-property">@server1</span> php]<span class="hljs-comment"># cd etc/</span>
+[root<span class="hljs-property">@server1</span> etc]<span class="hljs-comment"># ls</span>
+pear.conf  php-fpm.conf.<span class="hljs-reserved">default</span>
+[root<span class="hljs-property">@server1</span> etc]<span class="hljs-comment"># cp php-fpm.conf.default php-fpm.conf</span>
+[root<span class="hljs-property">@server1</span> etc]<span class="hljs-comment"># cd</span>
+[root<span class="hljs-property">@server1</span> ~]<span class="hljs-comment"># cd php-5.6.35</span>
+[root<span class="hljs-property">@server1</span> php-<span class="hljs-number">5.6</span><span class="hljs-number">.35</span>]<span class="hljs-comment"># cp php.ini-production /usr/local/lnmp/php/etc/php.ini</span>
+[root<span class="hljs-property">@server1</span> php-<span class="hljs-number">5.6</span><span class="hljs-number">.35</span>]<span class="hljs-comment"># cd /usr/local/lnmp/php/</span>
+[root<span class="hljs-property">@server1</span> php]<span class="hljs-comment"># cd etc/</span>
+[root<span class="hljs-property">@server1</span> etc]<span class="hljs-comment"># vim php.ini</span>
+</code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805225557433?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> etc]<span class="hljs-comment"># vim php-fpm.conf</span>
+[root<span class="hljs-variable">@server1</span> etc]<span class="hljs-comment"># useradd -M -d /usr/local/lnmp/nginx -s /sbin/nologin nginx    #创建用户</span>
+</code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805225628775?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""> <br>
+<img src="https://img-blog.csdn.net/20180805225700710?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> etc]<span class="hljs-comment"># cd</span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># cd php-5.6.35</span>
+[root<span class="hljs-variable">@server1</span> php-<span class="hljs-number">5.6</span>.<span class="hljs-number">35</span>]<span class="hljs-comment"># cd sapi/</span>
+[root<span class="hljs-variable">@server1</span> sapi]<span class="hljs-comment"># cd fpm/</span>
+[root<span class="hljs-variable">@server1</span> fpm]<span class="hljs-comment"># file init.d.php-fpm    #查看文件是否为脚本</span>
+init.d.php-<span class="hljs-symbol">fpm:</span> <span class="hljs-constant">POSIX</span> shell script text executable
+[root<span class="hljs-variable">@server1</span> fpm]<span class="hljs-comment"># cp init.d.php-fpm /etc/init.d/php-fpm</span>
+[root<span class="hljs-variable">@server1</span> fpm]<span class="hljs-comment"># chmod +x /etc/init.d/php-fpm   #给执行权限</span>
+[root<span class="hljs-variable">@server1</span> fpm]<span class="hljs-comment"># /etc/init.d/php-fpm start  #开启服务</span>
+<span class="hljs-constant">Starting</span> php-fpm  done
+[root<span class="hljs-variable">@server1</span> fpm]<span class="hljs-comment"># netstat -antlp</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805225712483?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p><strong>三、Nginx源码安装</strong></p>
+
+<p>1.安装 <br>
+<img src="https://img-blog.csdn.net/20180805230544311?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># tar zxf nginx-1.10.1.tar.gz </span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># tar zxf nginx-sticky-module-ng.tar.gz </span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># cd nginx-1.10.1</span>
+[root<span class="hljs-variable">@server1</span> nginx-<span class="hljs-number">1.10</span>.<span class="hljs-number">1</span>]<span class="hljs-comment"># vim src/core/nginx.h</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805230537210?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> nginx-<span class="hljs-number">1.10</span>.<span class="hljs-number">1</span>]<span class="hljs-comment"># vim auto/cc/gcc</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180805230611454?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p>2.编译</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> nginx-<span class="hljs-number">1.10</span>.<span class="hljs-number">1</span>]<span class="hljs-comment"># yum install -y pcre-devel   #安装依赖性</span>
+[root<span class="hljs-variable">@server1</span> nginx-<span class="hljs-number">1.10</span>.<span class="hljs-number">1</span>]<span class="hljs-comment"># ./configure --prefix=/usr/local/lnmp/nginx --with-http_ssl_module --with-http_stub_status_module --user=nginx --group=nginx --with-threads --with-file-aio</span>
+[root<span class="hljs-variable">@server1</span> nginx-<span class="hljs-number">1.10</span>.<span class="hljs-number">1</span>]<span class="hljs-comment"># make</span>
+[root<span class="hljs-variable">@server1</span> nginx-<span class="hljs-number">1.10</span>.<span class="hljs-number">1</span>]<span class="hljs-comment"># make install</span></code></pre>
+
+<p>3.配置nginx</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs perl">[root<span class="hljs-variable">@server1</span> nginx-<span class="hljs-number">1.10</span>.<span class="hljs-number">1</span>]<span class="hljs-comment"># cd /usr/local</span>
+[root<span class="hljs-variable">@server1</span> <span class="hljs-keyword">local</span>]<span class="hljs-comment"># cd lnmp/</span>
+[root<span class="hljs-variable">@server1</span> lnmp]<span class="hljs-comment"># cd nginx/</span>
+[root<span class="hljs-variable">@server1</span> nginx]<span class="hljs-comment"># ls</span>
+conf  html  logs  sbin
+[root<span class="hljs-variable">@server1</span> nginx]<span class="hljs-comment"># pwd</span>
+/usr/<span class="hljs-keyword">local</span>/lnmp/nginx
+[root<span class="hljs-variable">@server1</span> nginx]<span class="hljs-comment"># cd conf/</span>
+[root<span class="hljs-variable">@server1</span> conf]<span class="hljs-comment"># vim nginx.conf</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180806141332981?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""> <br>
+<img src="https://img-blog.csdn.net/20180806141344318?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># vim /etc/security/limits.conf </span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180806141417549?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># vim .bash_profile</span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># source .bash_profile</span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># nginx -t</span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># nginx</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180806141528119?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p>访问网页172.25.40.1 </p>
+
+<p><img src="https://img-blog.csdn.net/20180806141508733?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># cd /usr/local/lnmp/nginx/html</span>
+[root<span class="hljs-variable">@server1</span> html]<span class="hljs-comment"># vim index.php</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/2018080614160515?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs axapta">网页访问<span class="hljs-number">172.25</span><span class="hljs-number">.40</span><span class="hljs-number">.1</span>/<span class="hljs-keyword">index</span>.php </code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180806141625572?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p>4.默认访问php页面</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># cd /usr/local/lnmp/nginx/conf/</span>
+[root<span class="hljs-variable">@server1</span> conf]<span class="hljs-comment"># vim nginx.conf</span>
+[root<span class="hljs-variable">@server1</span> conf]<span class="hljs-comment"># nginx -t</span>
+[root<span class="hljs-variable">@server1</span> conf]<span class="hljs-comment"># nginx -s reload</span></code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180806143029853?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p>网页直接访问172.25.40.1时默认访问php网页 </p>
+
+<p><img src="https://img-blog.csdn.net/20180806143058128?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p><strong>四、搭建论坛</strong></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># yum install -y unzip</span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># unzip Discuz_X3.2_SC_UTF8.zip -d /usr/local/lnmp/nginx/html/</span>
+[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># cd /usr/local/lnmp/</span>
+[root<span class="hljs-variable">@server1</span> lnmp]<span class="hljs-comment"># ls</span>
+mysql  nginx  php
+[root<span class="hljs-variable">@server1</span> lnmp]<span class="hljs-comment"># cd nginx/</span>
+[root<span class="hljs-variable">@server1</span> nginx]<span class="hljs-comment"># cd html</span>
+[root<span class="hljs-variable">@server1</span> html]<span class="hljs-comment"># cd upload/</span>
+[root<span class="hljs-variable">@server1</span> html]<span class="hljs-comment"># mv upload/ bbs</span></code></pre>
+
+<p>网页访问172.25.40.1/bbs  <br>
+<img src="https://img-blog.csdn.net/20180807203941588?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""> <br>
+<img src="https://img-blog.csdn.net/20180807205557489?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> html]<span class="hljs-comment"># cd bbs</span>
+[root<span class="hljs-variable">@server1</span> bbs]<span class="hljs-comment"># chmod 777 config/ data/ uc_server/ uc_client/ -R</span></code></pre>
+
+<p>刷新网页  <br>
+<img src="https://img-blog.csdn.net/20180807205630601?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p><img src="https://img-blog.csdn.net/20180807210022769?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p><img src="https://img-blog.csdn.net/2018080721004771?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p>问题一、</p>
+
+<p><img src="https://img-blog.csdn.net/20180807210135685?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> bbs]<span class="hljs-comment"># /etc/init.d/mysqld start</span>
+[root<span class="hljs-variable">@server1</span> etc]<span class="hljs-comment"># vim php.ini</span>
+[root<span class="hljs-variable">@server1</span> etc]<span class="hljs-comment"># /etc/init.d/php-fpm reload</span>
+    <span class="hljs-constant">Reload</span> service php-fpm  done</code></pre>
+
+<p><img src="https://img-blog.csdn.net/20180807210226878?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""> <br>
+<img src="https://img-blog.csdn.net/20180807210213711?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""> <br>
+<img src="https://img-blog.csdn.net/20180807210201355?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p>网页刷新 <br>
+问题二、 <br>
+<img src="https://img-blog.csdn.net/20180807210259801?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs perl">[root<span class="hljs-variable">@server1</span> etc]<span class="hljs-comment"># cd /usr/local</span>
+[root<span class="hljs-variable">@server1</span> <span class="hljs-keyword">local</span>]<span class="hljs-comment"># cd lnmp/</span>
+[root<span class="hljs-variable">@server1</span> lnmp]<span class="hljs-comment"># cd mysql/</span>
+[root<span class="hljs-variable">@server1</span> mysql]<span class="hljs-comment"># chmod 755 data</span></code></pre>
+
+<p>再次刷新网页</p>
+
+<p><img src="https://img-blog.csdn.net/20180807210327913?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p><img src="https://img-blog.csdn.net/20180807210417386?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p><img src="https://img-blog.csdn.net/20180807210436543?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+<p>进入管理中心</p>
+
+<p><img src="https://img-blog.csdn.net/2018080721044967?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phbmVOYW5jeQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs ruby">[root<span class="hljs-variable">@server1</span> ~]<span class="hljs-comment"># cd /usr/local/lnmp/nginx/html/</span>
+[root<span class="hljs-variable">@server1</span> html]<span class="hljs-comment"># cd bbs/</span>
+[root<span class="hljs-variable">@server1</span> bbs]<span class="hljs-comment"># cd install/</span>
+[root<span class="hljs-variable">@server1</span> install]<span class="hljs-comment"># rm -fr index.php   #下次登陆论坛时，不用再次重新安装</span></code></pre>            </div>
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/markdown_views-ea0013b516.css" />
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/JaneNancy/article/details/81431283,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/JaneNancy/article/details/81431283,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div data-track-view='{"mod":"popu_625","con": ",https://blog.csdn.net/JaneNancy/article/details/81431283,from_360"}' style="margin-top: 8px;padding: 20px;background-color: #fff;overflow: hidden;" id="adt0"></div>
+            <script>
+                var adWidth = $("div.blog-content-box").outerWidth() - 40;
+                NEWS_FEED({
+                    w: adWidth,
+                    h : 130,
+                    showid : "s02a31",
+                    placeholderId: "adt0",
+                    inject : "define",
+                    define : {
+                    imagePosition : "left",
+                    imageBorderRadius : 0,
+                    imageWidth: 231,
+                    imageHeight: 130,
+                    imageFill : "clip",
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 20,
+                    titleFontColor: "#333",
+                    titleFontFamily : "Microsoft Yahei",
+                    titleFontWeight: "bold",
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 10,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: "#6b6b6b",
+                    descFontFamily : "Microsoft Yahei",
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: "#fff",
+                    hoverColor: "#ca0c16"
+                    }
+                })
+            </script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/JaneNancy/article/details/81431283#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/huobobo124/article/details/52971479,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/huobobo124/article/details/52971479,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/huobobo124/article/details/52971479" target="_blank" title="<em>LNMP</em>与LAMP的<em>工作原理</em>">
+					<em>LNMP</em>与LAMP的<em>工作原理</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/huobobo124" target="_blank">
+						<img src="https://avatar.csdn.net/0/B/6/3_huobobo124.jpg" alt="huobobo124" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">huobobo124</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">10-30</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						4798</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/huobobo124/article/details/52971479" target="_blank" >
+						LNMP的工作原理					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u013592371/article/details/73729892,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013592371/article/details/73729892,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u013592371/article/details/73729892" target="_blank" title="理解<em>LNMP</em>体系结构">
+					理解<em>LNMP</em>体系结构				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u013592371" target="_blank">
+						<img src="https://avatar.csdn.net/7/A/9/3_u013592371.jpg" alt="u013592371" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u013592371</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-25</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2341</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u013592371/article/details/73729892" target="_blank" >
+						理解LNMP体系结构
+  内容主要参考自http://www.cnblogs.com/it-cen/p/4320261.html?comefrom=http://blogread.cn/news/，感...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/u013592371/article/details/73729892">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops9.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/MrDing991124/article/details/79010217,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/MrDing991124/article/details/79010217,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/MrDing991124/article/details/79010217" target="_blank" title="<em>LNMP</em><em>架构</em>——HTTPS原理及Ngnix配置">
+					<em>LNMP</em><em>架构</em>——HTTPS原理及Ngnix配置				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/MrDing991124" target="_blank">
+						<img src="https://avatar.csdn.net/4/D/7/3_mrding991124.jpg" alt="MrDing991124" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">MrDing991124</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">01-09</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						700</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/MrDing991124/article/details/79010217" target="_blank" >
+						LNMP架构——HTTPS原理及Ngnix配置					</a>
+				</p>
+		</div>
+				</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/xuanzz200922702/10454540,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/xuanzz200922702/10454540,BlogCommendFromQuerySearch_3"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/xuanzz200922702/10454540" target="_blank">
+						<em>LNMP</em>源码安装包					</a>
+				</h4>
+				<p>
+					<span class="data">2018年06月02日 </span>
+					<span class="size">47.26MB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/xuanzz200922702/10454540" target="_blank" strategy="BlogCommendFromQuerySearch_3">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/unkonw.svg" alt="">
+				</a>
+			</div>
+		</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_30353203/article/details/76021583,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_30353203/article/details/76021583,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_30353203/article/details/76021583" target="_blank" title="nginx +<em>lnmp</em> 负载均衡及动静分离">
+					nginx +<em>lnmp</em> 负载均衡及动静分离				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_30353203" target="_blank">
+						<img src="https://avatar.csdn.net/7/3/4/3_qq_30353203.jpg" alt="qq_30353203" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_30353203</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">07-24</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						205</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_30353203/article/details/76021583" target="_blank" >
+						ping +服务器ip
+把这个目录里的同步到另一台服务器的目录里
+rsync -aP --delete /var/www/html/ root@192.168.111.111:/var/www/h...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/lxf2323881/article/details/78934289,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lxf2323881/article/details/78934289,BlogCommendFromQuerySearch_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/lxf2323881/article/details/78934289" target="_blank" title="十分钟让你学会<em>LNMP</em><em>架构</em>负载均衡">
+					十分钟让你学会<em>LNMP</em><em>架构</em>负载均衡				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/lxf2323881" target="_blank">
+						<img src="https://avatar.csdn.net/B/9/F/3_lxf2323881.jpg" alt="lxf2323881" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">lxf2323881</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-29</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						584</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/lxf2323881/article/details/78934289" target="_blank" >
+						一、几个基本概念
+1、pv 值
+pv 值(page views):页面的浏览量
+概念：一个网站的所有页面，在一天内，被浏览的总次数。(大型网站通常是上千万的级别)
+2、uv值
+uv值(uni...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/lxf2323881/article/details/78934289">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops5.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_29622761/article/details/60881562,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_29622761/article/details/60881562,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_29622761/article/details/60881562" target="_blank" title="01-centos7.2上<em>源码编译</em>部署<em>LNMP</em>+zabbix3.2（2017-03-07）">
+					01-centos7.2上<em>源码编译</em>部署<em>LNMP</em>+zabbix3.2（2017-03-07）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_29622761" target="_blank">
+						<img src="https://avatar.csdn.net/F/9/8/3_qq_29622761.jpg" alt="qq_29622761" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_29622761</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">03-08</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1722</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_29622761/article/details/60881562" target="_blank" >
+						配置基础服务
+安装mysql数据库
+安装nginx
+安装php
+配置php
+安装zbabix
+Zabbix Server基本配置
+Nginx和Zabbix Server Front Web配置
+web...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/qq_29622761/article/details/60881562">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops24.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Maggieezx_tae/article/details/70233543,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Maggieezx_tae/article/details/70233543,BlogCommendFromQuerySearch_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Maggieezx_tae/article/details/70233543" target="_blank" title="<em>lnmp</em>和lamp<em>架构</em>的区别">
+					<em>lnmp</em>和lamp<em>架构</em>的区别				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Maggieezx_tae" target="_blank">
+						<img src="https://avatar.csdn.net/A/2/5/3_maggieezx_tae.jpg" alt="Maggieezx_tae" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Maggieezx_tae</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-18</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1408</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Maggieezx_tae/article/details/70233543" target="_blank" >
+						lnmp的全称是linux+nginx+mysql+php 
+lamp的全称是linux+apache+mysql+php 
+由两个架构组成可以看出，其最主要的区别在于web的选择方面：一个选择的是a...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/Maggieezx_tae/article/details/70233543">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops20.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Traumerei/article/details/60962803,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Traumerei/article/details/60962803,BlogCommendFromQuerySearch_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Traumerei/article/details/60962803" target="_blank" title="CentOS 6.5 <em>LNMP</em><em>架构</em>Zabbix 3.2.4监控端搭建">
+					CentOS 6.5 <em>LNMP</em><em>架构</em>Zabbix 3.2.4监控端搭建				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Traumerei" target="_blank">
+						<img src="https://avatar.csdn.net/0/3/5/3_traumerei.jpg" alt="Traumerei" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Traumerei</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">03-09</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2417</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Traumerei/article/details/60962803" target="_blank" >
+						解压pcre完成后即可安装Nginx，但在安装之前需要创建组和用户
+[root@iZ28lzk7echZ ~]# groupadd www
+[root@iZ28lzk7echZ ~]# useradd...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/Traumerei/article/details/60962803">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops18.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Lockey23/article/details/78248396,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Lockey23/article/details/78248396,BlogCommendFromQuerySearch_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Lockey23/article/details/78248396" target="_blank" title="Saltstack自动化<em>源码编译</em>安装PHP以及<em>LNMP</em>安装整合">
+					Saltstack自动化<em>源码编译</em>安装PHP以及<em>LNMP</em>安装整合				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Lockey23" target="_blank">
+						<img src="https://avatar.csdn.net/E/5/B/3_lockey23.jpg" alt="Lockey23" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Lockey23</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">10-16</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						469</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Lockey23/article/details/78248396" target="_blank" >
+						Saltstack自动化源码编译安装PHP；Saltstack自动化部署LNMP环境					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/Lockey23/article/details/78248396">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops7.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/JaneNancy">
+                <img src="https://avatar.csdn.net/8/C/7/3_janenancy.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/JaneNancy" target="_blank" class="text-truncate" id="uid">Nancy_Jane</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/JaneNancy/article/details/81431283" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="58">
+                        <dt><a href="https://blog.csdn.net/janenancy?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/janenancy?t=1"><span class="count">58</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="12">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">12</span></dd>
+        </dl>
+        <dl class="text-center" title="2">
+            <dt>喜欢</dt>
+            <dd><span class="count">2</span></dd>
+        </dl>
+        <dl class="text-center" title="7">
+            <dt>评论</dt>
+            <dd><span class="count">7</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="3级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-3"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="1542">
+                1542            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="572">
+                572            </dd>
+        </dl>
+        <dl title="114356">
+            <dt>排名：</dt>
+            <dd>11万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/JaneNancy/article/details/81410187" target="_blank">配置Haproxy</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/JaneNancy/article/details/81385222" target="_blank">利用RHCS + NGINX 实现高可用集群</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/JaneNancy/article/details/81332203" target="_blank">Nginx   配置 及 简单应用</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/JaneNancy/article/details/81329685" target="_blank">Lvs _ Fullnat</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/JaneNancy/article/details/81294224" target="_blank">Lvs - NAT</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/janenancy/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/janenancy/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/janenancy/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/janenancy/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/janenancy/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/janenancy/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/janenancy/article/details/80770050#comments">shell 脚本 的 基本知识 （...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/JaneNancy" class="user-name" target="_blank">JaneNancy</a>：[reply]lj251948[/reply]
+不客气，希望对你有所帮助                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/janenancy/article/details/80770050#comments">shell 脚本 的 基本知识 （...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/lj251948" class="user-name" target="_blank">lj251948</a>：感谢博主的精彩分享                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/janenancy/article/details/80067036#comments">Linux 基础 之 虚拟机 的控制</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/JaneNancy" class="user-name" target="_blank">JaneNancy</a>：[reply]dsl59741[/reply]
+加油加油加油                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/janenancy/article/details/80067036#comments">Linux 基础 之 虚拟机 的控制</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/JaneNancy" class="user-name" target="_blank">JaneNancy</a>：[reply]dsl59741[/reply]
+谢谢你，我会继续加油的。你也是呐～                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/janenancy/article/details/80067036#comments">Linux 基础 之 虚拟机 的控制</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/dsl59741" class="user-name" target="_blank">dsl59741</a>：加油↖(^ω^)↗                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/avneunkwb.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "LNMP 架构工作原理  &amp;&amp; 源码编译  LNMP";
+    var ChannelId = 12;
+    var articleId = "81431283";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/JaneNancy/article/details/81431283";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["lnmp","\u67b6\u6784","\u5de5\u4f5c\u539f\u7406","\u6e90\u7801\u7f16\u8bd1","lnmp"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"LNMP 架构工作原理  &amp;&amp; 源码编译  LNMP");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-73eea35575.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+</html>

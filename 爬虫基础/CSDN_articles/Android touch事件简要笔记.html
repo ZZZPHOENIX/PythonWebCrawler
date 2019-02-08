@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/zhjali123/article/details/81488674"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="主要测试下Intercept：
+
+
+
+        //ViewGroup dispatchTouchEvent 超级伪码
+
+        if (actionMasked == MotionEvent.ACTION_DOWN) {
+            //Down的时候必须走 Jump1
+            mGroupFlags &amp;amp;amp; ~FLAG_DISALLOW_INTER..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>Android touch事件简要笔记 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-8195ccbe2d.min.css">
+
+    <script type="text/javascript">
+        var username = "zhjali123";
+        var blog_address = "https://blog.csdn.net/zhjali123";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/zhjali123/article/details/81488674"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin3-template";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/zhjali123">zhjali123的专栏...</a></span>
+			<i>></i>
+			<span>Android touch事件简要笔记</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">Android touch事件简要笔记</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 21:11:45</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：2</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <div class="markdown_views">
+                <p>主要测试下Intercept：</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs java">        <span class="hljs-comment">//ViewGroup dispatchTouchEvent 超级伪码</span>
+
+        <span class="hljs-keyword">if</span> (actionMasked == MotionEvent.ACTION_DOWN) {
+            <span class="hljs-comment">//Down的时候必须走 Jump1</span>
+            mGroupFlags &amp; ~FLAG_DISALLOW_INTERCEPT
+        }
+
+        <span class="hljs-comment">//mFirstTouchTarget:ViewParent中消费 事件序列 的子View</span>
+        <span class="hljs-comment">// (从down到up或cancel这一串叫一个事件序列)</span>
+        <span class="hljs-keyword">if</span> (actionMasked == MotionEvent.ACTION_DOWN || mFirstTouchTarget != <span class="hljs-keyword">null</span>) {
+            <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> disallowIntercept = (mGroupFlags &amp; FLAG_DISALLOW_INTERCEPT) != <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">if</span> (!disallowIntercept) {
+                <span class="hljs-comment">//Jump1: onInterceptTouchEvent</span>
+                <span class="hljs-comment">//在down时return true，决定拦截。下次就跑到了Jump3，不会再调用该方法，以为mFirstTouchTarget为null</span>
+                <span class="hljs-comment">//在down时return false，则随后的move、up都会调用onInterceptTouchEvent</span>
+                <span class="hljs-comment">//        如果随后的move调用onInterceptTouchEvent时返回false，处理事件序列的子View会受到cancel时间</span>
+                <span class="hljs-comment">// 所以滑动冲突，在down时return false，在move时根据 业务逻辑 ，拦截返回true</span>
+                intercepted = onInterceptTouchEvent(event);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">//Jump2:</span>
+                intercepted = <span class="hljs-keyword">false</span>;
+            }
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">//Jump3: ViewGroup上次onInterceptTouchEvent 上次返回true，也就是 本ViewGroup拦截事件后，发送的MOVE、UP等事件</span>
+            intercepted = <span class="hljs-keyword">true</span>;
+        }
+</code></pre>
+
+
+
+<h5 id="控制的阀门">控制的阀门</h5>
+
+<ol>
+<li>ACTION_DOWN （Down事件，也就是事件序列的开始） <br>
+<ul><li>父View必须要对 是否拦截进行判断 （也就是必然调用 onInterceptTouchEvent） </li></ul></li>
+<li>mFirstTouchTarget  （该父View的子View是否 消耗事件序列） <br>
+<ul><li>否：证明父View的onInterceptTouchEvent返回true，所以直接拦截，不再调用onInterceptTouchEvent</li>
+<li>有：证明子view要消耗事件序列（也就是上次的down的onInterceptTouchEvent返回了false）</li></ul></li>
+<li>disallowIntercept（是否允许父View拦截 事件） <br>
+<ul><li>对于Down事件，该flag无效（down时会reset） </li>
+<li>对于非Down事件 <br>
+<ul><li>该flag在TextView、button等普通View中是不会更改设置的，也就是允许拦截。（所以每次都会被调用，这时在onInterceptTouchEvent的down返回false，随后事件都调用 onInterceptTouchEvent，就可以在move中做逻辑判断，如果要父View拦截事件，则return true。下次的move中mFirstTouchTarget==null，所以就不调用onInterceptTouchEvent了）</li>
+<li>该flag在滑动冲突的View中，如ViewPager是会更改的disallowIntercept。通过调用requestDisallowInterceptTouchEvent（boolean）,子View的dispatchTouchEvent要重写Down时requestDisallowInterceptTouchEvent（true），这样随后的move 父View走Jump2，不会调用父view的onInterceptTouchEvent。在子view dispatchTouchEvent 的move中做逻辑判断，要让父View处理则requestDisallowInterceptTouchEvent（false），也就是让他走onInterceptTouchEvent。 重写父View的onInterceptTouchEvent，down返回false（让子view的dispatchTouchEvent可以被调用），非down（move）返回true，这样子View在move中requestDisallowInterceptTouchEvent（false），就导致父View onInterceptTouchEvent 返回true，父View拦截成功。</li></ul></li></ul></li>
+</ol>
+
+<p><strong><em>备注:</em></strong> <br>
+上面巴拉巴拉的一堆，推荐任玉刚的《Android开发艺术探索》，里面讲的很清楚。</p>
+
+
+
+<h4 id="总结">总结</h4>
+
+<ol>
+<li>父View onInterceptTouchEvent down <br>
+<ul><li>return true，随后事件序列都给父View处理</li>
+<li>return false，子View也消耗了down事件，则父view默认会一直调用 onInterceptTouchEvent，如果父view在move中onInterceptTouchEvent 返回了true，则子view收到cancel事件，随后事件序列都给父View处理（所以可以解决滑动冲突，因为可以选择父View还是子View来处理事件序列）</li></ul></li>
+<li>子view操控FLAG_DISALLOW_INTERCEPT，让父View一直走Jump2:，某些情况走Jump1: ，在Jump1: 中父View就可以拦截（这样也可以解决滑动冲突）</li>
+</ol>            </div>
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/markdown_views-ea0013b516.css" />
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/zhjali123/article/details/81488674,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/zhjali123/article/details/81488674,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+		<div class="article-bar-bottom">
+								<div class="tags-box">
+			<span class="label">个人分类：</span>
+						<a class="tag-link" href="https://blog.csdn.net/zhjali123/article/category/1319748"  target="_blank">Android						</a>
+		</div>
+								<div class="tags-box hot-word">
+			<span class="label">相关热词：</span>
+						<a class="tag-link" href="https://blog.csdn.net/bigname22/article/details/51915457" target="_blank">
+			android和			</a>
+						<a class="tag-link" href="https://blog.csdn.net/junhuahouse/article/details/21618751" target="_blank">
+			android与			</a>
+						<a class="tag-link" href="https://blog.csdn.net/whb20081815/article/details/75669925" target="_blank">
+			刷android			</a>
+						<a class="tag-link" href="https://blog.csdn.net/l970859633/article/details/53781997" target="_blank">
+			android树			</a>
+						<a class="tag-link" href="https://blog.csdn.net/qq_24451593/article/details/80090123" target="_blank">
+			android卷			</a>
+					</div>
+			</div>
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/zhjali123/article/details/81488674#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            			<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/johnwatson5412/6227709,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/johnwatson5412/6227709,BlogCommendFromQuerySearch_0"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/johnwatson5412/6227709" target="_blank">
+						<em>android</em>测试<em>Touch事件</em>DEMO					</a>
+				</h4>
+				<p>
+					<span class="data">2013年09月07日 </span>
+					<span class="size">780KB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/johnwatson5412/6227709" target="_blank" strategy="BlogCommendFromQuerySearch_0">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/zip.svg" alt="">
+				</a>
+			</div>
+		</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/f33chobits/6720989,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/f33chobits/6720989,BlogCommendFromQuerySearch_1"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/f33chobits/6720989" target="_blank">
+						<em>Android</em>深入研究<em>Touch事件</em>demo					</a>
+				</h4>
+				<p>
+					<span class="data">2013年12月16日 </span>
+					<span class="size">1.33MB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/f33chobits/6720989" target="_blank" strategy="BlogCommendFromQuerySearch_1">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/zip.svg" alt="">
+				</a>
+			</div>
+		</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/JJ583500596/article/details/71642108,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/JJ583500596/article/details/71642108,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/JJ583500596/article/details/71642108" target="_blank" title="<em>Android</em>：<em>Touch事件</em>拦截机制">
+					<em>Android</em>：<em>Touch事件</em>拦截机制				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/JJ583500596" target="_blank">
+						<img src="https://avatar.csdn.net/6/B/6/3_jj583500596.jpg" alt="JJ583500596" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">JJ583500596</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-11</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1077</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/JJ583500596/article/details/71642108" target="_blank" >
+						道长说了这么多自定义View，还没说自定义View会遇到什么问题，其实这个问题不止在自定义View中存在。在开发中遇到控件嵌套，堆叠都会出现，比如：点击子控件，子控件接收不到点击事件等等。这里道长简单...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/JJ583500596/article/details/71642108">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile18.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/love_world_/4748151,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/love_world_/4748151,BlogCommendFromQuerySearch_3"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/love_world_/4748151" target="_blank">
+						<em>Android</em> <em>Touch事件</em>rawX，rawY与x，y的区别					</a>
+				</h4>
+				<p>
+					<span class="data">2012年11月08日 </span>
+					<span class="size">81KB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/love_world_/4748151" target="_blank" strategy="BlogCommendFromQuerySearch_3">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/zip.svg" alt="">
+				</a>
+			</div>
+		</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/gucun4848/article/details/53435259,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/gucun4848/article/details/53435259,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/gucun4848/article/details/53435259" target="_blank" title="<em>Android</em> <em>Touch事件</em>总结 一">
+					<em>Android</em> <em>Touch事件</em>总结 一				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/gucun4848" target="_blank">
+						<img src="https://avatar.csdn.net/C/8/8/3_gucun4848.jpg" alt="gucun4848" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">gucun4848</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-05</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						405</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/gucun4848/article/details/53435259" target="_blank" >
+						Android Activity、View如何分发、拦截、消费TouchEvent事件					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/gucun4848/article/details/53435259">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile11.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/dengluo/3620366,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/dengluo/3620366,BlogCommendFromQuerySearch_5"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/dengluo/3620366" target="_blank">
+						<em>Android</em>中丰富多彩的on<em>Touch事件</em>.rar					</a>
+				</h4>
+				<p>
+					<span class="data">2011年09月20日 </span>
+					<span class="size">931B</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/dengluo/3620366" target="_blank" strategy="BlogCommendFromQuerySearch_5">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/rar.svg" alt="">
+				</a>
+			</div>
+		</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/wangsfine/article/details/51279767,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wangsfine/article/details/51279767,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/wangsfine/article/details/51279767" target="_blank" title="<em>android</em>之<em>touch事件</em>获取控件坐标详解">
+					<em>android</em>之<em>touch事件</em>获取控件坐标详解				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/wangsfine" target="_blank">
+						<img src="https://avatar.csdn.net/6/B/1/3_wangsfine.jpg" alt="wangsfine" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">wangsfine</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-29</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1612</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/wangsfine/article/details/51279767" target="_blank" >
+						有时候在控件的touch事件中需要获取控件的坐标我们一般使用getX()或者getRawX()    (y坐标同理)
+那么getX()和getRawX（）有什么区别呢
+首先，我们的getRawX()就...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_35081366/article/details/51627287,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_35081366/article/details/51627287,BlogCommendFromQuerySearch_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_35081366/article/details/51627287" target="_blank" title="ImageView的<em>touch事件</em>">
+					ImageView的<em>touch事件</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_35081366" target="_blank">
+						<img src="https://avatar.csdn.net/3/2/1/3_qq_35081366.jpg" alt="qq_35081366" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_35081366</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-10</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						436</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_35081366/article/details/51627287" target="_blank" >
+						// 触摸事件：手指一挨着屏幕 手指移动 手指离开屏幕
+    iv_drag_view.setOnTouchListener(this);
+```
+@Override
+public boolean ...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/qq_35081366/article/details/51627287">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile5.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/peter_water/article/details/78354390,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/peter_water/article/details/78354390,BlogCommendFromQuerySearch_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/peter_water/article/details/78354390" target="_blank" title="<em>android</em> on<em>Touch事件</em>处理机制">
+					<em>android</em> on<em>Touch事件</em>处理机制				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/peter_water" target="_blank">
+						<img src="https://avatar.csdn.net/5/B/1/3_peter_water.jpg" alt="peter_water" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">peter_water</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">10-26</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						91</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/peter_water/article/details/78354390" target="_blank" >
+						android 事件处理机制是对用户触摸屏幕产生的Motion Event事件的传递响应处理机制。 
+ Motion Event事件类型很多，包括单触点及多触点的各种情况，可以参考这篇文章Androi...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/peter_water/article/details/78354390">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile10.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Bond_zhe/article/details/52200844,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Bond_zhe/article/details/52200844,BlogCommendFromQuerySearch_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Bond_zhe/article/details/52200844" target="_blank" title="<em>Android</em>-三张图搞定<em>Touch事件</em>传递机制">
+					<em>Android</em>-三张图搞定<em>Touch事件</em>传递机制				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Bond_zhe" target="_blank">
+						<img src="https://avatar.csdn.net/3/1/E/3_bond_zhe.jpg" alt="Bond_zhe" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Bond_zhe</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-13</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						966</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Bond_zhe/article/details/52200844" target="_blank" >
+						上图之前先讲下Android事件的基础知识：1.所有的Touch事件都封装到MotionEvent里面2.事件处理包括三种情况，分别为：传递—-dispatchTouchEvent()函数、拦截——o...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/Bond_zhe/article/details/52200844">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile25.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/zhjali123">
+                <img src="https://avatar.csdn.net/3/1/B/3_zhjali123.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/zhjali123" target="_blank" class="text-truncate" id="uid">鸡蛋卷啊卷</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/zhjali123/article/details/81488674" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="125">
+                        <dt><a href="https://blog.csdn.net/zhjali123?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/zhjali123?t=1"><span class="count">125</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="19">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">19</span></dd>
+        </dl>
+        <dl class="text-center" title="13">
+            <dt>喜欢</dt>
+            <dd><span class="count">13</span></dd>
+        </dl>
+        <dl class="text-center" title="31">
+            <dt>评论</dt>
+            <dd><span class="count">31</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="5级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-5"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="166467">
+                16万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="3094">
+                3094            </dd>
+        </dl>
+        <dl title="15544">
+            <dt>排名：</dt>
+            <dd>1万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/zhjali123/article/details/81461011" target="_blank">Graphic-----Android硬件加速与软件加速（ Hardware acceleration）区别的Demo示例</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/zhjali123/article/details/81455060" target="_blank">Hardware Composer</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/zhjali123/article/details/81367453" target="_blank">Android view layer type（hardware layer和硬件加速的区别）</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/zhjali123/article/details/81366937" target="_blank">Graphic-----Android硬件加速与软件加速（ Hardware acceleration）</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/zhjali123/article/details/81364552" target="_blank">安装APK 免输入vivo、oppo密码</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/1318901">
+                    web开发                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/1319754">
+                    其他                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/1319748">
+                    Android                    <span class="count float-right">82篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/1319749">
+                    unix linux                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/1372852">
+                    数据库                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/1463027">
+                    java                    <span class="count float-right">37篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/2142345">
+                    cmd                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/2231945">
+                    web￑                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/2843479">
+                    读书笔记                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/2843481">
+                    重构                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/3119817">
+                    Groovy                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/5625231">
+                    git                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/5709109">
+                    java文档翻译系列                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/6865574">
+                    多线程                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/7707050">
+                    证书                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/7707051">
+                    KeyStore                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/7749008">
+                    Kotlin                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/7774794">
+                    flask                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/zhjali123/article/category/7774795">
+                    python                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2017/08">
+                    2017年8月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2017/07">
+                    2017年7月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2017/06">
+                    2017年6月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2017/05">
+                    2017年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2017/04">
+                    2017年4月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2017/03">
+                    2017年3月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2017/02">
+                    2017年2月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2017/01">
+                    2017年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2016/12">
+                    2016年12月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2016/09">
+                    2016年9月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2016/07">
+                    2016年7月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2016/04">
+                    2016年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2016/01">
+                    2016年1月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/12">
+                    2015年12月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/11">
+                    2015年11月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/10">
+                    2015年10月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/09">
+                    2015年9月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/08">
+                    2015年8月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/07">
+                    2015年7月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/05">
+                    2015年5月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/04">
+                    2015年4月                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/03">
+                    2015年3月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/02">
+                    2015年2月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2015/01">
+                    2015年1月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/12">
+                    2014年12月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/11">
+                    2014年11月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/10">
+                    2014年10月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/09">
+                    2014年9月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/08">
+                    2014年8月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/07">
+                    2014年7月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/06">
+                    2014年6月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/05">
+                    2014年5月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/04">
+                    2014年4月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/03">
+                    2014年3月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/02">
+                    2014年2月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2014/01">
+                    2014年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2013/12">
+                    2013年12月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2013/11">
+                    2013年11月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2013/07">
+                    2013年7月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2013/06">
+                    2013年6月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2013/04">
+                    2013年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2013/03">
+                    2013年3月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/zhjali123/article/month/2013/01">
+                    2013年1月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/zhjali123/article/details/45128187">Android Studio开发Groovy</a>
+					<p class="read">阅读量：<span>9793</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/zhjali123/article/details/39689829">Android xml shape=oval 实心圆不是空心圆</a>
+					<p class="read">阅读量：<span>9523</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/zhjali123/article/details/24117369">Intent.setClass(this,className)，第一个参数</a>
+					<p class="read">阅读量：<span>6024</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/zhjali123/article/details/44058391">java ClassLoader机制和如何加载外部class文件（含代码）</a>
+					<p class="read">阅读量：<span>5503</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/zhjali123/article/details/50377896">Android Studio Gradle 实例 task用法 Groovy string特性</a>
+					<p class="read">阅读量：<span>4496</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    <div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/zhjali123/article/details/49806533#comments">canvas.drawRoundR...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/shyboy716" class="user-name" target="_blank">shyboy716</a>：[reply]zhjali123[/reply]
+ok，谢谢讲解                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/zhjali123/article/details/46986467#comments">Android拍照、摄像方向旋转的...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/midux" class="user-name" target="_blank">midux</a>：谢谢，用楼主的方法终于解决了。好多网上都是说用ExifInterface类得到照片角度，再将角度转...                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/zhjali123/article/details/50377896#comments">Android Studio Gr...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/zhjali123" class="user-name" target="_blank">zhjali123</a>：[reply]sqw371322[/reply]
+group是task的属性，各种设置方式，推荐一...                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/zhjali123/article/details/50377896#comments">Android Studio Gr...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/sqw371322" class="user-name" target="_blank">sqw371322</a>：请问怎么给task分组呢                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/zhjali123/article/details/46986467#comments">Android拍照、摄像方向旋转的...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/kanyueliang410" class="user-name" target="_blank">kanyueliang410</a>：谢谢楼主，解决了我的问题。                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/avneunkwb.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "Android touch事件简要笔记";
+    var ChannelId = 1;
+    var articleId = "81488674";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/zhjali123/article/details/81488674";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["android","touch\u4e8b\u4ef6","\u7b80\u8981","\u7b14\u8bb0"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"Android touch事件简要笔记");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-73eea35575.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+</html>

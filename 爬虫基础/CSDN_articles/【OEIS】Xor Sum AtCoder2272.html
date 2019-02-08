@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/qq_34454069/article/details/81488650"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="分析：
+
+OEIS大法好哇。。。
+
+暴力打表然后去OEIS上面搜一下， 
+ 
+get… 
+但似乎没有给公式啊 
+嗯。。再看看 
+ 
+似乎是这玩意的前缀和啊，这玩意给了个递推公式。。。 
+然后用数学老师讲的方法： 
+a1=a1a1=a1a_1=a_1 
+a2=a1a2=a1a_2=a_1 
+a3=a1+a2a3=a1+a2a_3=a_1+a_2 
+a4=&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp;&amp;amp;nbsp..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>【OEIS】Xor Sum AtCoder2272 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-8195ccbe2d.min.css">
+
+    <script type="text/javascript">
+        var username = "qq_34454069";
+        var blog_address = "https://blog.csdn.net/qq_34454069";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/qq_34454069/article/details/81488650"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin3-template";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/qq_34454069">氧化钠的博客...</a></span>
+			<i>></i>
+			<span>【OEIS】Xor Sum AtCoder2272</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">【OEIS】Xor Sum AtCoder2272</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 21:10:16</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：4</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <div class="markdown_views">
+                <h3 id="分析">分析：</h3>
+
+<p>OEIS大法好哇。。。</p>
+
+<p>暴力打表然后去OEIS上面搜一下， <br>
+<img src="https://img-blog.csdn.net/20180807205802417?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0NDU0MDY5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""> <br>
+get… <br>
+但似乎没有给公式啊 <br>
+嗯。。再看看 <br>
+<img src="https://img-blog.csdn.net/20180807210154159?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM0NDU0MDY5/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述" title=""> <br>
+似乎是这玩意的前缀和啊，这玩意给了个递推公式。。。 <br>
+然后用数学老师讲的方法： <br>
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-736-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><msub><mi>a</mi><mn>1</mn></msub></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-10968" style="width: 3.857em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.18em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.565em, 1003.18em, 2.451em, -999.997em); top: -2.133em; left: 0em;"><span class="mrow" id="MathJax-Span-10969"><span class="msubsup" id="MathJax-Span-10970"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-10971" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-10972" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-10973" style="font-family: MathJax_Main; padding-left: 0.263em;">=</span><span class="msubsup" id="MathJax-Span-10974" style="padding-left: 0.263em;"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-10975" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-10976" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.138em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 0.816em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><msub><mi>a</mi><mn>1</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-736">a_1=a_1</script> <br>
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-737-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><msub><mi>a</mi><mn>1</mn></msub></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-10977" style="width: 3.857em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.18em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.565em, 1003.18em, 2.451em, -999.997em); top: -2.133em; left: 0em;"><span class="mrow" id="MathJax-Span-10978"><span class="msubsup" id="MathJax-Span-10979"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-10980" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-10981" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-10982" style="font-family: MathJax_Main; padding-left: 0.263em;">=</span><span class="msubsup" id="MathJax-Span-10983" style="padding-left: 0.263em;"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-10984" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-10985" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.138em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 0.816em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>a</mi><mn>2</mn></msub><mo>=</mo><msub><mi>a</mi><mn>1</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-737">a_2=a_1</script> <br>
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-738-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>a</mi><mn>3</mn></msub><mo>=</mo><msub><mi>a</mi><mn>1</mn></msub><mo>+</mo><msub><mi>a</mi><mn>2</mn></msub></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-10986" style="width: 6.409em; display: inline-block;"><span style="display: inline-block; position: relative; width: 5.315em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.409em, 1005.32em, 2.451em, -999.997em); top: -2.133em; left: 0em;"><span class="mrow" id="MathJax-Span-10987"><span class="msubsup" id="MathJax-Span-10988"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-10989" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-10990" style="font-size: 70.7%; font-family: MathJax_Main;">3</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-10991" style="font-family: MathJax_Main; padding-left: 0.263em;">=</span><span class="msubsup" id="MathJax-Span-10992" style="padding-left: 0.263em;"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-10993" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-10994" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-10995" style="font-family: MathJax_Main; padding-left: 0.211em;">+</span><span class="msubsup" id="MathJax-Span-10996" style="padding-left: 0.211em;"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-10997" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-10998" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.138em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.003em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>a</mi><mn>3</mn></msub><mo>=</mo><msub><mi>a</mi><mn>1</mn></msub><mo>+</mo><msub><mi>a</mi><mn>2</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-738">a_3=a_1+a_2</script> <br>
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-739-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>a</mi><mn>4</mn></msub><mo>=</mo><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><msub><mi>a</mi><mn>2</mn></msub></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-10999" style="width: 6.513em; display: inline-block;"><span style="display: inline-block; position: relative; width: 5.419em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.565em, 1005.42em, 2.451em, -999.997em); top: -2.133em; left: 0em;"><span class="mrow" id="MathJax-Span-11000"><span class="msubsup" id="MathJax-Span-11001"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11002" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11003" style="font-size: 70.7%; font-family: MathJax_Main;">4</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-11004" style="font-family: MathJax_Main; padding-left: 0.263em;">=</span><span class="mtext" id="MathJax-Span-11005" style="font-family: MathJax_Main; padding-left: 0.263em;">&nbsp;</span><span class="mtext" id="MathJax-Span-11006" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11007" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11008" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11009" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11010" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11011" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11012" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11013" style="font-family: MathJax_Main;">&nbsp;</span><span class="msubsup" id="MathJax-Span-11014"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11015" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11016" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.138em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 0.816em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>a</mi><mn>4</mn></msub><mo>=</mo><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><msub><mi>a</mi><mn>2</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-739">a_4=\ \ \ \ \ \ \ \ \ a_2</script> <br>
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-740-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>a</mi><mn>5</mn></msub><mo>=</mo><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><msub><mi>a</mi><mn>2</mn></msub><mo>+</mo><msub><mi>a</mi><mn>3</mn></msub></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-11017" style="width: 9.065em; display: inline-block;"><span style="display: inline-block; position: relative; width: 7.555em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.409em, 1007.55em, 2.451em, -999.997em); top: -2.133em; left: 0em;"><span class="mrow" id="MathJax-Span-11018"><span class="msubsup" id="MathJax-Span-11019"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11020" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11021" style="font-size: 70.7%; font-family: MathJax_Main;">5</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-11022" style="font-family: MathJax_Main; padding-left: 0.263em;">=</span><span class="mtext" id="MathJax-Span-11023" style="font-family: MathJax_Main; padding-left: 0.263em;">&nbsp;</span><span class="mtext" id="MathJax-Span-11024" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11025" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11026" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11027" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11028" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11029" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11030" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11031" style="font-family: MathJax_Main;">&nbsp;</span><span class="msubsup" id="MathJax-Span-11032"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11033" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11034" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-11035" style="font-family: MathJax_Main; padding-left: 0.211em;">+</span><span class="msubsup" id="MathJax-Span-11036" style="padding-left: 0.211em;"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11037" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11038" style="font-size: 70.7%; font-family: MathJax_Main;">3</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.138em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.003em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>a</mi><mn>5</mn></msub><mo>=</mo><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><msub><mi>a</mi><mn>2</mn></msub><mo>+</mo><msub><mi>a</mi><mn>3</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-740">a_5=\ \ \ \ \ \ \ \ \ a_2+a_3</script> <br>
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-741-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>a</mi><mn>6</mn></msub><mo>=</mo><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><msub><mi>a</mi><mn>3</mn></msub></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-11039" style="width: 9.221em; display: inline-block;"><span style="display: inline-block; position: relative; width: 7.659em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.565em, 1007.66em, 2.451em, -999.997em); top: -2.133em; left: 0em;"><span class="mrow" id="MathJax-Span-11040"><span class="msubsup" id="MathJax-Span-11041"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11042" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11043" style="font-size: 70.7%; font-family: MathJax_Main;">6</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-11044" style="font-family: MathJax_Main; padding-left: 0.263em;">=</span><span class="mtext" id="MathJax-Span-11045" style="font-family: MathJax_Main; padding-left: 0.263em;">&nbsp;</span><span class="mtext" id="MathJax-Span-11046" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11047" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11048" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11049" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11050" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11051" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11052" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11053" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11054" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11055" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11056" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11057" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11058" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11059" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11060" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11061" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11062" style="font-family: MathJax_Main;">&nbsp;</span><span class="msubsup" id="MathJax-Span-11063"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11064" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11065" style="font-size: 70.7%; font-family: MathJax_Main;">3</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.138em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 0.878em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>a</mi><mn>6</mn></msub><mo>=</mo><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><msub><mi>a</mi><mn>3</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-741">a_6=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a_3</script> <br>
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-742-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>a</mi><mn>7</mn></msub><mo>=</mo><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><mtext>&amp;#xA0;</mtext><msub><mi>a</mi><mn>3</mn></msub><mo>+</mo><msub><mi>a</mi><mn>4</mn></msub></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-11066" style="width: 11.773em; display: inline-block;"><span style="display: inline-block; position: relative; width: 9.794em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.409em, 1009.79em, 2.451em, -999.997em); top: -2.133em; left: 0em;"><span class="mrow" id="MathJax-Span-11067"><span class="msubsup" id="MathJax-Span-11068"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11069" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11070" style="font-size: 70.7%; font-family: MathJax_Main;">7</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-11071" style="font-family: MathJax_Main; padding-left: 0.263em;">=</span><span class="mtext" id="MathJax-Span-11072" style="font-family: MathJax_Main; padding-left: 0.263em;">&nbsp;</span><span class="mtext" id="MathJax-Span-11073" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11074" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11075" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11076" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11077" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11078" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11079" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11080" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11081" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11082" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11083" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11084" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11085" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11086" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11087" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11088" style="font-family: MathJax_Main;">&nbsp;</span><span class="mtext" id="MathJax-Span-11089" style="font-family: MathJax_Main;">&nbsp;</span><span class="msubsup" id="MathJax-Span-11090"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11091" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11092" style="font-size: 70.7%; font-family: MathJax_Main;">3</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-11093" style="font-family: MathJax_Main; padding-left: 0.211em;">+</span><span class="msubsup" id="MathJax-Span-11094" style="padding-left: 0.211em;"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11095" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11096" style="font-size: 70.7%; font-family: MathJax_Main;">4</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.138em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.003em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>a</mi><mn>7</mn></msub><mo>=</mo><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><mtext>&nbsp;</mtext><msub><mi>a</mi><mn>3</mn></msub><mo>+</mo><msub><mi>a</mi><mn>4</mn></msub></math></span></span><script type="math/tex" id="MathJax-Element-742">a_7=\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a_3+a_4</script> <br>
+然后就能很轻松地发现： <br>
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-743-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>S</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mn>2</mn><mo>&amp;#x2217;</mo><mi>n</mi></mrow></msub><mo>=</mo><mn>3</mn><mo>&amp;#x00D7;</mo><msub><mi>S</mi><mi>n</mi></msub><mo>&amp;#x2212;</mo><msub><mi>a</mi><mi>n</mi></msub></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-11097" style="width: 9.846em; display: inline-block;"><span style="display: inline-block; position: relative; width: 8.18em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.253em, 1008.18em, 2.451em, -999.997em); top: -2.133em; left: 0em;"><span class="mrow" id="MathJax-Span-11098"><span class="msubsup" id="MathJax-Span-11099"><span style="display: inline-block; position: relative; width: 1.826em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.63em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11100" style="font-family: MathJax_Math-italic;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.055em;"></span></span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.628em;"><span class="texatom" id="MathJax-Span-11101"><span class="mrow" id="MathJax-Span-11102"><span class="mn" id="MathJax-Span-11103" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-11104" style="font-size: 70.7%; font-family: MathJax_Main;">∗</span><span class="mi" id="MathJax-Span-11105" style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span></span></span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-11106" style="font-family: MathJax_Main; padding-left: 0.263em;">=</span><span class="mn" id="MathJax-Span-11107" style="font-family: MathJax_Main; padding-left: 0.263em;">3</span><span class="mo" id="MathJax-Span-11108" style="font-family: MathJax_Main; padding-left: 0.211em;">×</span><span class="msubsup" id="MathJax-Span-11109" style="padding-left: 0.211em;"><span style="display: inline-block; position: relative; width: 1.096em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.63em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11110" style="font-family: MathJax_Math-italic;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.055em;"></span></span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.628em;"><span class="mi" id="MathJax-Span-11111" style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-11112" style="font-family: MathJax_Main; padding-left: 0.211em;">−</span><span class="msubsup" id="MathJax-Span-11113" style="padding-left: 0.211em;"><span style="display: inline-block; position: relative; width: 1.044em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11114" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mi" id="MathJax-Span-11115" style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.138em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>S</mi><mrow class="MJX-TeXAtom-ORD"><mn>2</mn><mo>∗</mo><mi>n</mi></mrow></msub><mo>=</mo><mn>3</mn><mo>×</mo><msub><mi>S</mi><mi>n</mi></msub><mo>−</mo><msub><mi>a</mi><mi>n</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-743">S_{2*n}=3\times S_n-a_n</script> <br>
+<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-744-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>S</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mn>2</mn><mo>&amp;#x2217;</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>3</mn><mo>&amp;#x00D7;</mo><msub><mi>S</mi><mi>n</mi></msub><mo>+</mo><msub><mi>a</mi><mrow class=&quot;MJX-TeXAtom-ORD&quot;><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-11116" style="width: 11.982em; display: inline-block;"><span style="display: inline-block; position: relative; width: 9.951em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.253em, 1009.95em, 2.503em, -999.997em); top: -2.133em; left: 0em;"><span class="mrow" id="MathJax-Span-11117"><span class="msubsup" id="MathJax-Span-11118"><span style="display: inline-block; position: relative; width: 2.711em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.63em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11119" style="font-family: MathJax_Math-italic;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.055em;"></span></span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.628em;"><span class="texatom" id="MathJax-Span-11120"><span class="mrow" id="MathJax-Span-11121"><span class="mn" id="MathJax-Span-11122" style="font-size: 70.7%; font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-11123" style="font-size: 70.7%; font-family: MathJax_Main;">∗</span><span class="mi" id="MathJax-Span-11124" style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span class="mo" id="MathJax-Span-11125" style="font-size: 70.7%; font-family: MathJax_Main;">+</span><span class="mn" id="MathJax-Span-11126" style="font-size: 70.7%; font-family: MathJax_Main;">1</span></span></span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-11127" style="font-family: MathJax_Main; padding-left: 0.263em;">=</span><span class="mn" id="MathJax-Span-11128" style="font-family: MathJax_Main; padding-left: 0.263em;">3</span><span class="mo" id="MathJax-Span-11129" style="font-family: MathJax_Main; padding-left: 0.211em;">×</span><span class="msubsup" id="MathJax-Span-11130" style="padding-left: 0.211em;"><span style="display: inline-block; position: relative; width: 1.096em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.63em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11131" style="font-family: MathJax_Math-italic;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.055em;"></span></span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.628em;"><span class="mi" id="MathJax-Span-11132" style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mo" id="MathJax-Span-11133" style="font-family: MathJax_Main; padding-left: 0.211em;">+</span><span class="msubsup" id="MathJax-Span-11134" style="padding-left: 0.211em;"><span style="display: inline-block; position: relative; width: 1.93em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11135" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="texatom" id="MathJax-Span-11136"><span class="mrow" id="MathJax-Span-11137"><span class="mi" id="MathJax-Span-11138" style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span class="mo" id="MathJax-Span-11139" style="font-size: 70.7%; font-family: MathJax_Main;">+</span><span class="mn" id="MathJax-Span-11140" style="font-size: 70.7%; font-family: MathJax_Main;">1</span></span></span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.138em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.309em; border-left: 0px solid; width: 0px; height: 1.253em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>S</mi><mrow class="MJX-TeXAtom-ORD"><mn>2</mn><mo>∗</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>3</mn><mo>×</mo><msub><mi>S</mi><mi>n</mi></msub><mo>+</mo><msub><mi>a</mi><mrow class="MJX-TeXAtom-ORD"><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub></math></span></span><script type="math/tex" id="MathJax-Element-744">S_{2*n+1}=3\times S_n+a_{n+1}</script> <br>
+然后就可以求啦。。。先预处理出<span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-745-Frame" tabindex="0" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><msub><mi>a</mi><mn>1</mn></msub><mtext>&amp;#xA0;</mtext><msub><mi>a</mi><mn>1</mn></msub><mn>000000</mn></math>" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-11141" style="width: 6.148em; display: inline-block;"><span style="display: inline-block; position: relative; width: 5.107em; height: 0px; font-size: 120%;"><span style="position: absolute; clip: rect(1.305em, 1005.05em, 2.451em, -999.997em); top: -2.133em; left: 0em;"><span class="mrow" id="MathJax-Span-11142"><span class="msubsup" id="MathJax-Span-11143"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11144" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11145" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mtext" id="MathJax-Span-11146" style="font-family: MathJax_Main;">&nbsp;</span><span class="msubsup" id="MathJax-Span-11147"><span style="display: inline-block; position: relative; width: 0.94em; height: 0px;"><span style="position: absolute; clip: rect(3.44em, 1000.52em, 4.169em, -999.997em); top: -4.008em; left: 0em;"><span class="mi" id="MathJax-Span-11148" style="font-family: MathJax_Math-italic;">a</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span><span style="position: absolute; top: -3.852em; left: 0.523em;"><span class="mn" id="MathJax-Span-11149" style="font-size: 70.7%; font-family: MathJax_Main;">1</span><span style="display: inline-block; width: 0px; height: 4.013em;"></span></span></span></span><span class="mn" id="MathJax-Span-11150" style="font-family: MathJax_Main;">000000</span></span><span style="display: inline-block; width: 0px; height: 2.138em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.128em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>a</mi><mn>1</mn></msub><mtext>&nbsp;</mtext><msub><mi>a</mi><mn>1</mn></msub><mn>000000</mn></math></span></span><script type="math/tex" id="MathJax-Element-745">a_1~a_1000000</script>，然后就可以O(logn)求了。</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs cpp"><span class="hljs-preprocessor">#include&lt;cstdio&gt;</span>
+<span class="hljs-preprocessor">#include&lt;cstring&gt;</span>
+<span class="hljs-preprocessor">#include&lt;algorithm&gt;</span>
+<span class="hljs-preprocessor">#include&lt;map&gt;</span>
+<span class="hljs-preprocessor">#define SF scanf</span>
+<span class="hljs-preprocessor">#define PF printf</span>
+<span class="hljs-preprocessor">#define MAXN 1000010</span>
+<span class="hljs-preprocessor">#define INF 0x3FFFFFFF</span>
+<span class="hljs-preprocessor">#define MOD 1000000007</span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> ll;
+ll n,n1;
+ll a[MAXN];
+<span class="hljs-stl_container"><span class="hljs-built_in">map</span>&lt;ll,ll&gt;</span> mp;
+ll p(ll x){
+    <span class="hljs-keyword">if</span>(mp.count(x))
+        <span class="hljs-keyword">return</span> mp[x];
+    <span class="hljs-keyword">if</span>(x&lt;=<span class="hljs-number">1000000</span>)
+        <span class="hljs-keyword">return</span> a[x];
+    <span class="hljs-keyword">if</span>(x==<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span>(x%<span class="hljs-number">2l</span>l==<span class="hljs-number">1l</span>l)
+        mp[x]=(p(x/<span class="hljs-number">2l</span>l)+p(x/<span class="hljs-number">2l</span>l+<span class="hljs-number">1l</span>l))%MOD;
+    <span class="hljs-keyword">else</span>
+        mp[x]=p(x/<span class="hljs-number">2l</span>l);
+    <span class="hljs-keyword">return</span> mp[x];
+}
+ll que(ll x){
+    <span class="hljs-keyword">if</span>(x==<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span>(x%<span class="hljs-number">2l</span>l==<span class="hljs-number">1l</span>l)
+        <span class="hljs-keyword">return</span> (que(x/<span class="hljs-number">2l</span>l)*<span class="hljs-number">3l</span>l+p(x/<span class="hljs-number">2l</span>l+<span class="hljs-number">1l</span>l))%MOD;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> (que(x/<span class="hljs-number">2l</span>l)*<span class="hljs-number">3l</span>l-p(x/<span class="hljs-number">2l</span>l)+MOD)%MOD;
+}
+<span class="hljs-keyword">void</span> prepare(){
+    a[<span class="hljs-number">1</span>]=<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=<span class="hljs-number">1000000</span>;i++){
+        <span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">1</span>)
+            a[i]=(a[i/<span class="hljs-number">2</span>]+a[i/<span class="hljs-number">2</span>+<span class="hljs-number">1</span>])%MOD; 
+        <span class="hljs-keyword">else</span>
+            a[i]=a[i/<span class="hljs-number">2</span>];
+    }
+}   
+<span class="hljs-keyword">int</span> main(){
+    prepare();
+    SF(<span class="hljs-string">"%lld"</span>,&amp;n1);
+    n1++;
+    PF(<span class="hljs-string">"%lld\n"</span>,que(n1));
+}   </code></pre>            </div>
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/markdown_views-ea0013b516.css" />
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/qq_34454069/article/details/81488650,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/qq_34454069/article/details/81488650,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+		<div class="article-bar-bottom">
+				<div class="article-copyright">
+			版权声明：本文为博主原创文章，未经博主允许不得转载。			https://blog.csdn.net/qq_34454069/article/details/81488650		</div>
+								<div class="tags-box">
+			<span class="label">个人分类：</span>
+						<a class="tag-link" href="https://blog.csdn.net/qq_34454069/article/category/7916222"  target="_blank">OEIS						<a class="tag-link" href="https://blog.csdn.net/qq_34454069/article/category/7402488"  target="_blank">数学						</a>
+		</div>
+								<div class="tags-box hot-word">
+			<span class="label">相关热词：</span>
+						<a class="tag-link" href="https://blog.csdn.net/OoLuoChenoO/article/details/76546409" target="_blank">
+			oeis			</a>
+						<a class="tag-link" href="https://blog.csdn.net/c6sikue0/article/details/55209639" target="_blank">
+			oeis通项公式			</a>
+					</div>
+			</div>
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/qq_34454069/article/details/81488650#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/swunHJ/article/details/80469549,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/swunHJ/article/details/80469549,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/swunHJ/article/details/80469549" target="_blank" title="ARC098 D - <em>Xor</em> <em>Sum</em> 2">
+					ARC098 D - <em>Xor</em> <em>Sum</em> 2				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/swunHJ" target="_blank">
+						<img src="https://avatar.csdn.net/8/D/7/3_swunhj.jpg" alt="swunHJ" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">swunHJ</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-27</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						68</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/swunHJ/article/details/80469549" target="_blank" >
+						传送门：点击打开链接题目大意：给你一个长度为n的整数序列，让你求出满足以下条件的(l, r)的对数：a[l] + a[l+1] + ... + a[r] == a[l] ^ a[l+1] ^ ... ...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/SDU_Phonism/article/details/12913129,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/SDU_Phonism/article/details/12913129,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/SDU_Phonism/article/details/12913129" target="_blank" title="UVALIVE 4682: <em>XOR</em> <em>Sum</em>">
+					UVALIVE 4682: <em>XOR</em> <em>Sum</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/SDU_Phonism" target="_blank">
+						<img src="https://avatar.csdn.net/4/C/B/3_sdu_phonism.jpg" alt="SDU_Phonism" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">SDU_Phonism</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">10-21</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1306</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/SDU_Phonism/article/details/12913129" target="_blank" >
+						链接：http://acm.hust.edu.cn/vjudge/problem/viewProblem.action?id=11008
+题意：给定n个数，求一段连续的数是的他们的异或和最大。1
+...					</a>
+				</p>
+		</div>
+				</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/riba2534/article/details/80344026,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/riba2534/article/details/80344026,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/riba2534/article/details/80344026" target="_blank" title="Codeforces Round #482 (Div. 2) D. Kuro and GCD and <em>XOR</em> and <em>SUM</em>(Trie树，二进制)">
+					Codeforces Round #482 (Div. 2) D. Kuro and GCD and <em>XOR</em> and <em>SUM</em>(Trie树，二进制)				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/riba2534" target="_blank">
+						<img src="https://avatar.csdn.net/7/A/6/3_riba2534.jpg" alt="riba2534" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">riba2534</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-16</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						121</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/riba2534/article/details/80344026" target="_blank" >
+						描述
+
+
+  Kuro is currently playing an educational game about numbers. The game 
+  focuses on the great...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/xigongdali/article/details/80443288,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xigongdali/article/details/80443288,BlogCommendFromQuerySearch_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/xigongdali/article/details/80443288" target="_blank" title="计蒜客 ACM-ICPC 2017 Asia Xi'an  <em>Sum</em> of <em>xor</em> <em>sum</em> （）">
+					计蒜客 ACM-ICPC 2017 Asia Xi'an  <em>Sum</em> of <em>xor</em> <em>sum</em> （）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/xigongdali" target="_blank">
+						<img src="https://avatar.csdn.net/8/7/E/3_xigongdali.jpg" alt="xigongdali" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">xigongdali</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-24</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						36</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/xigongdali/article/details/80443288" target="_blank" >
+						网址：https://nanti.jisuanke.com/t/20755Song Zha Zha has an 11-indexed array A . Li Zha Zha has QQ quer...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/DTL66/article/details/52244265,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/DTL66/article/details/52244265,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/DTL66/article/details/52244265" target="_blank" title="HDU-4825  <em>Xor</em> <em>Sum</em> 【字典树+位异或】">
+					HDU-4825  <em>Xor</em> <em>Sum</em> 【字典树+位异或】				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/DTL66" target="_blank">
+						<img src="https://avatar.csdn.net/E/0/C/3_dtl66.jpg" alt="DTL66" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">DTL66</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-18</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						381</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/DTL66/article/details/52244265" target="_blank" >
+						B - Xor Sum
+
+
+Time Limit:1000MS Memory Limit:132768KB 64bit IO Format:%I64d &amp; %I64u
+ 
+Zeus 和 Pr...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/deepseazbw/article/details/80465249,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/deepseazbw/article/details/80465249,BlogCommendFromQuerySearch_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/deepseazbw/article/details/80465249" target="_blank" title="AtCoder Regular Contest 098  D - <em>Xor</em> <em>Sum</em> 2  区间异或=相加 DP思想">
+					AtCoder Regular Contest 098  D - <em>Xor</em> <em>Sum</em> 2  区间异或=相加 DP思想				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/deepseazbw" target="_blank">
+						<img src="https://avatar.csdn.net/7/8/3/3_deepseazbw.jpg" alt="deepseazbw" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">deepseazbw</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-27</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						136</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/deepseazbw/article/details/80465249" target="_blank" >
+						Problem StatementThere is an integer sequence A of length N.Find the number of the pairs of integers...					</a>
+				</p>
+		</div>
+				</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/just_sort/article/details/54288233,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/just_sort/article/details/54288233,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/just_sort/article/details/54288233" target="_blank" title="Atcoder <em>Xor</em> <em>Sum</em> 1月5日">
+					Atcoder <em>Xor</em> <em>Sum</em> 1月5日				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/just_sort" target="_blank">
+						<img src="https://avatar.csdn.net/D/D/C/3_just_sort.jpg" alt="just_sort" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">just_sort</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">01-09</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						343</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/just_sort/article/details/54288233" target="_blank" >
+						【题目链接】点击打开链接
+【题意】
+
+
+  题意  
+
+给定一个整数N，求出有多少对u, v (0 xor为异或操作。
+
+  数据  
+
+（1 
+
+
+  输入  
+
+3...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u012576214/article/details/49340123,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u012576214/article/details/49340123,BlogCommendFromQuerySearch_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u012576214/article/details/49340123" target="_blank" title="hdu4825 <em>Xor</em> <em>Sum</em> 字典树与异或（经典）">
+					hdu4825 <em>Xor</em> <em>Sum</em> 字典树与异或（经典）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u012576214" target="_blank">
+						<img src="https://avatar.csdn.net/4/C/8/3_u012576214.jpg" alt="u012576214" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u012576214</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">10-22</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1374</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u012576214/article/details/49340123" target="_blank" >
+						求某个数与一些数异或的最大值是字典树应用的一个经典问题。
+主要思想是贪心，把数字都转化成二进制，把这些数按存到字典树中。从高位开始遍历，如果有不同的边（可以使得异或值为1）肯定走不同的边，如果没有则...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/chenzhenyu123456/article/details/50774796,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/chenzhenyu123456/article/details/50774796,BlogCommendFromQuerySearch_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/chenzhenyu123456/article/details/50774796" target="_blank" title="Codeforces 627A <em>XOR</em> Equation 【数学】">
+					Codeforces 627A <em>XOR</em> Equation 【数学】				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/chenzhenyu123456" target="_blank">
+						<img src="https://avatar.csdn.net/5/1/9/3_chenzhenyu123456.jpg" alt="chenzhenyu123456" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">chenzhenyu123456</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">03-01</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1097</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/chenzhenyu123456/article/details/50774796" target="_blank" >
+						A. XOR Equation
+
+
+time limit per test
+2 seconds
+
+
+memory limit per test
+256 megabytes
+
+
+input
+standa...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/xj2419174554/article/details/26083887,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/xj2419174554/article/details/26083887,BlogCommendFromQuerySearch_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/xj2419174554/article/details/26083887" target="_blank" title="2014百度之星第三题<em>Xor</em> <em>Sum</em>(字典树+异或运算)">
+					2014百度之星第三题<em>Xor</em> <em>Sum</em>(字典树+异或运算)				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/xj2419174554" target="_blank">
+						<img src="https://avatar.csdn.net/5/A/8/3_xj2419174554.jpg" alt="xj2419174554" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">xj2419174554</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-17</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1545</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/xj2419174554/article/details/26083887" target="_blank" >
+						Xor Sum
+Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 132768/132768 K (Java/Others)
+Total ...					</a>
+				</p>
+		</div>
+				</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/qq_34454069">
+                <img src="https://avatar.csdn.net/0/8/1/3_qq_34454069.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/qq_34454069" target="_blank" class="text-truncate" id="uid">616156</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/qq_34454069/article/details/81488650" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="167">
+                        <dt><a href="https://blog.csdn.net/qq_34454069?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/qq_34454069?t=1"><span class="count">167</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="23">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">23</span></dd>
+        </dl>
+        <dl class="text-center" title="83">
+            <dt>喜欢</dt>
+            <dd><span class="count">83</span></dd>
+        </dl>
+        <dl class="text-center" title="24">
+            <dt>评论</dt>
+            <dd><span class="count">24</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="4级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-4"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="15464">
+                1万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="1852">
+                1852            </dd>
+        </dl>
+        <dl title="33537">
+            <dt>排名：</dt>
+            <dd>3万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq_34454069/article/details/81488173" target="_blank">【贪心】ARC066E Addition and Subtraction Hard</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq_34454069/article/details/81479028" target="_blank">【仙人掌？】【并查集】HDU6350	 Always Online</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq_34454069/article/details/81475646" target="_blank">【DP】HDU6357 Hills And Valleys</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq_34454069/article/details/81448004" target="_blank">【模拟】AtCoder2160 Manhattan Compass</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq_34454069/article/details/81433137" target="_blank">【数学】Codeforces1016G Appropriate Team</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/6699902">
+                    高斯消元                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/6700997">
+                    博弈论                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/6704053">
+                    连通性状态压缩DP                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/6730876">
+                    数据结构                    <span class="count float-right">21篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/6743797">
+                    莫比乌斯反演                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/6778413">
+                    网络流                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/6781817">
+                    贪心                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/6802006">
+                    DP                    <span class="count float-right">28篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/6816759">
+                    模拟                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/6989626">
+                    搜索                    <span class="count float-right">16篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7013412">
+                    乱搞                    <span class="count float-right">15篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7143434">
+                    图论                    <span class="count float-right">22篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7178759">
+                    数论                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7193099">
+                    最小生成树                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7285761">
+                    总结                    <span class="count float-right">16篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7303216">
+                    可持久化                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7323015">
+                    平衡树                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7326281">
+                    点分治                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7342788">
+                    树链剖分                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7371681">
+                    字符串                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7385334">
+                    二分答案                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7397604">
+                    枚举                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7402488">
+                    数学                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7402489">
+                    矩阵                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7404523">
+                    分治                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7407452">
+                    计算几何                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7425463">
+                    2-SAT                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7439271">
+                    概率                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7444136">
+                    FFT                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7462371">
+                    CDQ分治                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7463626">
+                    旋转卡壳                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7463727">
+                    线段树                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7466635">
+                    莫队算法                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7476304">
+                    并查集                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7517986">
+                    杂题                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7540451">
+                    动态树                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7546731">
+                    容斥原理                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7563542">
+                    多项式                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7693055">
+                    树状数组                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7703986">
+                    概率与期望                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7741330">
+                    构造                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7741334">
+                    时间复杂度                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7754785">
+                    Hash                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7754809">
+                    分块                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7787057">
+                    最短路                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7787096">
+                    矩阵树                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7824569">
+                    置换                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7841820">
+                    交互题                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7841860">
+                    KD树                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7894848">
+                    后缀数组                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/category/7916222">
+                    OEIS                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">21篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">26篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2018/02">
+                    2018年2月                    <span class="count float-right">17篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2017/11">
+                    2017年11月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2017/09">
+                    2017年9月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2017/07">
+                    2017年7月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2017/06">
+                    2017年6月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2017/03">
+                    2017年3月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2017/02">
+                    2017年2月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_34454069/article/month/2016/11">
+                    2016年11月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/qq_34454069/article/details/77779300">欧拉回路/路径【总结】</a>
+					<p class="read">阅读量：<span>777</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq_34454069/article/details/74990126">【莫比乌斯反演】BZOJ2154Crash的数字表格&amp;BZOJ2693jzptab</a>
+					<p class="read">阅读量：<span>492</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq_34454069/article/details/78697293">【数据结构】范浩强Treap（非旋转平衡树）&amp;可持久化Treap总结</a>
+					<p class="read">阅读量：<span>419</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq_34454069/article/details/79960502">【总结】CQOI2018爆炸记</a>
+					<p class="read">阅读量：<span>398</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq_34454069/article/details/81043195">【组合计数】CF1007B Pave the Parallelepiped</a>
+					<p class="read">阅读量：<span>376</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    <div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/qq_34454069/article/details/81475646#comments">【DP】HDU6357 Hills...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/qq_33330876" class="user-name" target="_blank">qq_33330876</a>：及时更新题解好评！
+这题的官方题解实在难懂...                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/qq_34454069/article/details/81292814#comments">【分块】【DP】HDU6331 W...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/qq_34454069" class="user-name" target="_blank">qq_34454069</a>：[reply]qq_33134349[/reply]
+感激不尽！您是对的，已更正                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/qq_34454069/article/details/81292814#comments">【分块】【DP】HDU6331 W...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/qq_33134349" class="user-name" target="_blank">qq_33134349</a>：楼主写的特别清楚，但好像有一个地方误写了，就是DPc = min(DPa + dist)应该是DP...                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/qq_34454069/article/details/81355457#comments">【并查集】HDU6334 Prob...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/qq_34454069" class="user-name" target="_blank">qq_34454069</a>：[reply]qq_36172505[/reply]
+您说的是第71行么，那是为了限定y为x的父亲...                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/qq_34454069/article/details/81355457#comments">【并查集】HDU6334 Prob...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/qq_36172505" class="user-name" target="_blank">qq_36172505</a>：为什么dep[x]&amp;amp;lt;dep[y]时需要交换，这一步是有什么用？？？                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    <!--自定义模块-->
+<div id="asideCustom63255568" class="aside-box custom-box">
+    <h3 class="aside-title"></h3>
+    <div class="aside-content clearfix">
+        <a style="display:block;" href="" target="_blank">
+    <img style="display: block; width: 100%; height: auto" src="http://img.blog.csdn.net/20180206082225490" alt="">
+</a>    </div>
+</div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/avneunkwb.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "【OEIS】Xor Sum AtCoder2272";
+    var ChannelId = 37;
+    var articleId = "81488650";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/qq_34454069/article/details/81488650";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["oeis","xor","sum","atcoder2272"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"【OEIS】Xor Sum AtCoder2272");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-73eea35575.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+</html>

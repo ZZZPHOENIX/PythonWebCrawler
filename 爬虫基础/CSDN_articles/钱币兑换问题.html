@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/hj1553910/article/details/81488120"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="在一个国家仅有1分，2分，3分硬币，将钱N兑换成硬币有很多种兑法。请你编程序计算出共有多少种兑法。
+
+Input
+
+每行只有一个正整数N，N小于32768。
+
+Output
+
+对应每个输入，输出兑换方法数。
+
+Sample Input
+
+
+2934
+12553
+
+Sample Output
+
+
+718831
+13137761
+
+第一种思想：他是要求完全背包的分配方案数，和原先学习的完全背包不太一样..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>钱币兑换问题 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-8195ccbe2d.min.css">
+
+    <script type="text/javascript">
+        var username = "hj1553910";
+        var blog_address = "https://blog.csdn.net/hj1553910";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/hj1553910/article/details/81488120"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin3-template";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/hj1553910">hj1553910的博客...</a></span>
+			<i>></i>
+			<span>钱币兑换问题</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">钱币兑换问题</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 21:12:35</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：2</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <p>在一个国家仅有1分，2分，3分硬币，将钱N兑换成硬币有很多种兑法。请你编程序计算出共有多少种兑法。</p>
+
+<p>Input</p>
+
+<p>每行只有一个正整数N，N小于32768。</p>
+
+<p>Output</p>
+
+<p>对应每个输入，输出兑换方法数。</p>
+
+<p>Sample Input</p>
+
+<pre>
+2934
+12553</pre>
+
+<p>Sample Output</p>
+
+<pre>
+718831
+13137761</pre>
+
+<p>第一种思想：他是要求完全背包的分配方案数，和原先学习的完全背包不太一样。</p>
+
+<p>思想就是每次更改一个硬币的面值（当然因此剩余的钱要相应减少），比如4的话：</p>
+
+<p>可以有3种情况：</p>
+
+<p><span style="color:#3399ea;">1，1，1，1</span></p>
+
+<p><span style="color:#f33b45;">1，1</span>      ，<span style="color:#86ca5e;">2</span></p>
+
+<p><span style="color:#f33b45;">2 </span>       ，<span style="color:#86ca5e;">2</span></p>
+
+<p>然后你会发现2的话是：</p>
+
+<p><span style="color:#f33b45;">1，1</span></p>
+
+<p><span style="color:#f33b45;">2</span></p>
+
+<p>4可以看作是只换成1的方案数 加上 2能换成任意面值的方案数 的总和，因为剩余的两种方案只是在得到2以后加上一张2面值的硬币，所以有如下规律：f(n)=f ( n - v[i] )+f( n )；即：n的方案数=n已有的方案数+添加一种新的面值的方案数，这里每次添加的新的面值就一个，所以f(n- v [i] )是等于f(填一个新的面值的硬币)的。</p>
+
+<p> </p>
+
+<pre class="has">
+<code>#include&lt;iostream&gt;
+#include&lt;cmath&gt;
+#define LL long long
+using namespace std;
+LL s[32769];
+//完全背包，或者思维，还不太懂 
+void dp(){
+	s[0]=1;
+	for(int j=1;j&lt;=3;j++)
+	for(int i=1;i&lt;=32768;i++){
+		s[i]+=s[i-j];
+	}
+}
+
+int main(){
+	int n;
+	dp();
+	while(cin&gt;&gt;n){
+		cout&lt;&lt;s[n]&lt;&lt;endl;
+	}
+	return 0;
+}</code></pre>
+
+<p> </p>
+
+<p>另一种方法是用直接想的解决，你先用n个3元的，看剩下能拿几张2元的，最后剩余的就全是1元的了。</p>
+
+<p>然后就是3元的可以拿i个，2元的可以拿（n-3*i）/2+1个，i：0～i。一层循环，遍历即可。</p>
+
+<p> </p>
+
+<pre class="has">
+<code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+using namespace std;
+int N;
+int main()
+{
+    while(~scanf("%d", &amp;N))
+    {
+        int s = 0;
+        for(int i = 0 ; i &lt;= N/3 ; i++)
+        {
+            int t = (N-3*i)/2+1;//2也是要从0个～m个算起，对于每一次的i个3都是，所以每次都要加1。
+            s += t;
+        }
+        printf("%d\n", s);
+    }
+    return 0;
+}</code></pre>
+
+<p> </p>
+
+<p> </p>
+
+<p> </p>            </div>
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/hj1553910/article/details/81488120,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/hj1553910/article/details/81488120,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+		<div class="article-bar-bottom">
+								<div class="tags-box">
+			<span class="label">个人分类：</span>
+						<a class="tag-link" href="https://blog.csdn.net/hj1553910/article/category/7901153"  target="_blank">dp						<a class="tag-link" href="https://blog.csdn.net/hj1553910/article/category/7655411"  target="_blank">思维						<a class="tag-link" href="https://blog.csdn.net/hj1553910/article/category/7897906"  target="_blank">递归&amp;&amp;递推						</a>
+		</div>
+							</div>
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/hj1553910/article/details/81488120#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u013480600/article/details/40477769,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013480600/article/details/40477769,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u013480600/article/details/40477769" target="_blank" title="HDU 1284 <em>钱币</em><em>兑换</em><em>问题</em>(完全背包:入门题)">
+					HDU 1284 <em>钱币</em><em>兑换</em><em>问题</em>(完全背包:入门题)				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u013480600" target="_blank">
+						<img src="https://avatar.csdn.net/6/2/4/3_u013480600.jpg" alt="u013480600" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u013480600</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">10-26</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2614</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u013480600/article/details/40477769" target="_blank" >
+						HDU 1284 钱币兑换问题(完全背包:入门题)
+http://acm.hdu.edu.cn/showproblem.php?pid=1284
+题意:
+       在一个国家仅有1分，2分，3分硬...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/yopilipala/article/details/71637139,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/yopilipala/article/details/71637139,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/yopilipala/article/details/71637139" target="_blank" title="动态规划：HDU1248-<em>钱币</em><em>兑换</em><em>问题</em>">
+					动态规划：HDU1248-<em>钱币</em><em>兑换</em><em>问题</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/yopilipala" target="_blank">
+						<img src="https://avatar.csdn.net/F/1/5/3_yopilipala.jpg" alt="yopilipala" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">yopilipala</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-11</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						857</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/yopilipala/article/details/71637139" target="_blank" >
+						解题心得：
+（青蛙跳台阶：有n阶台阶，青蛙可以一次跳一阶也可以一次跳两阶，问总共有多好中跳法）
+1、之前把这个问题的思路弄错了，以为是递推，就像青蛙跳台阶，用斐波那契求解。但是用斐波那契肯定会超范围。...					</a>
+				</p>
+		</div>
+				</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_25425023/article/details/47089763,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_25425023/article/details/47089763,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_25425023/article/details/47089763" target="_blank" title="杭电ACM1284——<em>钱币</em><em>兑换</em><em>问题</em>">
+					杭电ACM1284——<em>钱币</em><em>兑换</em><em>问题</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_25425023" target="_blank">
+						<img src="https://avatar.csdn.net/2/D/9/3_qq_25425023.jpg" alt="qq_25425023" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_25425023</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">07-27</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						672</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_25425023/article/details/47089763" target="_blank" >
+						一开始，以为是一个简单的高精度加法的问题。推出的递推公式是：F(n) = F(n - 1) + F(n - 2) + F(n - 3)。
+但是，事实上，这个递推公式是错的，存在重复的情况。
+正确的...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/QingYiDeZuoBan/article/details/79311157,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/QingYiDeZuoBan/article/details/79311157,BlogCommendFromQuerySearch_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/QingYiDeZuoBan/article/details/79311157" target="_blank" title="关于C语言实现<em>兑换</em>钱的<em>问题</em>">
+					关于C语言实现<em>兑换</em>钱的<em>问题</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/QingYiDeZuoBan" target="_blank">
+						<img src="https://avatar.csdn.net/9/2/D/3_qingyidezuoban.jpg" alt="QingYiDeZuoBan" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">QingYiDeZuoBan</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-11</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						166</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/QingYiDeZuoBan/article/details/79311157" target="_blank" >
+						#include &amp;amp;lt;stdio.h&amp;amp;gt;
+
+int main()
+{
+	int x;
+	int one, two, five;
+	int exit = 0;
+	
+	scanf(...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_39493274/article/details/80547279,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_39493274/article/details/80547279,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_39493274/article/details/80547279" target="_blank" title="货币<em>兑换</em><em>问题</em>">
+					货币<em>兑换</em><em>问题</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_39493274" target="_blank">
+						<img src="https://avatar.csdn.net/B/2/A/3_qq_39493274.jpg" alt="qq_39493274" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_39493274</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-02</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						104</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_39493274/article/details/80547279" target="_blank" >
+						#include &amp;amp;lt;stdio.h&amp;amp;gt;
+#include &amp;amp;lt;stdlib.h&amp;amp;gt;
+
+
+
+int main()
+{
+    int m, i, n, ...					</a>
+				</p>
+		</div>
+				</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/lzzjjx/2502863,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/lzzjjx/2502863,BlogCommendFromQuerySearch_5"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/lzzjjx/2502863" target="_blank">
+						<em>钱币</em>组合<em>问题</em>/动态规划/C语言					</a>
+				</h4>
+				<p>
+					<span class="data">2010年06月30日 </span>
+					<span class="size">1KB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/lzzjjx/2502863" target="_blank" strategy="BlogCommendFromQuerySearch_5">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/unkonw.svg" alt="">
+				</a>
+			</div>
+		</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/flx413/article/details/54881397,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/flx413/article/details/54881397,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/flx413/article/details/54881397" target="_blank" title="HDU - 1284. <em>钱币</em><em>兑换</em><em>问题</em>">
+					HDU - 1284. <em>钱币</em><em>兑换</em><em>问题</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/flx413" target="_blank">
+						<img src="https://avatar.csdn.net/9/D/4/3_flx413.jpg" alt="flx413" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">flx413</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-05</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						232</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/flx413/article/details/54881397" target="_blank" >
+						题目链接：http://acm.hdu.edu.cn/showproblem.php?pid=1284
+
+
+考查完全背包，入门题。不太懂得这个转移方程可以看下这个：http://blog.csdn.n...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/a909301740/article/details/79940697,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/a909301740/article/details/79940697,BlogCommendFromQuerySearch_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/a909301740/article/details/79940697" target="_blank" title="<em>钱币</em>找零<em>问题</em> - 动态规划">
+					<em>钱币</em>找零<em>问题</em> - 动态规划				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/a909301740" target="_blank">
+						<img src="https://avatar.csdn.net/4/3/6/3_a909301740.jpg" alt="a909301740" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">a909301740</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-14</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						104</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/a909301740/article/details/79940697" target="_blank" >
+						先从一个题目引出动态规划。
+
+有数组 penny，penny 中所有的值都为正数且不重复。每个值代表一种面值的货币，每种面值的货币可以使用任意张，给定一个整数 N 表示货币总数，再给定一个整数 aim...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Flynn_curry/article/details/51050141,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Flynn_curry/article/details/51050141,BlogCommendFromQuerySearch_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Flynn_curry/article/details/51050141" target="_blank" title="hdu1284 <em>钱币</em><em>兑换</em><em>问题</em>（完全背包）">
+					hdu1284 <em>钱币</em><em>兑换</em><em>问题</em>（完全背包）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Flynn_curry" target="_blank">
+						<img src="https://avatar.csdn.net/A/0/F/3_flynn_curry.jpg" alt="Flynn_curry" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Flynn_curry</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-03</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						465</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Flynn_curry/article/details/51050141" target="_blank" >
+						好吧，应该是求方案数也算是背包的一类型题吧。
+值得注意的是，求背包容量问的是最优解，所以用max调用放与不放两个状态。
+而方案数不同，他来自两个方向的和。拿本题来说，是上一层元素(前驱方案数，代表...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Reoger/article/details/50917206,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Reoger/article/details/50917206,BlogCommendFromQuerySearch_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Reoger/article/details/50917206" target="_blank" title="换零钱实现之贪心算法">
+					换零钱实现之贪心算法				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Reoger" target="_blank">
+						<img src="https://avatar.csdn.net/5/E/6/3_reoger.jpg" alt="Reoger" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Reoger</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">03-17</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1716</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Reoger/article/details/50917206" target="_blank" >
+						贪心算法的基本思路：
+从问题的某一步初始化解出逐步逼近给定的目标，以尽可能快地求得更好的解。当达到算法中的某一步不能再继续前进时，就停止算法，给出近似解。
+下面就一个例子来说明贪心的实现过程：就以...					</a>
+				</p>
+		</div>
+				</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/hj1553910">
+                <img src="https://avatar.csdn.net/5/1/7/3_hj1553910.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/hj1553910" target="_blank" class="text-truncate" id="uid">君卿</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/hj1553910/article/details/81488120" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="40">
+                        <dt><a href="https://blog.csdn.net/hj1553910?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/hj1553910?t=1"><span class="count">40</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="5">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">5</span></dd>
+        </dl>
+        <dl class="text-center" title="4">
+            <dt>喜欢</dt>
+            <dd><span class="count">4</span></dd>
+        </dl>
+        <dl class="text-center" title="1">
+            <dt>评论</dt>
+            <dd><span class="count">1</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="2级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-2"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="669">
+                669            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="409">
+                409            </dd>
+        </dl>
+        <dl title="288748">
+            <dt>排名：</dt>
+            <dd>28万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/hj1553910/article/details/81488006" target="_blank">超级楼梯</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/hj1553910/article/details/81487885" target="_blank">一只小蜜蜂... （dp，递推）</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/hj1553910/article/details/81367538" target="_blank">coprime sequence  （前缀gcd+后缀gcd）</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/hj1553910/article/details/81365104" target="_blank">vacations 暴力求解</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/hj1553910/article/details/81347956" target="_blank">放苹果 （递归，递推）</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7655411">
+                    思维                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7655412">
+                    并查集                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7655414">
+                    贪心                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7655452">
+                    快速幂                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7655431">
+                    素数                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7655409">
+                    水题                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7830557">
+                    逆元                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7883785">
+                    栈和队列                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7885053">
+                    二分搜索                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7893118">
+                    bfs                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7896822">
+                    dfs                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7897906">
+                    递归&amp;&amp;递推                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7901152">
+                    暴力                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7901153">
+                    dp                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/hj1553910/article/category/7907248">
+                    存图方式                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/hj1553910/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/hj1553910/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/hj1553910/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/hj1553910/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/hj1553910/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">17篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/hj1553910/article/details/79659898">QAQ给定一个小公式，即： f[i]=f[i−1]∗x f[i]=f[i−1]∗x （ i&amp;amp;gt;=2 i&amp;amp;gt;=2 ）。他想知道 f[n]  的结果。</a>
+					<p class="read">阅读量：<span>72</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/hj1553910/article/details/79511163">C++ a+b 2</a>
+					<p class="read">阅读量：<span>38</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/hj1553910/article/details/79490029">分拆素数和</a>
+					<p class="read">阅读量：<span>38</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/hj1553910/article/details/79595827">不开心的小明 c++</a>
+					<p class="read">阅读量：<span>33</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/hj1553910/article/details/79659156">水题 出现次数最多的字母</a>
+					<p class="read">阅读量：<span>33</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    <div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/hj1553910/article/details/79617725#comments">Wolf and Rabbit</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/weixin_40446473" class="user-name" target="_blank">weixin_40446473</a>：一楼                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/avneunkwb.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "钱币兑换问题";
+    var ChannelId = 16;
+    var articleId = "81488120";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/hj1553910/article/details/81488120";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["\u94b1\u5e01","\u5151\u6362","\u95ee\u9898"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"钱币兑换问题");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-73eea35575.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+</html>

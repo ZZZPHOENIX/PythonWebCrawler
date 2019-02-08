@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/yyhcsfy/article/details/81488994"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="1、打开控制台，输入以下命令
+
+$ /usr/libexec/java_home -v
+
+java_home: option requires an argument -- v
+
+/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home
+
+ 
+
+2、进入JDK路径
+
+$ cd /Library/Java/JavaVirtual..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>Mac查找JDK路径 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-8195ccbe2d.min.css">
+
+    <script type="text/javascript">
+        var username = "yyhcsfy";
+        var blog_address = "https://blog.csdn.net/yyhcsfy";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/yyhcsfy/article/details/81488994"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin3-template";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/yyhcsfy">风语落尘</a></span>
+			<i>></i>
+			<span>Mac查找JDK路径</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">Mac查找JDK路径</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 21:34:11</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：2</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <p>1、打开控制台，输入以下命令</p>
+
+<p>$ /usr/libexec/java_home -v</p>
+
+<p>java_home: option requires an argument -- v</p>
+
+<p>/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home</p>
+
+<p> </p>
+
+<p>2、进入JDK路径</p>
+
+<p>$ cd /Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home</p>
+
+<p>$ ls</p>
+
+<p><img alt="" class="has" src="https://img-blog.csdn.net/20180807213304250?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3l5aGNzZnk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+
+<p> </p>
+
+<p> </p>            </div>
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/yyhcsfy/article/details/81488994,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/yyhcsfy/article/details/81488994,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div data-track-view='{"mod":"popu_625","con": ",https://blog.csdn.net/yyhcsfy/article/details/81488994,from_360"}' style="margin-top: 8px;padding: 20px;background-color: #fff;overflow: hidden;" id="adt0"></div>
+            <script>
+                var adWidth = $("div.blog-content-box").outerWidth() - 40;
+                NEWS_FEED({
+                    w: adWidth,
+                    h : 130,
+                    showid : "s02a31",
+                    placeholderId: "adt0",
+                    inject : "define",
+                    define : {
+                    imagePosition : "left",
+                    imageBorderRadius : 0,
+                    imageWidth: 231,
+                    imageHeight: 130,
+                    imageFill : "clip",
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 20,
+                    titleFontColor: "#333",
+                    titleFontFamily : "Microsoft Yahei",
+                    titleFontWeight: "bold",
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 10,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: "#6b6b6b",
+                    descFontFamily : "Microsoft Yahei",
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: "#fff",
+                    hoverColor: "#ca0c16"
+                    }
+                })
+            </script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/yyhcsfy/article/details/81488994#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/chenlei_525/article/details/79192965,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/chenlei_525/article/details/79192965,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/chenlei_525/article/details/79192965" target="_blank" title="<em>MAC</em><em>查找</em><em>JDK</em>的<em>路径</em>">
+					<em>MAC</em><em>查找</em><em>JDK</em>的<em>路径</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/chenlei_525" target="_blank">
+						<img src="https://avatar.csdn.net/C/3/A/3_chenlei_525.jpg" alt="chenlei_525" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">chenlei_525</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">01-29</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2889</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/chenlei_525/article/details/79192965" target="_blank" >
+						在控制台中输入
+
+/usr/libexec/java_home -V
+
+
+即可以看见
+
+Matching Java Virtual Machines (2):
+    9.0.4, x86_64:  ...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/chenlei_525/article/details/79192965">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/cloud/cloud10.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/azhou_hui/article/details/46636769,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/azhou_hui/article/details/46636769,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/azhou_hui/article/details/46636769" target="_blank" title="<em>Mac</em>下<em>jdk</em>的安装<em>路径</em>">
+					<em>Mac</em>下<em>jdk</em>的安装<em>路径</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/azhou_hui" target="_blank">
+						<img src="https://avatar.csdn.net/D/F/D/3_azhou_hui.jpg" alt="azhou_hui" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">azhou_hui</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-25</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						7.1万</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/azhou_hui/article/details/46636769" target="_blank" >
+						苹果系统已经包含完整的J2SE，其中就有JDK和JVM（苹果叫VM）。当然如果要升级JDK，那当然要自己下载安装了。 
+
+       在MAC系统中，jdk的安装路径与windows不同，默认目录是...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/azhou_hui/article/details/46636769">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops22.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/sunzhemin/article/details/46912555,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sunzhemin/article/details/46912555,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/sunzhemin/article/details/46912555" target="_blank" title="记录下<em>mac</em>查看java 安装<em>路径</em>的问题">
+					记录下<em>mac</em>查看java 安装<em>路径</em>的问题				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/sunzhemin" target="_blank">
+						<img src="https://avatar.csdn.net/1/F/C/3_sunzhemin.jpg" alt="sunzhemin" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">sunzhemin</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">07-16</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						8823</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/sunzhemin/article/details/46912555" target="_blank" >
+						MacBook-Pro:~ user$ /usr/libexec/java_home 
+/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/haoxuhong/article/details/79259213,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/haoxuhong/article/details/79259213,BlogCommendFromQuerySearch_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/haoxuhong/article/details/79259213" target="_blank" title="查看 <em>Mac</em>下已安装的<em>jdk</em>版本及其安装目录">
+					查看 <em>Mac</em>下已安装的<em>jdk</em>版本及其安装目录				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/haoxuhong" target="_blank">
+						<img src="https://avatar.csdn.net/8/1/3/3_haoxuhong.jpg" alt="haoxuhong" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">haoxuhong</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-05</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						222</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/haoxuhong/article/details/79259213" target="_blank" >
+						打开终端，输入：/usr/libexec/java_home -V
+
+ 注意：输入命令参数区分大小写(-v是不对的，必须是-V)
+
+
+
+
+如图：3个红框内依次为：输入命令； 当前Mac已...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/haoxuhong/article/details/79259213">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops10.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/MinggeQingchun/article/details/54945044,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/MinggeQingchun/article/details/54945044,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/MinggeQingchun/article/details/54945044" target="_blank" title="Java--<em>Mac</em>下<em>JDK</em>的安装<em>路径</em>">
+					Java--<em>Mac</em>下<em>JDK</em>的安装<em>路径</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/MinggeQingchun" target="_blank">
+						<img src="https://avatar.csdn.net/2/1/1/3_minggeqingchun.jpg" alt="MinggeQingchun" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">MinggeQingchun</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-09</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2387</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/MinggeQingchun/article/details/54945044" target="_blank" >
+						苹果的Mac系统已经包含了完整的J2SE（Java SE），其中就有JDK和JVM（苹果叫VM），如果要升级JDK，需要自己下载安装。 在Mac系统中，JDK的安装路径与windows不同，默认目录是...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/MinggeQingchun/article/details/54945044">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops32.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/caoxiaohong1005/article/details/73611424,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/caoxiaohong1005/article/details/73611424,BlogCommendFromQuerySearch_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/caoxiaohong1005/article/details/73611424" target="_blank" title="<em>Mac</em>下查看已安装的<em>jdk</em>版本及其安装目录">
+					<em>Mac</em>下查看已安装的<em>jdk</em>版本及其安装目录				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/caoxiaohong1005" target="_blank">
+						<img src="https://avatar.csdn.net/E/C/3/3_caoxiaohong1005.jpg" alt="caoxiaohong1005" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">caoxiaohong1005</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-22</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						3.9万</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/caoxiaohong1005/article/details/73611424" target="_blank" >
+						最近在学习JVM，需要运行jdk自带的命令行，需要在特定jdk目录下进行，所以需要查看jdk安装目录，之前也查过，忘记了。这次记录下来为以后备用。
+1、打开终端，输入：/usr/libexec/ja...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/caoxiaohong1005/article/details/73611424">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops5.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/wengyupeng/article/details/52410564,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wengyupeng/article/details/52410564,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/wengyupeng/article/details/52410564" target="_blank" title="<em>MAC</em>  <em>JDK</em>默认安装<em>路径</em>  JAVA<em>路径</em>">
+					<em>MAC</em>  <em>JDK</em>默认安装<em>路径</em>  JAVA<em>路径</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/wengyupeng" target="_blank">
+						<img src="https://avatar.csdn.net/6/1/9/3_wengyupeng.jpg" alt="wengyupeng" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">wengyupeng</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">09-02</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						4.1万</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/wengyupeng/article/details/52410564" target="_blank" >
+						MAC  JDK默认安装路径  JAVA路径					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/wangyuexin345/article/details/46935271,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wangyuexin345/article/details/46935271,BlogCommendFromQuerySearch_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/wangyuexin345/article/details/46935271" target="_blank" title="在<em>Mac</em>Book上查看Java的安装<em>路径</em>并设置JAVA_HOME变量">
+					在<em>Mac</em>Book上查看Java的安装<em>路径</em>并设置JAVA_HOME变量				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/wangyuexin345" target="_blank">
+						<img src="https://avatar.csdn.net/9/3/B/3_wangyuexin345.jpg" alt="wangyuexin345" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">wangyuexin345</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">07-18</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2932</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/wangyuexin345/article/details/46935271" target="_blank" >
+						安装了最新的Java8，但是由于刚接触OS X，半天没有找到安装目录，网上找了半天，终于找到了。
+
+
+1）打开Finder，在屏幕最上面的工具栏，注意，是最上面的工具栏，就像下面这样，刚接触OS...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/zcl_666/article/details/54095422,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zcl_666/article/details/54095422,BlogCommendFromQuerySearch_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/zcl_666/article/details/54095422" target="_blank" title="<em>MAC</em>的<em>JDK</em>安装<em>路径</em>记录，MyEclipse切换<em>JDK</em>版本">
+					<em>MAC</em>的<em>JDK</em>安装<em>路径</em>记录，MyEclipse切换<em>JDK</em>版本				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/zcl_666" target="_blank">
+						<img src="https://avatar.csdn.net/E/6/8/3_zcl_666.jpg" alt="zcl_666" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">zcl_666</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">01-05</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1175</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/zcl_666/article/details/54095422" target="_blank" >
+						MyEclipse开发遇到JDK版本过高问题导致报错，需要切换jdk版本，想卸载掉jdk1.8装jdk1.6（存在高版本不能安装低版本），可是却又找不到jdk的安装路径，找到路径后惊奇的发现原来我什么...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/zcl_666/article/details/54095422">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/cloud/cloud19.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/francisshi/article/details/40072027,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/francisshi/article/details/40072027,BlogCommendFromQuerySearch_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/francisshi/article/details/40072027" target="_blank" title="<em>mac</em>下查看jre<em>路径</em>">
+					<em>mac</em>下查看jre<em>路径</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/francisshi" target="_blank">
+						<img src="https://avatar.csdn.net/B/B/D/3_francisshi.jpg" alt="francisshi" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">francisshi</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">10-14</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						8653</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/francisshi/article/details/40072027" target="_blank" >
+						在Finder中command+shift+G
+选择/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home					</a>
+				</p>
+		</div>
+				</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/yyhcsfy">
+                <img src="https://avatar.csdn.net/6/3/3/3_yyhcsfy.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/yyhcsfy" target="_blank" class="text-truncate" id="uid">风语落尘</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/yyhcsfy/article/details/81488994" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="11">
+                        <dt><a href="https://blog.csdn.net/yyhcsfy?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/yyhcsfy?t=1"><span class="count">11</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="2">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">2</span></dd>
+        </dl>
+        <dl class="text-center" title="3">
+            <dt>喜欢</dt>
+            <dd><span class="count">3</span></dd>
+        </dl>
+        <dl class="text-center" title="2">
+            <dt>评论</dt>
+            <dd><span class="count">2</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="2级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-2"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="24390">
+                2万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="377">
+                377            </dd>
+        </dl>
+        <dl title="232576">
+            <dt>排名：</dt>
+            <dd>23万+</dd>
+        </dl>
+    </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/yyhcsfy/article/details/80772476" target="_blank">dubbo monitor 2.6 安装与搭建</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/yyhcsfy/article/details/80772407" target="_blank">dubbo admin 2.6 安装与搭建 - 待续</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/yyhcsfy/article/details/80772333" target="_blank">Unregistering JMX-exposed beans on shutdown</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/yyhcsfy/article/details/80458759" target="_blank">数据库（分库分表）中间件对比（转）</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/yyhcsfy/article/details/80413315" target="_blank">数据结构与算法系列 目录（转）</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/2401901">
+                    eclipse                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/2410717">
+                    Oracle                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/2411045">
+                    java                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/2735683">
+                    ssh                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/2874417">
+                    excel                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/7383728">
+                    Nginx                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/7391236">
+                    Android学习                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/7681706">
+                    Java设计模式                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/7691636">
+                    数据库                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/7750458">
+                    Spring boot                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/7750469">
+                    dubbo                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/category/7916295">
+                    Mac                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/month/2015/02">
+                    2015年2月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/month/2014/11">
+                    2014年11月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/month/2014/09">
+                    2014年9月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/month/2014/08">
+                    2014年8月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/yyhcsfy/article/month/2014/07">
+                    2014年7月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/yyhcsfy/article/details/40819147">Eclipse中tomcat不识别web项目，导致无法部署运行的解决方法</a>
+					<p class="read">阅读量：<span>7437</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/yyhcsfy/article/details/38555399">Target runtime jdk is not defined 项目上红叉报错解决方法</a>
+					<p class="read">阅读量：<span>5755</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/yyhcsfy/article/details/39101101">switch case语句：从匹配处顺序执行，直到遇到break或结束</a>
+					<p class="read">阅读量：<span>3576</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/yyhcsfy/article/details/78980968">Linux 安装Nginx 1.12.2</a>
+					<p class="read">阅读量：<span>1230</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/yyhcsfy/article/details/80772407">dubbo admin 2.6 安装与搭建 - 待续</a>
+					<p class="read">阅读量：<span>967</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    <div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/yyhcsfy/article/details/80772407#comments">dubbo admin 2.6 安...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/u012935820" class="user-name" target="_blank">u012935820</a>：新版admin是采用的springboot搭建的，固然已不是其它的实现方式了,可以打包给docke...                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/yyhcsfy/article/details/78980968#comments">Linux 安装Nginx 1.1...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/qq924795111" class="user-name" target="_blank">qq924795111</a>：感谢                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/avneunkwb.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "Mac查找JDK路径";
+    var ChannelId = 12;
+    var articleId = "81488994";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/yyhcsfy/article/details/81488994";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["mac","\u67e5\u627e","jdk","\u8def\u5f84"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"Mac查找JDK路径");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-73eea35575.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+</html>

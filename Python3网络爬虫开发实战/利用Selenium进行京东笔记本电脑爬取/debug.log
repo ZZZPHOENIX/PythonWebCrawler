@@ -1,0 +1,324 @@
+[0829/084132.302:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084132.306:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084132.307:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084132.308:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084132.309:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084132.315:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084132.316:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084132.316:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084132.318:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084132.318:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084132.520:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084132.521:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084234.275:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084234.277:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084234.278:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084234.279:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084234.285:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084234.292:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084234.293:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084234.293:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084234.296:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084234.296:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084234.574:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084234.575:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084256.953:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084256.955:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084256.956:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084256.957:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084256.958:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084256.964:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084256.965:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084256.965:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084256.967:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084256.967:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084257.213:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084257.215:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084259.925:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084259.926:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084259.928:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084259.928:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084259.929:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084259.952:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084259.953:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084259.953:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084259.955:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084259.955:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084300.163:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084300.164:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084300.165:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084300.166:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084300.167:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084300.177:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084300.178:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084300.178:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084300.180:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084300.180:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084300.290:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084300.291:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084300.456:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084300.457:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084309.150:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084309.151:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084309.152:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084309.153:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084309.154:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084309.158:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084309.159:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084309.159:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084309.162:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084309.162:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084309.379:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084309.380:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084314.378:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084314.380:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084314.381:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084314.382:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084314.383:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084314.390:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084314.391:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084314.391:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084314.394:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084314.394:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084314.793:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084314.794:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084318.177:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084318.178:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084318.180:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084318.180:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084318.181:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084318.187:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084318.188:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084318.189:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084318.191:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084318.191:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084318.464:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084318.465:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.124:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.125:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084319.126:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.127:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084319.128:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.149:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.150:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084319.150:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084319.152:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.152:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.393:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084319.394:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.639:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.640:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084319.641:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.642:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084319.643:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.648:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.649:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084319.649:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084319.651:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.651:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084319.911:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084319.912:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.543:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.544:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084320.545:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.546:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084320.547:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.583:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.586:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084320.586:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084320.590:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.590:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.730:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.731:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084320.732:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.733:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084320.734:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.740:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.741:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084320.741:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084320.744:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.744:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084320.872:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084320.875:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084321.105:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084321.106:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084321.977:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084321.978:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084321.979:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084321.979:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084321.981:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084321.996:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084321.997:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084321.997:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084322.000:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084322.000:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084322.263:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084322.264:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.194:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.195:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084323.196:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.197:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084323.198:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.216:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.217:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084323.217:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084323.219:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.219:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.519:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084323.520:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.833:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.835:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084323.836:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.836:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084323.837:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.842:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.843:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084323.843:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084323.845:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084323.845:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084324.058:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084324.059:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084326.986:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084326.987:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084326.988:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084326.989:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084326.990:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084326.997:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084326.998:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084326.998:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084327.001:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084327.002:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084327.113:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084327.114:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084327.115:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084327.115:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084327.116:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084327.130:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084327.131:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084327.131:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084327.134:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084327.134:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084327.234:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084327.235:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084327.397:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084327.398:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084329.350:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084329.351:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084329.352:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084329.353:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084329.354:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084329.359:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084329.360:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084329.360:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084329.362:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084329.362:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084329.534:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084329.535:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.406:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.408:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084331.409:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.409:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084331.411:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.431:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.432:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084331.432:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084331.435:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.435:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.589:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084331.590:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.844:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.845:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084331.846:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.847:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084331.848:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.854:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.854:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084331.855:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084331.857:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.857:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084331.999:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084332.000:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084332.612:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084332.613:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084332.614:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084332.615:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084332.615:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084332.620:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084332.621:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084332.621:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084332.623:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084332.623:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084332.766:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084332.767:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084333.441:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084333.442:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084333.443:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084333.444:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084333.445:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084333.450:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084333.451:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084333.451:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084333.453:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084333.453:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084333.594:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084333.595:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084335.823:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084335.824:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084335.825:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084335.826:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084335.827:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084335.837:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084335.838:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084335.838:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084335.841:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084335.841:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084335.997:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084335.998:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084338.496:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084338.497:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084338.498:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084338.499:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084338.500:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084338.505:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084338.505:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084338.505:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084338.508:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084338.508:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084338.642:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084338.643:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084340.284:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084340.286:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084340.287:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084340.288:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084340.289:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084340.295:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084340.296:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084340.296:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084340.298:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084340.298:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084340.437:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084340.438:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084343.833:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084343.834:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084343.835:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084343.836:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084343.837:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084343.842:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084343.843:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084343.843:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084343.845:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084343.845:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084343.971:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084343.972:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084345.224:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084345.225:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084345.226:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084345.227:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084345.228:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084345.232:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084345.232:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084345.233:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084345.235:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084345.235:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll
+[0829/084345.359:WARNING:pe_image_reader.cc(114)] unexpected crashpad info signature 0x0, version 0 in C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\chrome.exe
+[0829/084345.360:WARNING:pe_image_reader.cc(308)] invalid e_magic in dos header of C:\Users\ZhangWP\AppData\Local\Google\Chrome\Application\69.0.3486.0\chrome_watcher.dll

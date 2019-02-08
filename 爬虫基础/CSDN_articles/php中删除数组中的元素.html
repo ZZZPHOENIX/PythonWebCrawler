@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/weixin_38676357/article/details/81488174"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="PHP 删除数组中的元素有多种方式，以下列举几种常用的方式。
+
+删除数据中的一个元素
+
+如果你想删除数组中的一个元素，你可以使用 unset() 或 array_splice() 方法。
+
+如果你知道数组元素的值(value)，但不知道键(key)，你可以使用 array_search() 来获取键(key)。
+
+unset() 方法
+
+注意如果你使用 unset() 方法，它是不会改变其他的键(..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>php中删除数组中的元素 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-blackboard/skin-blackboard-1340d63bd5.min.css">
+
+    <script type="text/javascript">
+        var username = "weixin_38676357";
+        var blog_address = "https://blog.csdn.net/weixin_38676357";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/weixin_38676357/article/details/81488174"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin-blackboard";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/weixin_38676357">大头大头编码不愁...</a></span>
+			<i>></i>
+			<span>php中删除数组中的元素</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">php中删除数组中的元素</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 20:41:34</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：2</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <p>PHP 删除数组中的元素有多种方式，以下列举几种常用的方式。</p>
+
+<h3>删除数据中的一个元素</h3>
+
+<p>如果你想删除数组中的一个元素，你可以使用 unset() 或 <a href="http://www.runoob.com/php/func-array-splice.html" rel="nofollow">array_splice()</a> 方法。</p>
+
+<p>如果你知道数组元素的值(value)，但不知道键(key)，你可以使用 <a href="http://www.runoob.com/php/func-array-search.html" rel="nofollow">array_search()</a> 来获取键(key)。</p>
+
+<p><strong>unset() 方法</strong></p>
+
+<p>注意如果你使用 unset() 方法，它是不会改变其他的键(key)，如果你想对其他的键(key)重新整理排序，可以使用 <a href="http://www.runoob.com/php/func-array-values.html" rel="nofollow">array_values()</a>。</p>
+
+<pre>
+&lt;?php
+$array = array(0 =&gt; "a", 1 =&gt; "b", 2 =&gt; "c");
+unset($array[1]);
+           //↑ 你要删除的数组元素值的键
+print_r($array);
+?&gt;</pre>
+
+<p>输出结果：</p>
+
+<pre>
+Array (
+    [0] =&gt; a
+    [2] =&gt; c
+)</pre>
+
+<p><strong>array_splice() 方法</strong></p>
+
+<p>如果你使用 <a href="http://www.runoob.com/php/func-array-splice.html" rel="nofollow">array_splice()</a> 方法，数组的键会自动重新建立索引， 但对关联性的数组不起作用，需要使用 <a href="http://www.runoob.com/php/func-array-values.html" rel="nofollow">array_values()</a> 将键转换为数字键。</p>
+
+<pre>
+&lt;?php
+$array = array(0 =&gt; "a", 1 =&gt; "b", 2 =&gt; "c");
+array_splice($array, 1, 1);
+                   //↑ Offset which you want to delete
+print_r($array);
+?&gt;</pre>
+
+<p>输出结果：</p>
+
+<pre>
+Array
+(
+    [0] =&gt; a
+    [1] =&gt; c
+)</pre>
+
+<p><a href="http://www.runoob.com/php/func-array-splice.html" rel="nofollow">array_splice()</a> 在释放数组指定元素上与 unset() 函数取到相同作用。</p>
+
+<h3>删除数组中的多个元素</h3>
+
+<p>如果你想删除数组中的多个元素就不能使用吗 unset() 或 <a href="http://www.runoob.com/php/func-array-splice.html" rel="nofollow">array_splice()</a> 函数了，你需要使用 <a href="http://www.runoob.com/php/func-array-diff.html" rel="nofollow">array_diff()</a> 或 <a href="http://www.runoob.com/php/func-array-diff-key.html" rel="nofollow">array_diff_key()</a> 方法，使用该方法需要知道要删除的键(key)或值(value)。</p>
+
+<p><strong>array_diff() 方法</strong></p>
+
+<p>如果你知道要删除的数组元素, 你可以使用 array_diff()。</p>
+
+<pre>
+&lt;?php
+$array = array(0 =&gt; "a", 1 =&gt; "b", 2 =&gt; "c");
+$array = array_diff($array, ["a", "c"]);
+                          //└────────┘→你要删除的元素
+print_r($array );
+?&gt;</pre>
+
+<p>输出结果为：</p>
+
+<pre>
+Array
+(
+    [1] =&gt; b
+)</pre>
+
+<p><strong>array_diff_key() 方法</strong></p>
+
+<p>如果你知道要删除的数组元素的键(key), 你可以使用 array_diff_key()。你需要在函数的第二个参数的键值位置输入要删除的键，值不需要，可随意。</p>
+
+<pre>
+&lt;?php
+$array = array(0 =&gt; "a", 1 =&gt; "b", 2 =&gt; "c");
+$array = array_diff_key($array, [0 =&gt; "xy", "2" =&gt; "xy"]);
+                               //↑           ↑ 你要删除的数组键
+print_r($array);
+?&gt;</pre>
+
+<p>输出结果为：</p>
+
+<pre>
+Array (
+    [1] =&gt; b
+)</pre>            </div>
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/weixin_38676357/article/details/81488174,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/weixin_38676357/article/details/81488174,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/weixin_38676357/article/details/81488174#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/huoyin/article/details/7632080,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/huoyin/article/details/7632080,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/huoyin/article/details/7632080" target="_blank" title="<em>php</em>如何从<em>数组</em>中<em>删除</em>一个<em>元素</em>">
+					<em>php</em>如何从<em>数组</em>中<em>删除</em>一个<em>元素</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/huoyin" target="_blank">
+						<img src="https://avatar.csdn.net/A/A/5/3_huoyin.jpg" alt="huoyin" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">huoyin</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-04</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						6689</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/huoyin/article/details/7632080" target="_blank" >
+						（原文：http://stackoverflow.com/questions/369602/how-to-delete-an-element-from-an-array-in-php）
+
+
+
+...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zgmu/article/details/53321966,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zgmu/article/details/53321966,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/zgmu/article/details/53321966" target="_blank" title="<em>PHP</em><em>删除</em><em>数组</em>中特定<em>元素</em>的两种方法">
+					<em>PHP</em><em>删除</em><em>数组</em>中特定<em>元素</em>的两种方法				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/zgmu" target="_blank">
+						<img src="https://avatar.csdn.net/F/7/F/3_zgmu.jpg" alt="zgmu" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">zgmu</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">11-24</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2422</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/zgmu/article/details/53321966" target="_blank" >
+						方法一：
+
+输出：
+array(4) { [0]=&gt; int(1) [1]=&gt; int(5) [2]=&gt; int(7)					</a>
+				</p>
+		</div>
+				</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_31879707/article/details/54893446,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_31879707/article/details/54893446,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_31879707/article/details/54893446" target="_blank" title="<em>php</em><em>删除</em><em>数组</em>中某<em>元素</em>">
+					<em>php</em><em>删除</em><em>数组</em>中某<em>元素</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_31879707" target="_blank">
+						<img src="https://avatar.csdn.net/F/9/7/3_qq_31879707.jpg" alt="qq_31879707" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_31879707</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-06</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2752</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_31879707/article/details/54893446" target="_blank" >
+						方法一：
+复制代码 代码如下:
+
+
+$arr1 = array(1,3, 5,7,8);
+$key = array_search(3, $arr1);
+if ($key !== false...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/joyksk/article/details/73496719,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/joyksk/article/details/73496719,BlogCommendFromQuerySearch_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/joyksk/article/details/73496719" target="_blank" title="<em>PHP</em><em>删除</em><em>数组</em>中指定下标的<em>元素</em>">
+					<em>PHP</em><em>删除</em><em>数组</em>中指定下标的<em>元素</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/joyksk" target="_blank">
+						<img src="https://avatar.csdn.net/9/A/1/3_joyksk.jpg" alt="joyksk" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">joyksk</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-20</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						6226</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/joyksk/article/details/73496719" target="_blank" >
+						1、前面有讲数组作为堆栈和队列时的删除元素操作，即按顺序有规律的进行删除。那么，如果需要从数组的中间位置删除某个元素该如何操作呢？就需要我们今天要讲的unset()函数了。
+2、unset()函数允...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u011250882/article/details/48626053,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u011250882/article/details/48626053,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u011250882/article/details/48626053" target="_blank" title="<em>php</em><em>删除</em><em>数组</em>中指定值的<em>元素</em>的几种方法">
+					<em>php</em><em>删除</em><em>数组</em>中指定值的<em>元素</em>的几种方法				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u011250882" target="_blank">
+						<img src="https://avatar.csdn.net/4/9/C/3_u011250882.jpg" alt="u011250882" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u011250882</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">09-21</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						3.3万</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u011250882/article/details/48626053" target="_blank" >
+						测试数组如下：
+//这是一个测试数组
+$testArr = array(
+	't' =&gt; 'qq',
+	'q' =&gt; 'qq',
+	'b' =&gt; 'baidu',
+	'a' =&gt; 'ali',
+	'...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Jeanphorn/article/details/50767479,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Jeanphorn/article/details/50767479,BlogCommendFromQuerySearch_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Jeanphorn/article/details/50767479" target="_blank" title="<em>PHP</em> <em>删除</em><em>数组</em>第一个<em>元素</em>和最后一个<em>元素</em>">
+					<em>PHP</em> <em>删除</em><em>数组</em>第一个<em>元素</em>和最后一个<em>元素</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Jeanphorn" target="_blank">
+						<img src="https://avatar.csdn.net/2/A/7/3_jeanphorn.jpg" alt="Jeanphorn" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Jeanphorn</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-29</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						7155</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Jeanphorn/article/details/50767479" target="_blank" >
+						1. array_shift()函数　　删除数组中第一个元素，并返回该元素的值。如果数组为空则返回null。  
+　　示例：...					</a>
+				</p>
+		</div>
+				</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Complicated19921001/article/details/70136203,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Complicated19921001/article/details/70136203,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Complicated19921001/article/details/70136203" target="_blank" title="<em>php</em><em>删除</em><em>数组</em>中指定<em>元素</em>,自定义函数">
+					<em>php</em><em>删除</em><em>数组</em>中指定<em>元素</em>,自定义函数				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Complicated19921001" target="_blank">
+						<img src="https://avatar.csdn.net/7/3/1/3_complicated19921001.jpg" alt="Complicated19921001" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Complicated19921001</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-11</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						213</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Complicated19921001/article/details/70136203" target="_blank" >
+						php的数组比较好，既有C的风格（可以[]索引），又有java的追加新元素。
+索引起来也兼具了链表和字典的特点，用起来很方便。
+通常用unset()方法删除数组元素，但是这种方式很郁闷的是，删除完...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/netuser1937/article/details/76444235,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/netuser1937/article/details/76444235,BlogCommendFromQuerySearch_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/netuser1937/article/details/76444235" target="_blank" title="<em>PHP</em>函数之<em>删除</em>两个<em>数组</em>中相同的<em>元素</em>">
+					<em>PHP</em>函数之<em>删除</em>两个<em>数组</em>中相同的<em>元素</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/netuser1937" target="_blank">
+						<img src="https://avatar.csdn.net/2/6/5/3_netuser1937.jpg" alt="netuser1937" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">netuser1937</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">07-31</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						3017</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/netuser1937/article/details/76444235" target="_blank" >
+						PHP函数之删除两个数组中相同的元素					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/fei003/article/details/73163617,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/fei003/article/details/73163617,BlogCommendFromQuerySearch_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/fei003/article/details/73163617" target="_blank" title="<em>php</em><em>删除</em><em>数组</em>最后一个<em>元素</em>和第一个<em>元素</em>，array_shift(),array_pop()的用法">
+					<em>php</em><em>删除</em><em>数组</em>最后一个<em>元素</em>和第一个<em>元素</em>，array_shift(),array_pop()的用法				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/fei003" target="_blank">
+						<img src="https://avatar.csdn.net/0/A/3/3_fei003.jpg" alt="fei003" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">fei003</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-13</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						851</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/fei003/article/details/73163617" target="_blank" >
+						转载自官网
+http://www.php.net/manual/zh/
+
+array_pop — 弹出数组最后一个单元（出栈）
+弹出并返回 array 数组的最后一个单元，并将数组 array...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/donglynn/article/details/50273297,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/donglynn/article/details/50273297,BlogCommendFromQuerySearch_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/donglynn/article/details/50273297" target="_blank" title="<em>php</em> <em>删除</em>一维<em>数组</em>中某一个值<em>元素</em>的操作">
+					<em>php</em> <em>删除</em>一维<em>数组</em>中某一个值<em>元素</em>的操作				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/donglynn" target="_blank">
+						<img src="https://avatar.csdn.net/B/C/4/3_donglynn.jpg" alt="donglynn" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">donglynn</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-12</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						3.4万</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/donglynn/article/details/50273297" target="_blank" >
+						1.   自己写for循环从array里去掉$tmp这个元素的值					</a>
+				</p>
+		</div>
+				</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/weixin_38676357">
+                <img src="https://avatar.csdn.net/B/8/1/3_weixin_38676357.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/weixin_38676357" target="_blank" class="text-truncate" id="uid">大头大头编码不愁</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/weixin_38676357/article/details/81488174" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="26">
+                        <dt><a href="https://blog.csdn.net/weixin_38676357?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/weixin_38676357?t=1"><span class="count">26</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="0">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">0</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>喜欢</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>评论</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="2级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-2"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="377">
+                377            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="265">
+                265            </dd>
+        </dl>
+        <dl title="1592752">
+            <dt>排名：</dt>
+            <dd>159万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weixin_38676357/article/details/81487804" target="_blank">PHP 基础知识总结</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weixin_38676357/article/details/81480067" target="_blank">Git和SVN的比较</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weixin_38676357/article/details/81476889" target="_blank">Git回滚操作的总结</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weixin_38676357/article/details/81455270" target="_blank">Git的撤销、回滚操作</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/weixin_38676357/article/details/81451644" target="_blank">PHP中的错误处理</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/weixin_38676357/article/category/7831638">
+                    PHP                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/weixin_38676357/article/category/7831640">
+                    Linux                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/weixin_38676357/article/category/7832607">
+                    Redis                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/weixin_38676357/article/category/7838299">
+                    Git                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/weixin_38676357/article/category/7888445">
+                    正则表达式                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/weixin_38676357/article/category/7902618">
+                    消息队列                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weixin_38676357/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weixin_38676357/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/weixin_38676357/article/details/81382496">在什么场合里你会用到消息队列？</a>
+					<p class="read">阅读量：<span>52</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weixin_38676357/article/details/81382557">php正则表达式入门和基本应用</a>
+					<p class="read">阅读量：<span>44</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weixin_38676357/article/details/81103041">hosts文件</a>
+					<p class="read">阅读量：<span>30</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weixin_38676357/article/details/81189720">PHP数组的函数</a>
+					<p class="read">阅读量：<span>28</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/weixin_38676357/article/details/81185830">php数组</a>
+					<p class="read">阅读量：<span>20</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/mhzzpwgzj.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "php中删除数组中的元素";
+    var ChannelId = 16;
+    var articleId = "81488174";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/weixin_38676357/article/details/81488174";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = 'atom-one-dark';
+    var highlight = ["php","\u5220\u9664","\u6570\u7ec4","\u5143\u7d20"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"php中删除数组中的元素");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-359ea0cc8d.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+</html>

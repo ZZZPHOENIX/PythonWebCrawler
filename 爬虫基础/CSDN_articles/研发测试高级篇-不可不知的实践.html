@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/huazhongkejidaxuezpp/article/details/81463280"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="一、测试策略制定的出发点
+
+            测试策略可谓是质量保证的核心，关乎测试的深度和广度、效率提升、风险控制、质量运营等等方面。如何设计出符合业务需求，质量需求的测试策略，最能体现测试人员的功力了。设计测试策略可以从以下方面考虑深入下去：
+
+业务需求
+	真实的用户数据
+	技术实现方案
+	自身经验
+ps:考虑测试的内容和方式时, 都应当以高产出投入比为最终目标,最大化地利用现有资源排除..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>研发测试高级篇-不可不知的实践 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-8195ccbe2d.min.css">
+
+    <script type="text/javascript">
+        var username = "wodeyijia911";
+        var blog_address = "https://blog.csdn.net/huazhongkejidaxuezpp";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/huazhongkejidaxuezpp/article/details/81463280"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin3-template";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/huazhongkejidaxuezpp">我的E家</a></span>
+			<i>></i>
+			<span>研发测试高级篇-不可不知的实践</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">研发测试高级篇-不可不知的实践</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 20:40:55</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：2</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <h1>一、测试策略制定的出发点</h1>
+
+<p>            测试策略可谓是质量保证的核心，关乎测试的深度和广度、效率提升、风险控制、质量运营等等方面。如何设计出符合业务需求，质量需求的测试策略，最能体现测试人员的功力了。设计测试策略可以从以下方面考虑深入下去：</p>
+
+<ul><li>业务需求</li>
+	<li>真实的用户数据</li>
+	<li>技术实现方案</li>
+	<li>自身经验</li>
+</ul><p>ps:考虑测试的内容和方式时, 都应当以高产出投入比为最终目标,最大化地利用现有资源排除潜在的问题</p>
+
+<h1>二、测试角色理解</h1>
+
+<p>             一般技术项目团队中会有明确的角色划分：产品人员、UI设计人员、开发人员、测试人员、运营人员等等。测试人员在整个项目团队中究竟应该如何最大限度发挥自己的价值，给整个团队带来产出呢？这涉及测试人员应该如何理解自己的团队角色，以及如何给自己定位了。</p>
+
+<p>            《从菜鸟到测试架构师 一个测试工程师的成长日记》对测试角色大致有如下的描述：</p>
+
+<p>测试 就像河流中一张精心编织的网,软件的功能和流程就像河流中的鱼,要通过这张网的鱼必 须足够优秀才能最终存活。正是这种“优胜劣汰”的思想,保证软件只有通过了测试这张 网才得以与用户见面。</p>
+
+<p>             不过，个人认为： 测试更像是饲养员，让弱不禁风的小鱼，逐渐长成大鱼，来个鲤鱼跃龙门：</p>
+
+<ul><li>从合作角度：补充了设计，产品，开发等等人员的思维短板；</li>
+	<li>从产品角度：产品体验官，关心产品带来的实际价值，问题解决程度</li>
+	<li>从用户角度：像一个演员一样，充分去体验不同用户角色 与 产品之间的互动；第一位用户</li>
+</ul><p></p>
+
+<h1>三、测试用例设计</h1>
+
+<p>             测试用例的设计与执行关乎整个产品的质量，而用例设计阶段更是万里长征第一步了。应该以什么样的心态来设计测试用例，以确保用例的完整性和覆盖度呢</p>
+
+<p>               这里最核心的一条原则：把设计测试用例的过程当做是体验产品的过程。</p>
+
+<p>               在用例设计阶段，通常手头有的只是需求文档、UI设计图、偶尔会有技术的具体实现方案等等。这些”死“的资料在经过测试用例设计后，需要串联起来，变成活生生的产品。 这才是用例设计的至高境界。</p>
+
+<p>             当你设计用例时，不仅仅需要绞尽脑汁想各种场景，交互，更要在头脑中反复演练产品的使用与交互、结果呈现。这其中应该包括以下层面的考虑：</p>
+
+<ul><li>功能层面</li>
+	<li>性能层面</li>
+	<li>易用性层面</li>
+	<li>交互层面</li>
+	<li>数据层面</li>
+	<li>边缘场景层面</li>
+	<li>可测性层面</li>
+</ul><p></p>
+
+<p>               最终，当测试用例设计完成的时候，以需求文档、UI设计图为基础，在脑海中会产生一个”活生生“的产品，而且这个产品已经被你使用的若干次了。</p>
+
+<h1>四、和开发最接近的测试</h1>
+
+<p>           单元测试是和开发最接近的一种测试。开发人员编写单元测试用例并执行,验证单元 模块是否得出预期的结果。在敏捷开发模式中,有一种流行的开发模式叫做测试驱动开发，期望先写好单元测试用例，代码开发以通过单元测试为目标。</p>
+
+<p>            在实际的项目中，实际执行单元测试的团队并不多，其原因大致可以理解：开发人员忙着开发，测试人员又无法独立完成。可谓人力资源紧张，而且又无法产生如集成测试”立竿见影“的效果。故而，大多团队走了以下改良版"单元测试"：</p>
+
+<ul><li>测试人员设计测试用例，开发人员编写单测代码(个人理解，这种要么是测试人力十分充足，要么是粒度比较粗了，不然落地执行及效果恐怕要有待考量)</li>
+	<li>核心方法提供debug接口，方便调试(代替直接写代码，及时有问题，排查起来比较繁琐)</li>
+	<li>只和API直接打交道的接口进行测试(属于比较粗粒度的测试了，覆盖上层方法)</li>
+</ul><p></p>
+
+<p></p>
+
+<p>            具体选择什么还要看项目的具体需求和人力资源了。没有最好的实践，只有在特定场景下最佳实践。</p>
+
+<p>            值得一提的是，在时间紧，任务重的项目场景下，一部分故障往往来源与边缘场景未覆盖。这种故障其实属于隐藏十分深的故障，而且只要涉及上线，就几乎不可能100%覆盖所有回归场景(以下除外：回归场景极少；测试人员资源富足；改动影响范围可以100%预估)。此时如果能用粒度比较细的单元测试覆盖边缘场景，也不失是一种规避风险的回归方法了。     </p>
+
+<h1>五、什么是软件质量</h1>
+
+<p>              看到这个问题，大脑中往往在搜索比较权威的解答。例如，下面的一种解答：</p>
+
+<p>软件质量包括两个相关但截然不同的概念——功能性质量和结 构性质量。功能性质量反映的是软件是否按照设计实现并满足相应功 能性需求。结构性质量反映的是软件是否满足相关的非功能性 需求，包括如下方面：</p>
+
+<ul><li>正确性 反映实现的功能达到设计规范并满足用户需求的程度</li>
+	<li>可靠性 衡量在规定的时间和条件下,系统维持其性能水准的程度</li>
+	<li>易用性 反映用户掌握软件操作及理解软件事务所需付出的时间及努力程 度</li>
+	<li>可迁移性 衡量系统版本升级的容易程度</li>
+	<li>效率 衡量系统执行某功能所需的资源和时间有效程度</li>
+	<li>可维护性、可扩展性 反映当环境改变或出现错误时, 执行修改或修复的难易程度</li>
+	<li>健壮性 衡量系统在接受异常或错误输入后能否返回正确的提示信息且 不影响正确运作的指标</li>
+	<li>安全性 衡量系统对攻击性或不当的访问的抵御能力</li>
+</ul><p> </p>
+
+<p> </p>
+
+<p></p>
+
+<p> </p>
+
+<p>          以上内容当然是正确的。但在把控质量时，还应该牢记一点原则： 质量是相对的，不是绝对的。上线的产品/软件质量，其相对性体现在：</p>
+
+<ul><li>在某些使用场景下的质量，质量是有范围的</li>
+	<li>质量是在某段时间内的质量，即是在时间范围内的质量</li>
+</ul><p></p>
+
+<p></p>
+
+<p></p>
+
+<h1>六、思维的局限性</h1>
+
+<p>         前面说过，团队中的成员角色划分明确，以便各司其职，其实从合作的层面说，可以理解为互相弥补思维局限性的安排吧。单单从技术层面来说的话，测试人员的作用可以理解为对开发人员思维局限性的弥补。举例来说一种极端场景，假如一个开发人员的思维十分严谨，毫无纰漏，那么就不会出现不符合需求的实现方面的bug了。正因为这种开发人员可遇而不可求，所以测试人员往往能发现实现方面的问题了。</p>
+
+<p>        对于我们每一个个体而言，思维的边际就是思维壁垒。除非不思考，壁垒便不存在。一旦思考，壁垒便应运而生。</p>
+
+<p>        从思维局限性来说，测试人员实现了对团队其他成员思维局限性的弥补，因而可以测试出不同类型的问题。但反过来想，测试人员自己又受思维局限性的限制，所以，好好想想：</p>
+
+<p>        测试人员应该如何弥补自身的思维局限呢？</p>
+
+<p></p>
+
+<p></p>            </div>
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/huazhongkejidaxuezpp/article/details/81463280,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/huazhongkejidaxuezpp/article/details/81463280,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+<a id="chatqa"></a>
+<div class="answer-box d-flex">
+  <div class="img-qrcode-box">
+    <img src="http://images.gitbook.cn/71ebd750-7ade-11e8-aa5b-9d0263686a6a" alt="">
+    <p>扫码向博主提问</p>
+  </div>
+
+      <a href="https://mp.csdn.net/ask" class="btn btn-sm btn-link-blue btn-op-answer" target="_blank">去开通我的Chat快问</a>
+    
+  <div class="content-box  d-flex flex-column justify-content-center">
+    <div class="info-box d-flex">
+      <img src="https://avatar.csdn.net/0/A/6/3_wodeyijia911.jpg" alt="" class="avatar-pic">
+      <p class="name d-flex align-items-center usernick">多则惑少则明</p>
+            <p class="flag d-flex align-items-center">
+          <svg class="icon" aria-hidden="true">
+              <use xlink:href="#csdnc-blogexpert"></use>
+          </svg>
+          博客专家
+      </p>
+          </div>
+    <div class="remark text-truncate">
+      非学，无以致疑；非问，无以广识    </div>
+      </div>
+</div>
+
+		<div class="article-bar-bottom">
+								<div class="tags-box">
+			<span class="label">个人分类：</span>
+						<a class="tag-link" href="https://blog.csdn.net/wodeyijia911/article/category/1923711"  target="_blank">测试系列						<a class="tag-link" href="https://blog.csdn.net/wodeyijia911/article/category/6840950"  target="_blank">团队建设						</a>
+		</div>
+								<div class="tags-box hot-word">
+			<span class="label">相关热词：</span>
+						<a class="tag-link" href="https://blog.csdn.net/lihongzhai/article/details/73825647" target="_blank">
+			研发			</a>
+						<a class="tag-link" href="https://blog.csdn.net/xiaodingqq/article/details/80037896" target="_blank">
+			十年研发研发经验			</a>
+						<a class="tag-link" href="https://blog.csdn.net/cnsecs/article/details/7043067" target="_blank">
+			串行研发并行研发			</a>
+						<a class="tag-link" href="https://blog.csdn.net/meteor2520/article/details/17505587" target="_blank">
+			研发研发阶段tr			</a>
+						<a class="tag-link" href="https://blog.csdn.net/frankML/article/details/71085956" target="_blank">
+			算法研发研发步骤			</a>
+					</div>
+			</div>
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/huazhongkejidaxuezpp/article/details/81463280#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/wodeyijia911/article/details/81430518,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/wodeyijia911/article/details/81430518,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/wodeyijia911/article/details/81430518" target="_blank" title="<em>研发</em><em>测试</em><em>高级</em>篇-<em>不可</em><em>不知</em>的问题">
+					<em>研发</em><em>测试</em><em>高级</em>篇-<em>不可</em><em>不知</em>的问题				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/wodeyijia911" target="_blank">
+						<img src="https://avatar.csdn.net/0/A/6/3_wodeyijia911.jpg" alt="wodeyijia911" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">wodeyijia911</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-05</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						158</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/wodeyijia911/article/details/81430518" target="_blank" >
+						一、测试团队的弊病
+
+ 1、片面强调流程
+
+           流程能解决一部分问题，不能解决所有问题，还是应该找到根本的解决方案。
+
+目前越来越多的项目组，在业务比较成熟了以后，为了“减少”/&amp;q...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/wodeyijia911/article/details/81430518">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/engineering/engineering4.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/luckysiesteven/article/details/56505137,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/luckysiesteven/article/details/56505137,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/luckysiesteven/article/details/56505137" target="_blank" title="《你<em>不可</em><em>不知</em>的人性》刘墉 读书笔记（一）">
+					《你<em>不可</em><em>不知</em>的人性》刘墉 读书笔记（一）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/luckysiesteven" target="_blank">
+						<img src="https://avatar.csdn.net/8/F/A/3_luckysiesteven.jpg" alt="luckysiesteven" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">luckysiesteven</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-22</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2236</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/luckysiesteven/article/details/56505137" target="_blank" >
+						2017年，重拾阅读后读完的第一本书。由于脑容量太小，故此写下读书笔记。
+此书是在潘家园，两块钱淘来的。九州图书出版社1999年一版一印。略有脱页。分十章，共十万字。每章以小故事为引，之后以故事为例，...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/luckysiesteven/article/details/56505137">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/other/other26.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+					<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/xiaojiqiren_1/9625826,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/xiaojiqiren_1/9625826,BlogCommendFromQuerySearch_2"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/xiaojiqiren_1/9625826" target="_blank">
+						你<em>不可</em><em>不知</em>的50个数学知识（英）Tony Crilly.pdf					</a>
+				</h4>
+				<p>
+					<span class="data">2016年09月09日 </span>
+					<span class="size">17.88MB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/xiaojiqiren_1/9625826" target="_blank" strategy="BlogCommendFromQuerySearch_2">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/pdf.svg" alt="">
+				</a>
+			</div>
+		</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/songlipeng2003/article/details/1530889,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/songlipeng2003/article/details/1530889,BlogCommendFromQuerySearch_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/songlipeng2003/article/details/1530889" target="_blank" title="jmeter中文手册 第六章 构建一个<em>高级</em>web<em>测试</em>计划">
+					jmeter中文手册 第六章 构建一个<em>高级</em>web<em>测试</em>计划				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/songlipeng2003" target="_blank">
+						<img src="https://avatar.csdn.net/6/0/4/3_songlipeng2003.jpg" alt="songlipeng2003" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">songlipeng2003</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">03-16</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						3178</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/songlipeng2003/article/details/1530889" target="_blank" >
+						                        6. 构建一个高级web测试计划                                         在这章，你将学到如何创建高级测试计划 ...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/clean_water/article/details/52948053,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/clean_water/article/details/52948053,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/clean_water/article/details/52948053" target="_blank" title="过程之精益<em>研发</em><em>测试</em>">
+					过程之精益<em>研发</em><em>测试</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/clean_water" target="_blank">
+						<img src="https://avatar.csdn.net/9/D/4/3_clean_water.jpg" alt="clean_water" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">clean_water</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">10-27</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1026</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/clean_water/article/details/52948053" target="_blank" >
+						精益研发测试产出标准
+ 
+ 
+ 
+测试产出标准 1
+一．精益研发流程 2
+二．精益研发流程测试实践 4
+(1)需求阶段测试： 4
+(2)设计阶段测试: 5
+(3)开发阶段测试： 6
+(4)测试阶段测试...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/clean_water/article/details/52948053">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/engineering/engineering4.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_23385887/article/details/50068559,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_23385887/article/details/50068559,BlogCommendFromQuerySearch_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_23385887/article/details/50068559" target="_blank" title="安全渗透<em>测试</em><em>实践</em><em>高级</em>系列教程">
+					安全渗透<em>测试</em><em>实践</em><em>高级</em>系列教程				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_23385887" target="_blank">
+						<img src="https://avatar.csdn.net/5/B/1/3_qq_23385887.jpg" alt="qq_23385887" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_23385887</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">11-27</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						663</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_23385887/article/details/50068559" target="_blank" >
+						链接: 
+http://pan.baidu.com/s/1gd89W6R 密码: p59m
+ 解压密码：www.hegouvip.com
+ 部分解压密码：dishiyiqihegoumima
+...					</a>
+				</p>
+		</div>
+				</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Mr_AHao/article/details/45894431,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Mr_AHao/article/details/45894431,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Mr_AHao/article/details/45894431" target="_blank" title="《Playmaker全面<em>实践</em>教程（Input篇）》">
+					《Playmaker全面<em>实践</em>教程（Input篇）》				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Mr_AHao" target="_blank">
+						<img src="https://avatar.csdn.net/A/F/9/3_mr_ahao.jpg" alt="Mr_AHao" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Mr_AHao</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-21</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1353</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Mr_AHao/article/details/45894431" target="_blank" >
+						欢迎大家到我们团队的官网上查看此书的详细介绍，下面是链接
+《Playmaker全面实践教程（Input篇）》
+我们的宗旨是：我们只做最专业的技术传播者！为了让广大程序员花最少的时间，掌握最新的技术...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/Mr_AHao/article/details/45894431">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/game/game23.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/sallyyoung_sh/article/details/73091029,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sallyyoung_sh/article/details/73091029,BlogCommendFromQuerySearch_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/sallyyoung_sh/article/details/73091029" target="_blank" title="从神经网络说起：深度学习初学者<em>不可</em><em>不知</em>的25个术语和概念">
+					从神经网络说起：深度学习初学者<em>不可</em><em>不知</em>的25个术语和概念				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/sallyyoung_sh" target="_blank">
+						<img src="https://avatar.csdn.net/5/A/9/3_sallyyoung_sh.jpg" alt="sallyyoung_sh" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">sallyyoung_sh</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-12</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						862</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/sallyyoung_sh/article/details/73091029" target="_blank" >
+						从神经网络说起：深度学习初学者不可不知的25个术语和概念（上）
+
+ 关键词:大数据 神经网络 来源:网络整理
+ 作者:IOTER 2017-06-11 05:54
+
+
+
+
+
+人工智能...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/sallyyoung_sh/article/details/73091029">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ai/ai22.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/cloudqiu/article/details/54970093,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/cloudqiu/article/details/54970093,BlogCommendFromQuerySearch_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/cloudqiu/article/details/54970093" target="_blank" title="创业之初你<em>不可</em><em>不知</em>的融资知识">
+					创业之初你<em>不可</em><em>不知</em>的融资知识				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/cloudqiu" target="_blank">
+						<img src="https://avatar.csdn.net/9/1/1/3_cloudqiu.jpg" alt="cloudqiu" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">cloudqiu</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-10</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						698</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/cloudqiu/article/details/54970093" target="_blank" >
+						2017-01-13 
+
+
+  只从前言来看，我就很喜欢这个作者的风格。拿到手后我大概翻阅了一下，写的东西非常详尽细致。这本书我在我的分级中应该是A类的，纯粹的干货，有纲领，有细节，全面。我自己也尝试...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/cloudqiu/article/details/54970093">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/other/other27.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/cf406061841/article/details/77776185,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/cf406061841/article/details/77776185,BlogCommendFromQuerySearch_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/cf406061841/article/details/77776185" target="_blank" title="[数据库系统基础：<em>高级</em>篇(第5版)pdf">
+					[数据库系统基础：<em>高级</em>篇(第5版)pdf				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/cf406061841" target="_blank">
+						<img src="https://avatar.csdn.net/5/C/7/3_cf406061841.jpg" alt="cf406061841" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">cf406061841</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">09-01</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						4100</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/cf406061841/article/details/77776185" target="_blank" >
+						下载地址：网盘下载  目录第一部分　事务处理的概念第1章　事务处理的概念与理论简介1.1　事务处理简介1.2　事务和系统概念1.3　事务的描述特性1.4　描述基于可恢复性调度的特征1.5　描述基于可串...					</a>
+				</p>
+		</div>
+				</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/wodeyijia911">
+                <img src="https://avatar.csdn.net/0/A/6/3_wodeyijia911.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/wodeyijia911" target="_blank" class="text-truncate" id="uid">多则惑少则明</a>
+            </p>
+                        <p class="flag">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-blogexpert"></use>
+                </svg>
+                博客专家
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/huazhongkejidaxuezpp/article/details/81463280" target="_self">关注</a>
+                            </span>
+                        <span  class="csdn-tracking-statistics tracking-click" data-mod="">
+                <a class="btn btn-sm btn-yellow-hollow" id="btnAsk" href="#chatqa" target="_self">向TA提问</a>
+            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="283">
+                        <dt><a href="https://blog.csdn.net/huazhongkejidaxuezpp?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/huazhongkejidaxuezpp?t=1"><span class="count">283</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="90">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">90</span></dd>
+        </dl>
+        <dl class="text-center" title="31">
+            <dt>喜欢</dt>
+            <dd><span class="count">31</span></dd>
+        </dl>
+        <dl class="text-center" title="53">
+            <dt>评论</dt>
+            <dd><span class="count">53</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="6级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-6"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="447547">
+                44万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="7246">
+                7246            </dd>
+        </dl>
+        <dl title="4244">
+            <dt>排名：</dt>
+            <dd>4244</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                <a class="icon-badge" title="专栏达人">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-columns"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item1">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-columns"></use>
+                        </svg>
+                        <p>专栏达人</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予成功创建个人博客专栏的用户。专栏中添加五篇以上博文即可点亮！撰写博客专栏浓缩技术精华，专栏达人就是你！
+                    </div>
+                </div>
+            </div> 
+        </a>  
+                                    </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <!--自定义模块-->
+<div id="asideCustom61793880" class="aside-box custom-box">
+    <h3 class="aside-title">blog入口篇</h3>
+    <div class="aside-content clearfix">
+        
+管理经典blog QA境界：http://blog.csdn.net/huazhongkejidaxuezpp/article/details/78128487 团队管理：http://blog.csdn.net/huazhongkejidaxuezpp/article/details/77620351 测试之美：http://blog.csdn.net/huazhongkejidaxuezpp/article/details/77622746
+    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/wodeyijia911/article/details/81430518" target="_blank">研发测试高级篇-不可不知的问题</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/wodeyijia911/article/details/81175903" target="_blank">测试经验谈之组合测试探讨</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/wodeyijia911/article/details/81149661" target="_blank">测试经验谈之可测性改造</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/wodeyijia911/article/details/81143583" target="_blank">测试本质：当说在项目测试的时候，究竟在测试什么</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/wodeyijia911/article/details/80849801" target="_blank">测试思维之“薛定谔的猫”</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    <div id="asideColumn" class="aside-box">
+    <h3 class="aside-title">博主专栏</h3>
+    <div class="aside-content">
+        <ul class="column-box csdn-tracking-statistics tracking-click" data-mod="popu_520" >
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/column/details/19049.html">
+                            <img src="https://img-blog.csdn.net/20180123234932021?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/column/details/19049.html">测试人生</a></p>
+                        <div class="data">阅读量：<span>12330</span><span class="count">14 篇</span></div>
+                    </div>
+                </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/1916789">
+                    STL 系列                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/1916945">
+                    算法系列                    <span class="count float-right">49篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/1916951">
+                    Boost系列                    <span class="count float-right">29篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/1919247">
+                    设计模式                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/1919781">
+                    网络/操作系统/数据结构/数学                    <span class="count float-right">19篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/1923185">
+                    新科技/思考                    <span class="count float-right">46篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/1923711">
+                    测试系列                    <span class="count float-right">124篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/1926773">
+                    面试/笔试                    <span class="count float-right">36篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/1929075">
+                    C/C++/JAVA/WEB                    <span class="count float-right">86篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/2224049">
+                    工作/软实力/书籍阅读                    <span class="count float-right">48篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/2388961">
+                    JavaScript/python/shell                    <span class="count float-right">34篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/2647895">
+                    性能测试                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/2908725">
+                    名言与思维                    <span class="count float-right">23篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/5821487">
+                    自动化测试                    <span class="count float-right">22篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/5823405">
+                    单元测试                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/5830469">
+                    测试工具                    <span class="count float-right">49篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/5834731">
+                    数据库DB/缓存                    <span class="count float-right">12篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/5838811">
+                    安全测试                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/6000755">
+                    手机m站                    <span class="count float-right">24篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/6193099">
+                    持续集成                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/6840950">
+                    团队建设                    <span class="count float-right">32篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/6988912">
+                    原理那些事                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/category/7311104">
+                    产品思维                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2018/02">
+                    2018年2月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/11">
+                    2017年11月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/10">
+                    2017年10月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/09">
+                    2017年9月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/08">
+                    2017年8月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/07">
+                    2017年7月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/06">
+                    2017年6月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/05">
+                    2017年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/04">
+                    2017年4月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/03">
+                    2017年3月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/02">
+                    2017年2月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2017/01">
+                    2017年1月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/12">
+                    2016年12月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/11">
+                    2016年11月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/10">
+                    2016年10月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/09">
+                    2016年9月                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/08">
+                    2016年8月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/07">
+                    2016年7月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/06">
+                    2016年6月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/05">
+                    2016年5月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/03">
+                    2016年3月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/02">
+                    2016年2月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2016/01">
+                    2016年1月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/12">
+                    2015年12月                    <span class="count float-right">18篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/11">
+                    2015年11月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/10">
+                    2015年10月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/09">
+                    2015年9月                    <span class="count float-right">26篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/08">
+                    2015年8月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/07">
+                    2015年7月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/06">
+                    2015年6月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/05">
+                    2015年5月                    <span class="count float-right">16篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/04">
+                    2015年4月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/03">
+                    2015年3月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2015/02">
+                    2015年2月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2014/12">
+                    2014年12月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2014/10">
+                    2014年10月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2014/08">
+                    2014年8月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2014/07">
+                    2014年7月                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2014/06">
+                    2014年6月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2014/05">
+                    2014年5月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2014/04">
+                    2014年4月                    <span class="count float-right">34篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2014/03">
+                    2014年3月                    <span class="count float-right">108篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/wodeyijia911/article/month/2014/02">
+                    2014年2月                    <span class="count float-right">82篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/wodeyijia911/article/details/41813683">Error running Tomcat8: Address localhost:1099 is already in use 的错误</a>
+					<p class="read">阅读量：<span>42912</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wodeyijia911/article/details/48662833">testng（一）安装和基本使用</a>
+					<p class="read">阅读量：<span>9620</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wodeyijia911/article/details/49275703">mac jenkins环境安装及jenkins使用（未完待续）</a>
+					<p class="read">阅读量：<span>8157</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wodeyijia911/article/details/52825364">接口自动化测试的几个阶段</a>
+					<p class="read">阅读量：<span>7420</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/wodeyijia911/article/details/45799065">Redis Desktop Manager</a>
+					<p class="read">阅读量：<span>6526</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    <div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wodeyijia911/article/details/45128703#comments">code review</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/weixin_42691814" class="user-name" target="_blank">weixin_42691814</a>：2. code review 来 找 bug
+错误。
+
+这点不敢苟同，bug越是在前端发现，成本越...                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wodeyijia911/article/details/52347538#comments">白盒测试方法和工具</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/weixin_42464793" class="user-name" target="_blank">weixin_42464793</a>：[reply]plstudio1[/reply]
+只能是.c/.cpp/.h文件吧，不能对java...                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wodeyijia911/article/details/50508455#comments">前后端接口分离-wiremock</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/a497065891" class="user-name" target="_blank">a497065891</a>：[reply]LondonTower[/reply]
+curl -d &amp;quot;{ \&...                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wodeyijia911/article/details/41813683#comments">Error running Tom...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/n950814abc" class="user-name" target="_blank">n950814abc</a>：感谢分享，此问题已经解决了                </p>
+            </li>
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/wodeyijia911/article/details/41813683#comments">Error running Tom...</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/m18633778874" class="user-name" target="_blank">m18633778874</a>：可以直接在idea中改一下端口号。                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/avneunkwb.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li>
+			<a class="btn-comments" title="快问" href="#chatqa">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-chat-qa"></use>
+				</svg><br>快问
+			</a>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "研发测试高级篇-不可不知的实践";
+    var ChannelId = 33;
+    var articleId = "81463280";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/huazhongkejidaxuezpp/article/details/81463280";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["\u7814\u53d1","\u6d4b\u8bd5","\u9ad8\u7ea7","\u4e0d\u53ef","\u4e0d\u77e5","\u5b9e\u8df5"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"研发测试高级篇-不可不知的实践");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-73eea35575.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+</html>

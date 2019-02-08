@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/qq_42434171/article/details/81488680"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="#include &amp;amp;lt;stdio.h&amp;amp;gt;
+#include &amp;amp;lt;string.h&amp;amp;gt;
+#include &amp;amp;lt;algorithm&amp;amp;gt;
+using namespace std;
+int a[2005],b[2005],dp[2005];
+int main()
+{
+	int n,s,m,h,sum,i;
+	scanf(&amp;quot;%d&amp;quot;,&amp;amp;amp;n);
+	while(n--)
+	{
+	..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>Tickets - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-8195ccbe2d.min.css">
+
+    <script type="text/javascript">
+        var username = "qq_42434171";
+        var blog_address = "https://blog.csdn.net/qq_42434171";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/qq_42434171/article/details/81488680"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin3-template";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/qq_42434171">qq_42434171的博客...</a></span>
+			<i>></i>
+			<span>Tickets</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">Tickets</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 21:12:34</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：2</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <pre class="has">
+<code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+int a[2005],b[2005],dp[2005];
+int main()
+{
+	int n,s,m,h,sum,i;
+	scanf("%d",&amp;n);
+	while(n--)
+	{
+		int k;
+		scanf("%d",&amp;k);
+		memset(dp,0,sizeof(dp));
+		for(i=1;i&lt;=k;i++)
+		{
+			scanf("%d",&amp;a[i]);
+		}
+		for(i=2;i&lt;=k;i++)
+		{
+			scanf("%d",&amp;b[i]);
+		}
+		int sum=0;
+		dp[1]=a[1];
+		for(i=2;i&lt;=k;i++)
+		{
+		     dp[i]=min(dp[i-1]+a[i],dp[i-2]+b[i]);
+		}
+		sum=dp[k];
+		s=m=h=0;
+		if(sum&gt;60)
+		{
+			s=sum%60;
+			m=(sum-s)/60;
+			h=m/60;
+			m=m%60;
+		}
+		else s=sum;
+		h+=8;
+		if(h&gt;12)printf("%02d:%02d:%02d pm\n",h,m,s);
+		else printf("%02d:%02d:%02d am\n",h,m,s);
+	}
+	return 0;
+}
+</code></pre>
+
+<p>Jesus, what a great movie! Thousands of people are rushing to the cinema. However, this is really a tuff time for Joe who sells the film tickets. He is wandering when could he go back home as early as possible. <br />
+A good approach, reducing the total time of tickets selling, is let adjacent people buy tickets together. As the restriction of the Ticket Seller Machine, Joe can sell a single ticket or two adjacent tickets at a time. <br />
+Since you are the great JESUS, you know exactly how much time needed for every person to buy a single ticket or two tickets for him/her. Could you so kind to tell poor Joe at what time could he go back home as early as possible? If so, I guess Joe would full of appreciation for your help. </p>
+
+<p>Input</p>
+
+<p>There are N(1&lt;=N&lt;=10) different scenarios, each scenario consists of 3 lines: <br />
+1) An integer K(1&lt;=K&lt;=2000) representing the total number of people; <br />
+2) K integer numbers(0s&lt;=Si&lt;=25s) representing the time consumed to buy a ticket for each person; <br />
+3) (K-1) integer numbers(0s&lt;=Di&lt;=50s) representing the time needed for two adjacent people to buy two tickets together. </p>
+
+<p>Output</p>
+
+<p>For every scenario, please tell Joe at what time could he go back home as early as possible. Every day Joe started his work at 08:00:00 am. The format of time is HH:MM:SS am|pm. </p>
+
+<p>Sample Input</p>
+
+<pre>
+2
+2
+20 25
+40
+1
+8</pre>
+
+<p>Sample Output</p>
+
+<pre>
+08:00:40 am
+08:00:08 am</pre>            </div>
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/qq_42434171/article/details/81488680,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/qq_42434171/article/details/81488680,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+		<div class="article-bar-bottom">
+								<div class="tags-box">
+			<span class="label">个人分类：</span>
+						<a class="tag-link" href="https://blog.csdn.net/qq_42434171/article/category/7916214"  target="_blank">动态规划						</a>
+		</div>
+							</div>
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/qq_42434171/article/details/81488680#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/DERITt/article/details/50153183,BlogCommendClickRateRank_0"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/DERITt/article/details/50153183,BlogCommendClickRateRank_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/DERITt/article/details/50153183" target="_blank" title="POJ 2828 Buy <em>Tickets</em> 题意&amp;题解&amp;代码（c++）">
+					POJ 2828 Buy <em>Tickets</em> 题意&amp;题解&amp;代码（c++）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/DERITt" target="_blank">
+						<img src="https://avatar.csdn.net/A/F/3/3_deritt.jpg" alt="DERITt" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">DERITt</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-02</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						538</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/DERITt/article/details/50153183" target="_blank" >
+						线段树					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u013015642/article/details/39502957,BlogCommendClickRateRank_1"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u013015642/article/details/39502957,BlogCommendClickRateRank_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u013015642/article/details/39502957" target="_blank" title="poj2828--Buy <em>Tickets</em>(线段树+详解)">
+					poj2828--Buy <em>Tickets</em>(线段树+详解)				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u013015642" target="_blank">
+						<img src="https://avatar.csdn.net/2/9/7/3_u013015642.jpg" alt="u013015642" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u013015642</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">09-23</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1403</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u013015642/article/details/39502957" target="_blank" >
+						Buy Tickets
+
+
+
+
+Time Limit: 4000MS
+ 
+Memory Limit: 65536K
+
+
+Total Submissions: 13618
+ 
+A...					</a>
+				</p>
+		</div>
+				</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Mys_C_K/article/details/60870113,BlogCommendClickRateRank_2"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Mys_C_K/article/details/60870113,BlogCommendClickRateRank_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Mys_C_K/article/details/60870113" target="_blank" title="POJ 2355 Railway <em>tickets</em>">
+					POJ 2355 Railway <em>tickets</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Mys_C_K" target="_blank">
+						<img src="https://avatar.csdn.net/F/6/2/3_mys_c_k.jpg" alt="Mys_C_K" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Mys_C_K</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">03-08</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						286</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Mys_C_K/article/details/60870113" target="_blank" >
+						POJ 2355 Railway tickets
+tyvj3317 / vijos 火车票
+这个题非常简单的DP，但是要注意不要读错题，是两个站台之间只允许买一张票的……
+开始读错题了WA了两次...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/zugofn/article/details/52157243,BlogCommendClickRateRank_3"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/zugofn/article/details/52157243,BlogCommendClickRateRank_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/zugofn/article/details/52157243" target="_blank" title="HDU：1260 <em>Tickets</em>（动态规划DP）">
+					HDU：1260 <em>Tickets</em>（动态规划DP）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/zugofn" target="_blank">
+						<img src="https://avatar.csdn.net/1/7/3/3_zugofn.jpg" alt="zugofn" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">zugofn</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-08</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						460</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/zugofn/article/details/52157243" target="_blank" >
+						Tickets
+Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 65536/32768 K (Java/Others)
+Total ...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/a1s4z5/article/details/51469752,BlogCommendClickRateRank_4"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/a1s4z5/article/details/51469752,BlogCommendClickRateRank_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/a1s4z5/article/details/51469752" target="_blank" title="Ural 1036 Lucky <em>Tickets</em>">
+					Ural 1036 Lucky <em>Tickets</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/a1s4z5" target="_blank">
+						<img src="https://avatar.csdn.net/C/E/4/3_a1s4z5.jpg" alt="a1s4z5" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">a1s4z5</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-21</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						362</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/a1s4z5/article/details/51469752" target="_blank" >
+						简单的dpss为奇数时答案为00ss为偶数时答案为长nn的各位之和为s/2s/2的方案数的平方状态其实就是长度和位和，然后转移一下就好了dpn,s=∑k=09[n≥1][s≥k]dpn−1,s−kdp...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/youngyangyang04/article/details/6719588,BlogCommendClickRateRank_5"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/youngyangyang04/article/details/6719588,BlogCommendClickRateRank_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/youngyangyang04/article/details/6719588" target="_blank" title="poj 2355 Railway <em>tickets</em> 很纯的dp">
+					poj 2355 Railway <em>tickets</em> 很纯的dp				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/youngyangyang04" target="_blank">
+						<img src="https://avatar.csdn.net/7/C/D/3_youngyangyang04.jpg" alt="youngyangyang04" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">youngyangyang04</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-25</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1131</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/youngyangyang04/article/details/6719588" target="_blank" >
+						这是一道很纯的dp但是我无比惭愧，做不出来，看了别人的代码！！！！自己在写，吭哧瘪肚的wa了无数次！！！！！最后也算A了
+我已开始在想如何建立dp方程，后来建不出来，还是自己的思想太狭隘了！！这个题...					</a>
+				</p>
+		</div>
+				</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Wiking__acm/article/details/7805264,BlogCommendClickRateRank_6"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Wiking__acm/article/details/7805264,BlogCommendClickRateRank_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Wiking__acm/article/details/7805264" target="_blank" title="poj Buy <em>Tickets</em>（线段树）">
+					poj Buy <em>Tickets</em>（线段树）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Wiking__acm" target="_blank">
+						<img src="https://avatar.csdn.net/A/3/C/3_wiking__acm.jpg" alt="Wiking__acm" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Wiking__acm</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">07-31</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1368</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Wiking__acm/article/details/7805264" target="_blank" >
+						Buy Tickets
+
+
+
+
+Time Limit: 4000MS
+ 
+Memory Limit: 65536K
+
+
+Total Submissions: 7802
+ 
+Ac...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/STILLxjy/article/details/53537988,BlogCommendClickRateRank_7"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/STILLxjy/article/details/53537988,BlogCommendClickRateRank_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/STILLxjy/article/details/53537988" target="_blank" title="（POJ2828）Buy <em>Tickets</em>  &lt;树状数组 | 线段树&gt;  找第k空位">
+					（POJ2828）Buy <em>Tickets</em>  &lt;树状数组 | 线段树&gt;  找第k空位				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/STILLxjy" target="_blank">
+						<img src="https://avatar.csdn.net/4/A/2/3_stillxjy.jpg" alt="STILLxjy" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">STILLxjy</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-09</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						406</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/STILLxjy/article/details/53537988" target="_blank" >
+						Buy Tickets 
+DescriptionRailway tickets were difficult to buy around the Lunar New Year in China, so...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/hcbbt/article/details/38393591,BlogCommendClickRateRank_8"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/hcbbt/article/details/38393591,BlogCommendClickRateRank_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/hcbbt/article/details/38393591" target="_blank" title="POJ 2828 Buy <em>Tickets</em>（排队问题，线段树应用）">
+					POJ 2828 Buy <em>Tickets</em>（排队问题，线段树应用）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/hcbbt" target="_blank">
+						<img src="https://avatar.csdn.net/6/8/B/3_hcbbt.jpg" alt="hcbbt" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">hcbbt</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-06</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2354</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/hcbbt/article/details/38393591" target="_blank" >
+						POJ 2827 Buy Tickets（排队问题，线段树应用）
+
+ACM
+
+题目地址：POJ 2828 Buy Tickets
+
+题意： 
+排队买票时候插队。 
+给出一些数对，分别代表某个人的想要插...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/jxlmz/article/details/51075509,BlogCommendClickRateRank_9"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/jxlmz/article/details/51075509,BlogCommendClickRateRank_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/jxlmz/article/details/51075509" target="_blank" title="CAS 整合/v1/<em>tickets</em>/{TGT id} 与/serviceValidate ,生成ST时直接验证其合法性。">
+					CAS 整合/v1/<em>tickets</em>/{TGT id} 与/serviceValidate ,生成ST时直接验证其合法性。				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/jxlmz" target="_blank">
+						<img src="https://avatar.csdn.net/A/0/A/3_jxlmz.jpg" alt="jxlmz" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">jxlmz</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-06</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2853</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/jxlmz/article/details/51075509" target="_blank" >
+						CAS 整合/v1/tickets/{TGT id} 与/serviceValidate ,生成ST时直接验证其合法性。
+其目的是模拟客户端（C/S结构）调用服务器去验证TGT的合法性，省略调用/se...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/jxlmz/article/details/51075509">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile13.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/qq_42434171">
+                <img src="https://avatar.csdn.net/2/1/D/3_qq_42434171.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/qq_42434171" target="_blank" class="text-truncate" id="uid">qq_42434171</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/qq_42434171/article/details/81488680" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="32">
+                        <dt><a href="https://blog.csdn.net/qq_42434171?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/qq_42434171?t=1"><span class="count">32</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="3">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">3</span></dd>
+        </dl>
+        <dl class="text-center" title="1">
+            <dt>喜欢</dt>
+            <dd><span class="count">1</span></dd>
+        </dl>
+        <dl class="text-center" title="1">
+            <dt>评论</dt>
+            <dd><span class="count">1</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="2级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-2"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="319">
+                319            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="369">
+                369            </dd>
+        </dl>
+        <dl title="1631522">
+            <dt>排名：</dt>
+            <dd>163万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq_42434171/article/details/81461775" target="_blank">过河问题</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq_42434171/article/details/81415679" target="_blank">Reward</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq_42434171/article/details/81414275" target="_blank">Legal or Not</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq_42434171/article/details/81414257" target="_blank">Roads in the North （树的直径模板）</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq_42434171/article/details/81414235" target="_blank">产生冠军</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/qq_42434171/article/category/7898373">
+                    DFS                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_42434171/article/category/7907189">
+                    树的直径                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq_42434171/article/category/7916214">
+                    动态规划                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_42434171/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">23篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_42434171/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">18篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq_42434171/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/qq_42434171/article/details/81290311">大数相加（模板）</a>
+					<p class="read">阅读量：<span>18</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq_42434171/article/details/81212540">Relatives</a>
+					<p class="read">阅读量：<span>12</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq_42434171/article/details/81365678">奇妙的塔 （汉诺塔问题）</a>
+					<p class="read">阅读量：<span>12</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq_42434171/article/details/80659247">Triangle Love</a>
+					<p class="read">阅读量：<span>10</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq_42434171/article/details/81365139">coprime sequence</a>
+					<p class="read">阅读量：<span>10</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    <div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/qq_42434171/article/details/81292258#comments">括号匹配</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/qq_42434171" class="user-name" target="_blank">qq_42434171</a>：加油                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/avneunkwb.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "Tickets";
+    var ChannelId = 16;
+    var articleId = "81488680";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/qq_42434171/article/details/81488680";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["tickets"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"Tickets");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-73eea35575.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+</html>

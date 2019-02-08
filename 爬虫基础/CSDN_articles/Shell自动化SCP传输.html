@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/LFGxiaogang/article/details/81488166"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="本脚本需要借助expect完成，expect是一个免费的编程工具语言，用来实现自动和交互式任务进行通信，而无需人的干预。
+
+首先，需要确认系统中已经安装expect，如果没有可以使用rpm或者yum方式安装：
+
+rpm -qa|grep expect
+
+yum -y install expect*
+
+脚本示例如下：
+
+#!/bin/bash
+passwd=’oracle’
+cat /home/or..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>Shell自动化SCP传输 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-2eefd34acf.min.css">
+
+    <script type="text/javascript">
+        var username = "LFGxiaogang";
+        var blog_address = "https://blog.csdn.net/lfgxiaogang";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/LFGxiaogang/article/details/81488166"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin-yellow";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/lfgxiaogang">LFGxiaogang的博客...</a></span>
+			<i>></i>
+			<span>Shell自动化SCP传输</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-2 float-left">转</span>		<h1 class="title-article">Shell自动化SCP传输</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 20:41:17</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：3</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <p id="7030">本脚本需要借助expect完成，expect是一个免费的编程工具语言，用来实现自动和交互式任务进行通信，而无需人的干预。</p>
+
+<p id="e8a6">首先，需要确认系统中已经安装expect，如果没有可以使用rpm或者yum方式安装：</p>
+
+<p id="32ae">rpm -qa|grep expect</p>
+
+<p id="bf93">yum -y install expect*</p>
+
+<p id="b7e1">脚本示例如下：</p>
+
+<p id="4470">#!/bin/bash<br />
+passwd=’oracle’<br />
+cat /home/oracle/test.txt<br />
+expect -c “<br />
+spawn scp /home/oracle/rman_201709031134.log /home/oracle/test.txt oracle@192.168.1.90:/home/oracle<br />
+expect {<br />
+ \”(yes/no)?\” {send \”yes\n\”; expect \”*assword:\” {send \”$passawd\n\”}}<br />
+ \”*assword:\” {send \”$passwd\n\”}<br />
+ }<br />
+expect eof<br />
+“<br />
+#将/home/oracle/rman_201709031134.log /home/oracle/test.txt文件传输到192.168.1.90主机oracle用户下的/home/oracle目录中</p>
+
+<p id="32d8">#如果出现(yes/no)，自动输入yes</p>
+
+<p id="9e7d">#如果出现*assword，自动输入密码</p>
+
+<p id="099d">--待续</p>
+
+<p>转自 <a href="https://medium.com/@iuai1120/shell%E8%87%AA%E5%8A%A8%E5%8C%96scp%E4%BC%A0%E8%BE%93-93e93bb2f7ee" rel="nofollow">https://medium.com/@iuai1120/shell%E8%87%AA%E5%8A%A8%E5%8C%96scp%E4%BC%A0%E8%BE%93-93e93bb2f7ee</a></p>            </div>
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/LFGxiaogang/article/details/81488166,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/LFGxiaogang/article/details/81488166,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+		<div class="article-bar-bottom">
+								<div class="tags-box">
+			<span class="label">个人分类：</span>
+						<a class="tag-link" href="https://blog.csdn.net/LFGxiaogang/article/category/7394846"  target="_blank">Linux						</a>
+		</div>
+								<div class="tags-box hot-word">
+			<span class="label">相关热词：</span>
+						<a class="tag-link" href="https://blog.csdn.net/luoyhang003/article/details/51112434" target="_blank">
+			shell》			</a>
+						<a class="tag-link" href="https://blog.csdn.net/tg5156/article/details/19406275" target="_blank">
+			shell和			</a>
+						<a class="tag-link" href="https://blog.csdn.net/zhailihua/article/details/78656818" target="_blank">
+			shell【】			</a>
+						<a class="tag-link" href="https://blog.csdn.net/zhejiang9/article/details/7887569" target="_blank">
+			shell＄			</a>
+						<a class="tag-link" href="https://blog.csdn.net/a627088424/article/details/20360107" target="_blank">
+			shell的和			</a>
+					</div>
+			</div>
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/LFGxiaogang/article/details/81488166#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/catoop/article/details/48301251,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/catoop/article/details/48301251,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/catoop/article/details/48301251" target="_blank" title="Linux 利用 expect 进行 <em>scp</em> 自动同步文件">
+					Linux 利用 expect 进行 <em>scp</em> 自动同步文件				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/catoop" target="_blank">
+						<img src="https://avatar.csdn.net/3/0/1/3_catoop.jpg" alt="catoop" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">catoop</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">09-08</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						7749</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/catoop/article/details/48301251" target="_blank" >
+						现在有一个这样的需求：执行一个脚本，自动从指定服务器上全量拉取指定目录的文件，远程服务器的用户名、端口、密码、目录配置在执行的shell脚本中。要实现这样的需求，我们使用scp 来实现，但是scp 在...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/catoop/article/details/48301251">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops5.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/liqi_q/article/details/77509545,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/liqi_q/article/details/77509545,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/liqi_q/article/details/77509545" target="_blank" title="linux使用<em>shell</em>脚本实现自动登录<em>scp</em><em>传输</em>文件到其他服务器">
+					linux使用<em>shell</em>脚本实现自动登录<em>scp</em><em>传输</em>文件到其他服务器				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/liqi_q" target="_blank">
+						<img src="https://avatar.csdn.net/B/B/4/3_liqi_q.jpg" alt="liqi_q" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">liqi_q</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-23</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						3582</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/liqi_q/article/details/77509545" target="_blank" >
+						执行 sudo yum install expect  安装自动登录expect工具
+
+
+我们是配置了多台服务器进行控制多台服务器的文件传输，使用scp命令进行copy文件到指定服务器的指定文件目录，...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/liqi_q/article/details/77509545">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops2.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/tanyijanuary/article/details/53467064,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/tanyijanuary/article/details/53467064,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/tanyijanuary/article/details/53467064" target="_blank" title="<em>shell</em>使用<em>scp</em><em>传输</em>文件">
+					<em>shell</em>使用<em>scp</em><em>传输</em>文件				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/tanyijanuary" target="_blank">
+						<img src="https://avatar.csdn.net/3/C/6/3_tanyijanuary.jpg" alt="tanyijanuary" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">tanyijanuary</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-05</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2368</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/tanyijanuary/article/details/53467064" target="_blank" >
+						偶尔会需要在 shell 脚本中通过 scp 传输文件，在此记录下
+
+
+function auto_scp()	{
+	srcFile=filepath
+	username='name'
+	hos...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/shan165310175/article/details/20641807,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/shan165310175/article/details/20641807,BlogCommendFromQuerySearch_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/shan165310175/article/details/20641807" target="_blank" title="利用expect在linux <em>shell</em>脚本中交互(<em>scp</em>远程<em>传输</em>文件示例)">
+					利用expect在linux <em>shell</em>脚本中交互(<em>scp</em>远程<em>传输</em>文件示例)				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/shan165310175" target="_blank">
+						<img src="https://avatar.csdn.net/6/8/C/3_shan165310175.jpg" alt="shan165310175" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">shan165310175</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">03-06</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2783</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/shan165310175/article/details/20641807" target="_blank" >
+						看代码：
+#!bin/sh
+
+expect					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/BlockheadLS/article/details/52980797,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/BlockheadLS/article/details/52980797,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/BlockheadLS/article/details/52980797" target="_blank" title="在<em>shell</em>脚本中使用expect实现<em>scp</em><em>传输</em>问题">
+					在<em>shell</em>脚本中使用expect实现<em>scp</em><em>传输</em>问题				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/BlockheadLS" target="_blank">
+						<img src="https://avatar.csdn.net/8/B/2/3_blockheadls.jpg" alt="BlockheadLS" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">BlockheadLS</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">11-09</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						4498</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/BlockheadLS/article/details/52980797" target="_blank" >
+						1.安装expectexpect用于shell脚本中自动交互，其是基于tcl编程语言的工具。所以安装expect首先安装tcl。本文中使用的是expect5.45和tcl8.6.6。安装tcl[roo...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq845454748/article/details/49762257,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq845454748/article/details/49762257,BlogCommendFromQuerySearch_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq845454748/article/details/49762257" target="_blank" title="linux用<em>scp</em>远程<em>传输</em>文件(<em>自动化</em>)">
+					linux用<em>scp</em>远程<em>传输</em>文件(<em>自动化</em>)				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq845454748" target="_blank">
+						<img src="https://avatar.csdn.net/E/5/5/3_qq845454748.jpg" alt="qq845454748" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq845454748</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">11-10</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						365</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq845454748/article/details/49762257" target="_blank" >
+						传输功能使用scp,自动回复yes和填写密码使用except脚本;需要自行百度安装，先安装tcl语言环境，再安装except。
+我写了一个脚本一键安装如下(需要提前下载两个安装包并放到同一个目录)：...					</a>
+				</p>
+		</div>
+				</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u012454773/article/details/72779512,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012454773/article/details/72779512,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u012454773/article/details/72779512" target="_blank" title="两台服务之间定时<em>SCP</em>（免密码）自动<em>传输</em>文件脚本">
+					两台服务之间定时<em>SCP</em>（免密码）自动<em>传输</em>文件脚本				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u012454773" target="_blank">
+						<img src="https://avatar.csdn.net/A/2/A/3_u012454773.jpg" alt="u012454773" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u012454773</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-27</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2176</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u012454773/article/details/72779512" target="_blank" >
+						使用此脚本前提条件：两台机器之间已经建立信任，无需密码scp传输文件，设置可参考：解决 shell脚本中SCP命令需要输入密码的问题
+脚本内容：
+#!/bin/sh
+
+#该脚本使用nohup指令后...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/u012454773/article/details/72779512">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops29.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/hanlizhong85/article/details/74149096,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/hanlizhong85/article/details/74149096,BlogCommendFromQuerySearch_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/hanlizhong85/article/details/74149096" target="_blank" title="<em>Shell</em>脚本：人机交互脚本-<em>scp</em>">
+					<em>Shell</em>脚本：人机交互脚本-<em>scp</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/hanlizhong85" target="_blank">
+						<img src="https://avatar.csdn.net/A/A/4/3_hanlizhong85.jpg" alt="hanlizhong85" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">hanlizhong85</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">07-02</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						497</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/hanlizhong85/article/details/74149096" target="_blank" >
+						前面两篇博文中，为大家演示了shell脚本中su和ssh命令的免验证输入实现：
+
+http://blog.csdn.net/hanlizhong85/article/details/7408999...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/hanlizhong85/article/details/74149096">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops21.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/taishanduba/article/details/78007533,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/taishanduba/article/details/78007533,BlogCommendFromQuerySearch_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/taishanduba/article/details/78007533" target="_blank" title="linux <em>scp</em> 免密码<em>传输</em>">
+					linux <em>scp</em> 免密码<em>传输</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/taishanduba" target="_blank">
+						<img src="https://avatar.csdn.net/7/3/E/3_taishanduba.jpg" alt="taishanduba" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">taishanduba</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">09-16</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						756</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/taishanduba/article/details/78007533" target="_blank" >
+						最近在做一个服务端的项目，需要将文件同步到其他虚拟机上，所以采用了scp传输这个方案。这里总结下无密码传输配置流程(心情不好，写个文章发泄)。一、环境和场景
+两台 远程 linux 虚拟机，假设为 A...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/shida_csdn/article/details/78747951,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/shida_csdn/article/details/78747951,BlogCommendFromQuerySearch_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/shida_csdn/article/details/78747951" target="_blank" title="[<em>Shell</em>] <em>scp</em> 多台服务器文件<em>传输</em>">
+					[<em>Shell</em>] <em>scp</em> 多台服务器文件<em>传输</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/shida_csdn" target="_blank">
+						<img src="https://avatar.csdn.net/F/2/D/3_shida_csdn.jpg" alt="shida_csdn" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">shida_csdn</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-08</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						159</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/shida_csdn/article/details/78747951" target="_blank" >
+						我们经常会遇到向多台主机分发文件的情况，可以采用如下方案：
+1.  配置 ssh 免密码登陆
+2. 编写 shell 脚本
+#！/bin/bash
+
+servers=(&quot;126&quot; &quot;127&quot; &quot;128...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/shida_csdn/article/details/78747951">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ops/ops13.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/LFGxiaogang">
+                <img src="https://avatar.csdn.net/7/0/6/3_lfgxiaogang.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/LFGxiaogang" target="_blank" class="text-truncate" id="uid">LFGxiaogang</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/LFGxiaogang/article/details/81488166" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="8">
+                        <dt><a href="https://blog.csdn.net/lfgxiaogang?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/lfgxiaogang?t=1"><span class="count">8</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="2">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">2</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>喜欢</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>评论</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="2级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-2"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="20885">
+                2万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="359">
+                359            </dd>
+        </dl>
+        <dl title="240575">
+            <dt>排名：</dt>
+            <dd>24万+</dd>
+        </dl>
+    </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/LFGxiaogang/article/details/80819508" target="_blank">Python脚本日志系统</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/LFGxiaogang/article/details/80510497" target="_blank">Python Re模块</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/LFGxiaogang/article/details/80509818" target="_blank">TextGrocery</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/LFGxiaogang/article/details/80459445" target="_blank">Python Re模块</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/LFGxiaogang/article/details/80359960" target="_blank">Python 信号处理 signal 模块</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/category/6411085">
+                    R语言编程                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/category/6473616">
+                    自然语言处理                    <span class="count float-right">10篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/category/7048670">
+                    C++                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/category/7094093">
+                    算法                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/category/7095106">
+                    python                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/category/7358890">
+                    数据库                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/category/7394846">
+                    Linux                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/category/7475581">
+                    机器学习                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2017/09">
+                    2017年9月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2017/08">
+                    2017年8月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2017/07">
+                    2017年7月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2017/06">
+                    2017年6月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2017/05">
+                    2017年5月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2017/04">
+                    2017年4月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2016/10">
+                    2016年10月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/lfgxiaogang/article/month/2016/09">
+                    2016年9月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/lfgxiaogang/article/details/52493571">R语言：mode和class的区别</a>
+					<p class="read">阅读量：<span>3150</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/lfgxiaogang/article/details/77097059">哈工大ltp，分词，词性标注，命名实体识别技术的特征提取</a>
+					<p class="read">阅读量：<span>1989</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/lfgxiaogang/article/details/73470144">Linuxg++编译C++代码出错 -std=c++11 or -std=gnu++11</a>
+					<p class="read">阅读量：<span>1654</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/lfgxiaogang/article/details/71270433">CRF条件随机场----中文分词</a>
+					<p class="read">阅读量：<span>1246</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/lfgxiaogang/article/details/78924308">centos7安装mongodb 及开机自动启动</a>
+					<p class="read">阅读量：<span>1110</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/mhzzpwgzj.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "Shell自动化SCP传输";
+    var ChannelId = 28;
+    var articleId = "81488166";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/LFGxiaogang/article/details/81488166";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["shell","\u81ea\u52a8\u5316","scp","\u4f20\u8f93"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"Shell自动化SCP传输");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-359ea0cc8d.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+</html>

@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/liu709127859/article/details/81488540"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="过滤器笔记
+
+1 //文章保存之前，给文章中的“黄聪”自动加上链接
+add_filter( 'content_save_pre','hc_auto_link' );
+function hc_auto_link( $content ){ 
+    return str_replace( &amp;quot;黄聪&amp;quot;, &amp;quot;&amp;amp;lt;a href='http://hcsem.com'&amp;amp;gt;黄聪&amp;amp;lt;/a&amp;amp;gt;&amp;quot;, $c..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>wordpress过滤器 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-2eefd34acf.min.css">
+
+    <script type="text/javascript">
+        var username = "liu709127859";
+        var blog_address = "https://blog.csdn.net/liu709127859";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/liu709127859/article/details/81488540"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin-yellow";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/liu709127859">liu709127859的专栏...</a></span>
+			<i>></i>
+			<span>wordpress过滤器</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">wordpress过滤器</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 21:11:29</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：2</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <p>过滤器笔记</p>
+
+<p>1 //文章保存之前，给文章中的“黄聪”自动加上链接<br />
+add_filter( 'content_save_pre','hc_auto_link' );<br />
+function hc_auto_link( $content ){ <br />
+    return str_replace( "黄聪", "&lt;a href='http://hcsem.com'&gt;黄聪&lt;/a&gt;", $content);</p>
+
+<p>2  上传图片中文，图片无法识别</p>
+
+<p>add_filter('wp_handle_upload_prefilter', 'huilang_wp_handle_upload_prefilter');<br />
+function huilang_wp_handle_upload_prefilter($file){<br />
+    $time=date("Y-m-d-");<br />
+    $file['name'] = $time."".mt_rand(1,100).".".pathinfo($file['name'] , PATHINFO_EXTENSION);<br />
+    return $file;<br />
+}</p>            </div>
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/liu709127859/article/details/81488540,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/liu709127859/article/details/81488540,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+		<div class="article-bar-bottom">
+				<div class="article-copyright">
+			版权声明：本文为博主原创文章，未经博主允许不得转载。			https://blog.csdn.net/liu709127859/article/details/81488540		</div>
+											</div>
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/liu709127859/article/details/81488540#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/avi9111/article/details/50455771,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/avi9111/article/details/50455771,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/avi9111/article/details/50455771" target="_blank" title="<em>WordPress</em><em>过滤器</em>(Filters)：apply_filters和add_filter(转)写的太牛了">
+					<em>WordPress</em><em>过滤器</em>(Filters)：apply_filters和add_filter(转)写的太牛了				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/avi9111" target="_blank">
+						<img src="https://avatar.csdn.net/2/6/F/3_avi9111.jpg" alt="avi9111" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">avi9111</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">01-04</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						4574</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/avi9111/article/details/50455771" target="_blank" >
+						过滤器(Filters)对于WordPress来说是非常重要的，它极大地扩展了WordPress的定制能力，提高了WordPress的灵活性。无论是制作主题还是开发插件，我们基本上都会或多或少地使用到...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/avi9111/article/details/50455771">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/lang/lang42.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u011567667/article/details/12833507,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u011567667/article/details/12833507,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u011567667/article/details/12833507" target="_blank" title="<em>wordpress</em> <em>过滤器</em>钩子add_filter作用 和 例子">
+					<em>wordpress</em> <em>过滤器</em>钩子add_filter作用 和 例子				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u011567667" target="_blank">
+						<img src="https://avatar.csdn.net/F/B/D/3_u011567667.jpg" alt="u011567667" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u011567667</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">10-17</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1585</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u011567667/article/details/12833507" target="_blank" >
+						boj_add_site_name_to_title() 函数修改 $title 参数并返回给 WordPress。$sep 参数在函数中使用，但没有返回。 过滤器钩子函数 
+除了前面提到的 app...					</a>
+				</p>
+		</div>
+				</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/meegomeego/article/details/38536085,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/meegomeego/article/details/38536085,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/meegomeego/article/details/38536085" target="_blank" title="<em>WordPress</em><em>过滤器</em>(Filters)：apply_filters和add_filter">
+					<em>WordPress</em><em>过滤器</em>(Filters)：apply_filters和add_filter				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/meegomeego" target="_blank">
+						<img src="https://avatar.csdn.net/C/8/6/3_meegomeego.jpg" alt="meegomeego" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">meegomeego</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-13</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						4286</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/meegomeego/article/details/38536085" target="_blank" >
+						过滤器(Filters)对于WordPress来说是非常重要的，它极大地扩展了WordPress的定制能力，提高了WordPress的灵活性。无论是制作主题还是开发插件，我们基本上都会或多或少地使用到...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/meegomeego/article/details/38536085">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/lang/lang44.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/jazywoo123/article/details/9817315,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/jazywoo123/article/details/9817315,BlogCommendFromQuerySearch_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/jazywoo123/article/details/9817315" target="_blank" title="<em>WordPress</em>插件API/常用<em>过滤器</em>(filter)">
+					<em>WordPress</em>插件API/常用<em>过滤器</em>(filter)				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/jazywoo123" target="_blank">
+						<img src="https://avatar.csdn.net/E/0/2/3_jazywoo123.jpg" alt="jazywoo123" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">jazywoo123</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-07</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						912</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/jazywoo123/article/details/9817315" target="_blank" >
+						本文列出了WordPress 2.1及以上版本中，可用于插件开发的过滤器钩子（hook）。
+
+想了解过滤器钩子和动作钩子的定义和作用？请看插件API。想了解插件的基本编写过程？请看插件开发。想查看...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/jazywoo123/article/details/9817315">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/web/web5.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/csnewdn/article/details/56479634,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/csnewdn/article/details/56479634,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/csnewdn/article/details/56479634" target="_blank" title="绝对干货：<em>WordPress</em>自定义查询wp_query所有参数详细注释">
+					绝对干货：<em>WordPress</em>自定义查询wp_query所有参数详细注释				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/csnewdn" target="_blank">
+						<img src="https://avatar.csdn.net/4/A/7/3_csnewdn.jpg" alt="csnewdn" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">csnewdn</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-22</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						582</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/csnewdn/article/details/56479634" target="_blank" >
+						绝对干货：WordPress自定义查询wp_query所有参数详细注释
+ 2014/01/03  2,917 
+评分： 
+
+
+评分 4.00, 满分 5 星
+
+11 票
++Add
+...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/csnewdn/article/details/56479634">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/lang/lang25.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/VictoriaW/article/details/75048853,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/VictoriaW/article/details/75048853,BlogCommendFromQuerySearch_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/VictoriaW/article/details/75048853" target="_blank" title="WooCommerce——产品<em>过滤器</em>WooCommerce Products Filter">
+					WooCommerce——产品<em>过滤器</em>WooCommerce Products Filter				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/VictoriaW" target="_blank">
+						<img src="https://avatar.csdn.net/A/7/B/3_victoriaw.jpg" alt="VictoriaW" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">VictoriaW</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">07-13</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						871</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/VictoriaW/article/details/75048853" target="_blank" >
+						如何在前端显示过滤器呢有三种方式可以在前端显示过滤器。
+Set filter automaticallyWoo 
+选择Commerce-&gt;Setting-&gt;Filter-&gt;Option-&gt;Set fi...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/VictoriaW/article/details/75048853">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/engineering/engineering14.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/jinyeweiyang/article/details/11098053,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/jinyeweiyang/article/details/11098053,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/jinyeweiyang/article/details/11098053" target="_blank" title="<em>Wordpress</em><em>过滤器</em>详解与分析">
+					<em>Wordpress</em><em>过滤器</em>详解与分析				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/jinyeweiyang" target="_blank">
+						<img src="https://avatar.csdn.net/4/2/D/3_jinyeweiyang.jpg" alt="jinyeweiyang" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">jinyeweiyang</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">09-04</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						608</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/jinyeweiyang/article/details/11098053" target="_blank" >
+						apply_filters函数，也是创建并执行一个过滤器函数，不同的是动作钩子仅仅是执行一些函数，而过滤器它要做的是改变对象或变量的值，就相当于把对象或变量过滤，然后返回。 apply_filters...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/sinat_25235033/article/details/80323570,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/sinat_25235033/article/details/80323570,BlogCommendFromQuerySearch_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/sinat_25235033/article/details/80323570" target="_blank" title="自己在前后端分离上的实践">
+					自己在前后端分离上的实践				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/sinat_25235033" target="_blank">
+						<img src="https://avatar.csdn.net/1/4/A/3_sinat_25235033.jpg" alt="sinat_25235033" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">sinat_25235033</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-15</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						174</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/sinat_25235033/article/details/80323570" target="_blank" >
+						自己在前后端分离上的实践
+
+要想实现完整的前后端分离，安全这块是绕不开的，这个系统主要功能就是动态restful api管理，这次实践包含两个模块,基于springBoot + shiro搭建的权限管...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/sinat_25235033/article/details/80323570">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile32.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_614","con":",https://download.csdn.net/download/why7758521/1426442,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/why7758521/1426442,BlogCommendFromQuerySearch_8"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/why7758521/1426442" target="_blank">
+						<em>wordpress</em>中文教程					</a>
+				</h4>
+				<p>
+					<span class="data">2009年06月22日 </span>
+					<span class="size">579KB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/why7758521/1426442" target="_blank" strategy="BlogCommendFromQuerySearch_8">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/pdf.svg" alt="">
+				</a>
+			</div>
+		</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_614","con":",https://download.csdn.net/download/babyan1990/1604087,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/babyan1990/1604087,BlogCommendFromQuerySearch_9"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/babyan1990/1604087" target="_blank">
+						JAVA<em>过滤器</em> <em>过滤器</em>					</a>
+				</h4>
+				<p>
+					<span class="data">2009年08月25日 </span>
+					<span class="size">18KB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/babyan1990/1604087" target="_blank" strategy="BlogCommendFromQuerySearch_9">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/rar.svg" alt="">
+				</a>
+			</div>
+		</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/liu709127859">
+                <img src="https://avatar.csdn.net/A/E/0/3_liu709127859.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/liu709127859" target="_blank" class="text-truncate" id="uid">liu709127859</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/liu709127859/article/details/81488540" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="91">
+                        <dt><a href="https://blog.csdn.net/liu709127859?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/liu709127859?t=1"><span class="count">91</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="5">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">5</span></dd>
+        </dl>
+        <dl class="text-center" title="1">
+            <dt>喜欢</dt>
+            <dd><span class="count">1</span></dd>
+        </dl>
+        <dl class="text-center" title="2">
+            <dt>评论</dt>
+            <dd><span class="count">2</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="4级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-4"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="12142">
+                1万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="1572">
+                1572            </dd>
+        </dl>
+        <dl title="50073">
+            <dt>排名：</dt>
+            <dd>5万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/liu709127859/article/details/81460413" target="_blank">wordpress插件 知识点</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/liu709127859/article/details/81431936" target="_blank">wordpress $wpdb;</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/liu709127859/article/details/81430864" target="_blank">get_POSTS()</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/liu709127859/article/details/81414793" target="_blank">svg 超详细 制作</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/liu709127859/article/details/81411006" target="_blank">css3 样式中居然可以 进行运算啦 calc()函数</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/liu709127859/article/category/1233306">
+                    数据库mysql                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/liu709127859/article/category/1233392">
+                    js                    <span class="count float-right">42篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/liu709127859/article/category/1249449">
+                    html                    <span class="count float-right">38篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/liu709127859/article/category/7541399">
+                    笔记20180327                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/liu709127859/article/category/7649153">
+                    php小白笔记                    <span class="count float-right">39篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/liu709127859/article/category/7689603">
+                    必须记忆的东西                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/liu709127859/article/category/7701609">
+                    jquery                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/liu709127859/article/category/7793863">
+                    小程序                    <span class="count float-right">13篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/liu709127859/article/category/7841049">
+                    wordpress                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/liu709127859/article/category/7887406">
+                    w                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/liu709127859/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/liu709127859/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">22篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/liu709127859/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">31篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/liu709127859/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">41篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/liu709127859/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">54篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/liu709127859/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/liu709127859/article/details/79876176">jquery 实现鼠标经过 切换图片效果</a>
+					<p class="read">阅读量：<span>464</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/liu709127859/article/details/7988408">js 验证密码</a>
+					<p class="read">阅读量：<span>366</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/liu709127859/article/details/79969971">input required属性</a>
+					<p class="read">阅读量：<span>256</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/liu709127859/article/details/79812410">js实现图片跑马灯效果</a>
+					<p class="read">阅读量：<span>169</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/liu709127859/article/details/80567739">mysql 高级 查询</a>
+					<p class="read">阅读量：<span>157</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    <div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/liu709127859/article/details/80857428#comments">分页的实现，</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/Xiewanru" class="user-name" target="_blank">Xiewanru</a>：代码很有效呢，感谢代码分享                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/mhzzpwgzj.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "wordpress过滤器";
+    var ChannelId = 37;
+    var articleId = "81488540";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/liu709127859/article/details/81488540";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["wordpress","\u8fc7\u6ee4\u5668"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"wordpress过滤器");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-359ea0cc8d.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+</html>

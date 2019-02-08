@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/weixin_42654662/article/details/81488689"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="emmm，第一篇博客
+
+   用了这么久的csdn，都是在观摩大佬们发帖，一只小萌新瑟瑟发抖，不敢说话，甚
+至连代码也不能完全读懂。假期在b站自学（可以说是复习）了java课程，尚学堂的
+2018版。链接如下：https://www.bilibili.com/video/av24496128/?p=101
+   重新接触java这门语言，感触还是蛮多的，毕竟之前上课没有好好听讲（emmm，希
+望老..." />
+    <meta name="keywords" content="j" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>基于java制作一个飞机小游戏（学习心得） - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-8195ccbe2d.min.css">
+
+    <script type="text/javascript">
+        var username = "weixin_42654662";
+        var blog_address = "https://blog.csdn.net/weixin_42654662";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/weixin_42654662/article/details/81488689"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin3-template";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/weixin_42654662">weixin_42654662...</a></span>
+			<i>></i>
+			<span>基于java制作一个飞机小游戏（学习心得）...</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">基于java制作一个飞机小游戏（学习心得）</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 21:12:33</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：2</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <div class="markdown_views">
+                <h1 id="emmm第一篇博客">emmm，第一篇博客</h1>
+
+<pre><code>   用了这么久的csdn，都是在观摩大佬们发帖，一只小萌新瑟瑟发抖，不敢说话，甚
+至连代码也不能完全读懂。假期在b站自学（可以说是复习）了java课程，尚学堂的
+2018版。链接如下：https://www.bilibili.com/video/av24496128/?p=101
+   重新接触java这门语言，感触还是蛮多的，毕竟之前上课没有好好听讲（emmm，希
+望老师不逛我这里）有好多的内容都处于空白状态，这次学习呢，将这些应该懂的也弄
+懂了一点。
+   这篇主要是在学习了一个阶段后，有一个设计小游戏的教学，跟着视频一步步来，
+记录一下我的学习过程，顺便回顾一遍。（废话真多，我才不说是为了试着用下博
+客功能）
+</code></pre>
+
+
+
+<h1 id="飞机躲避小游戏">飞机躲避小游戏</h1>
+
+
+
+<h2 id="结果">结果</h2>
+
+<p>这个项目非常简单，达到的结果就是一只飞机，在好多弹幕里面苟且偷生，看能坚持几秒。贴个图： <br>
+   <img src="https://img-blog.csdn.net/20180807192113600?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjY1NDY2Mg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="结果图" title=""></p>
+
+<p>（你要问我飞机去哪里了，图中间有个炸掉的就是   ） <br>
+好了接下来就让我理一理思路</p>
+
+
+
+<h1 id="一主类">一，主类</h1>
+
+<p>第一步，把窗口先画一下，要用到java里的JFrame函数</p>
+
+
+
+<p>“` java <br>
+import java.awt.Color; <br>
+import java.awt.Font; <br>
+import java.awt.Graphics; <br>
+import java.awt.Image; <br>
+import java.awt.event.KeyAdapter; <br>
+import java.awt.event.KeyEvent; <br>
+import java.awt.event.WindowAdapter; <br>
+import java.awt.event.WindowEvent; <br>
+import java.awt.event.WindowListener; <br>
+import java.util.Date;</p>
+
+<p>import javax.swing.JFrame;</p>
+
+<p>/** <br>
+ * 游戏主窗口 <br>
+ * @author 13958 <br>
+ * <br>
+ */</p>
+
+<p>public class MyGameFarme  extends JFrame {</p>
+
+<pre><code>Image bgimg = GameUtil.getImage("images/bg.png");
+Image planeimg =GameUtil.getImage("images/plane.png");
+//先加载图片，在src中创建images文件夹，将图片存在images下。
+Plane plane =new Plane(planeimg,250,250);
+//画飞机，定义一个飞机类。
+Shell[] shells =new Shell[50];
+//画炮弹，同样一个炮弹类
+Explode bao;
+//定义一个爆炸效果的类，这里先定义一个爆炸方法。
+Date startTime=new Date();
+Date endTime;
+int period;
+//设置Data类来进行计时，程序开始时startTime计时，死亡时endTime计时。
+
+@Override
+//重写，可以右键-&gt;source-&gt;override快捷写出此函数。
+public void paint(Graphics g) {
+    g.drawImage(bgimg, 0, 0, null);//画背景
+    plane.drawSelf(g);//画飞机
+    for(int i=0;i&lt;shells.length;i++) {
+        shells[i].draw(g);//利用一个数组画炮弹，这里设定50个。
+        boolean peng =shells[i].getRect().intersects(plane.getRect());
+        //利用getRect来判断飞机和炮弹是否相交（图片本质都是矩形）。
+        if(peng) {//利用if语句来设定结果
+            System.out.println("相撞了！");//为了在控制台确定可以判断相撞，可以删掉的。
+            plane.live=false;//调用飞机死亡方法。
+            if(bao==null）{ //调用爆炸方法
+            bao=new Explode(plane.x,plane.y);
+
+            endTime =new Date();//结束计时
+            period=(int)((endTime.getTime()-startTime.getTime())/1000);//计算存活时间
+            }
+
+
+            bao.draw(g);//画爆炸效果。
+        }
+
+        if(!plane.live) {
+            g.setColor(Color.red);
+            Font f=new Font("宋体",Font.BOLD,50);
+            g.setFont(f);
+            g.drawString("时间："+period+"s", 100,100);
+            //输出结果图，
+        }
+    }
+
+}
+
+class PaintThread extends Thread {//内部类，设定重画
+
+
+    @Override
+    public void run() {
+
+        while(true) {
+            repaint();   //重画 
+
+
+            try {  
+                Thread.sleep(40);//一般人眼为26帧，这就差不多
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+
+
+        }
+
+    }
+
+}
+
+
+class KeyMonitor extends KeyAdapter{
+//设定键盘控制。
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        plane.addDirection(e);//按下时方法
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+       plane.minusDirection(e);//松开时方法
+
+    }
+
+
+
+
+}
+
+
+
+/**
+ * 初始化窗口
+ */
+public void launchFrame() {
+    this.setTitle("ly出品");//设置标题
+
+    this.setSize(Contant.GAME_WIDTH, Contant.GAME_HEIGHT);
+    this.setLocation(40, 40);
+    this.setVisible(true);
+    //设置窗口属性
+
+
+
+    this.addWindowListener(new WindowAdapter() {
+        @Override
+        public void windowClosing(WindowEvent e) {
+        System.exit(0);
+        //设置关闭窗口事件
+        }
+    });
+
+    new PaintThread().start();
+    addKeyListener(new KeyMonitor());
+
+    for(int i=0;i&lt;shells.length;i++) {
+        shells[i]=new Shell();
+
+    }
+
+
+}
+
+
+
+
+public static void main(String[] args) {
+    MyGameFarme f=new MyGameFarme();
+    f.launchFrame();
+}
+
+/**
+ * 下面画面缓冲，消除闪烁。
+ */
+private Image offScreenImage =null;
+public void update(Graphics g) {
+    if(offScreenImage==null) {
+        offScreenImage=this.createImage(Contant.GAME_WIDTH,Contant.GAME_HEIGHT);
+    }
+    Graphics goff=offScreenImage.getGraphics();
+    paint(goff);
+    g.drawImage(offScreenImage, 0, 0, null);
+
+}
+</code></pre>
+
+<p>}</p>
+
+<h1 id="二根类">二，根类</h1>
+
+<p>//因为飞机，子弹都有部分相似的属性，所以写一个父类，将共同属性写入。 <br>
+“`java <br>
+import java.awt.Graphics; <br>
+import java.awt.Image; <br>
+import java.awt.Rectangle;</p>
+
+<p>/** <br>
+ * 物体属性设置 <br>
+ * @author 13958 <br>
+ * <br>
+ */ <br>
+public class GameObject { <br>
+     Image img; <br>
+     double x,y; <br>
+     int speed; <br>
+     int width,height;</p>
+
+<pre><code> public void drawSelf(Graphics g) {
+     g.drawImage(img, (int)x,(int) y, null);
+
+ }
+
+
+
+ public GameObject(Image img, double x, double y, int speed, int width, int height) {
+    super();
+    this.img = img;
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
+    this.width = width;
+    this.height = height;
+}
+
+
+
+public GameObject(Image img,double x,double y) {
+     super();
+     this.img=img;
+     this.x=x;
+     this.y=y;
+
+ }
+ public GameObject() {
+
+ }
+ /**
+  * 返回物体所在矩形，碰撞检测。
+  * @return
+  */
+ public Rectangle getRect() {
+     return new Rectangle((int)x,(int)y,width,height);
+ }
+</code></pre>
+
+<p>}</p>
+
+
+
+<h1 id="三飞机">三。飞机</h1>
+
+<p>“`java <br>
+ import java.awt.Graphics; <br>
+import java.awt.Image; <br>
+import java.awt.event.KeyEvent;</p>
+
+<p>public class Plane extends GameObject{</p>
+
+<pre><code>boolean left,up,right,down;
+boolean live=true;
+
+//画飞机：
+ public void drawSelf(Graphics g) {
+     if(live) {
+
+     g.drawImage(img, (int)x,(int) y, null);
+
+     //设定飞机飞行公式
+     if(left) {
+         x-=speed;
+     }
+     else if(right) {
+         x+=speed;
+     }
+     else if(up) {
+         y-=speed;
+     }
+     else if(down) {
+         y+=speed;
+     }
+     }
+ }
+
+
+
+ public Plane(Image img, double x,double y) {
+     this.img=img;
+     this.x=x;
+     this.y=y;
+     this.speed=5;
+     this.width = img.getWidth(null);
+     this.height= img.getHeight(null);
+ }
+ //将动作与键盘绑定
+ public void addDirection(KeyEvent e) {
+     switch(e.getKeyCode()) {
+     case KeyEvent.VK_LEFT:
+         left=true;
+         break;
+     case KeyEvent.VK_RIGHT:
+         right=true;
+         break;
+     case KeyEvent.VK_UP:
+         up=true;
+         break;
+     case KeyEvent.VK_DOWN:
+         down=true;
+         break;
+     }
+ }
+
+
+
+ public void minusDirection(KeyEvent e) {
+     switch(e.getKeyCode()) {
+     case KeyEvent.VK_LEFT:
+         left=false;
+         break;
+     case KeyEvent.VK_RIGHT:
+         right=false;
+         break;
+     case KeyEvent.VK_UP:
+         up=false;
+         break;
+     case KeyEvent.VK_DOWN:
+         down=false;
+         break;
+     }
+ }
+</code></pre>
+
+<p>}</p>
+
+
+
+<h1 id="四子弹">四，子弹</h1>
+
+
+
+<p>“`java <br>
+import java.awt.Color; <br>
+import java.awt.Graphics;</p>
+
+<p>public class Shell extends GameObject {</p>
+
+<pre><code>double degree;
+
+public Shell() {
+    x=200;
+    y=200;
+    width=10;
+    height=10;
+    speed =3;
+
+
+    degree=Math.random()*Math.PI*2;
+
+}
+
+public void draw(Graphics g) {
+    Color c=g.getColor();
+    g.setColor(Color.YELLOW);
+
+    g.fillOval((int)x, (int)y, width, height);
+    //设定子弹飞行轨迹
+    x+=speed*Math.cos(degree);
+    y+=speed*Math.sin(degree);
+
+    if(x&lt;0||x&gt;Contant.GAME_WIDTH-width) {
+        degree=Math.PI-degree;
+    }
+    if(y&lt;30||y&gt;Contant.GAME_HEIGHT-height-30)
+        degree =-degree;    
+
+    g.setColor(c);
+}
+</code></pre>
+
+<p>}</p>
+
+<h1 id="五读取图片">五读取图片</h1>
+
+<p>“`java <br>
+import java.awt.Image; <br>
+import java.awt.image.BufferedImage; <br>
+import java.io.IOException; <br>
+import java.net.URL;</p>
+
+<p>import javax.imageio.ImageIO;</p>
+
+<p>public class GameUtil { <br>
+    private GameUtil() {</p>
+
+<pre><code>}
+/**
+ * 返回指定路径图片
+ * @param path
+ * @return
+ */
+public static Image getImage(String path) {
+    BufferedImage bi =null;
+    try {
+        URL u=GameUtil.class.getClassLoader().getResource(path);
+        bi=ImageIO.read(u);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return bi;
+}
+</code></pre>
+
+<p>}</p>
+
+
+
+<h1 id="六-爆炸类">六 爆炸类</h1>
+
+
+
+<p>“` <br>
+package com.ly.game;</p>
+
+<p>import java.awt.Graphics; <br>
+import java.awt.Image;</p>
+
+<p>public class Explode { <br>
+    double x,y; <br>
+    static Image[] imgs=new Image[16]; <br>
+    static { <br>
+        for(int i=0;i&lt;16;i++) { <br>
+            imgs[i]=GameUtil.getImage(“images/e”+(i+1)+”.png”); <br>
+            imgs[i].getWidth(null); <br>
+        } <br>
+    }</p>
+
+<pre><code>int count;
+public void draw(Graphics g) {
+    if(count&lt;=15) {
+        g.drawImage(imgs[count], (int)x,(int) y,null);
+        count++;
+
+    }
+}
+
+public Explode(double x,double y) {
+    this.x=x;
+    this.y=y;
+}
+</code></pre>
+
+<p>}</p>
+
+<h1 id="七-常量类">七 常量类</h1>
+
+<p>“`java</p>
+
+<p>import java.awt.Graphics; <br>
+import java.awt.Image;</p>
+
+<p>public class Explode { <br>
+    double x,y; <br>
+    static Image[] imgs=new Image[16]; <br>
+    static { <br>
+        for(int i=0;i&lt;16;i++) { <br>
+            imgs[i]=GameUtil.getImage(“images/e”+(i+1)+”.png”); <br>
+            imgs[i].getWidth(null); <br>
+        } <br>
+    }</p>
+
+<pre><code>int count;
+
+
+public void draw(Graphics g) {
+    if(count&lt;=15) {
+        g.drawImage(imgs[count], (int)x,(int) y,null);
+        count++;
+
+    }
+}
+
+public Explode(double x,double y) {
+    this.x=x;
+    this.y=y;
+}
+</code></pre>
+
+<p>} <br>
+此次博客主要做个人笔记用，请勿滥用。。（）大佬们应该是看不上的。。</p>            </div>
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/markdown_views-ea0013b516.css" />
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/weixin_42654662/article/details/81488689,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/weixin_42654662/article/details/81488689,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+		<div class="article-bar-bottom">
+						<div class="tags-box artic-tag-box">
+			<span class="label">文章标签：</span>
+						<a data-track-click='{"mod":"popu_626","con":"j"}' data-track-view='{"mod":"popu_626","con":"j"}' class="tag-link" href="http://so.csdn.net/so/search/s.do?q=j&t=blog" target="_blank">j						</a>
+		</div>
+										<div class="tags-box hot-word">
+			<span class="label">相关热词：</span>
+						<a class="tag-link" href="https://blog.csdn.net/leixiaohua1020/article/details/47068015" target="_blank">
+			《基于			</a>
+						<a class="tag-link" href="https://blog.csdn.net/prehistorical/article/details/53671415" target="_blank">
+			基于			</a>
+						<a class="tag-link" href="https://blog.csdn.net/prehistorical/article/details/53671415" target="_blank">
+			基于原型和基于类			</a>
+						<a class="tag-link" href="https://blog.csdn.net/xielinrui123/article/details/80348621" target="_blank">
+			基于内存基于模型			</a>
+						<a class="tag-link" href="https://blog.csdn.net/shenxiaoming77/article/details/51566481" target="_blank">
+			基于用户基于物品			</a>
+					</div>
+			</div>
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/weixin_42654662/article/details/81488689#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_26924703/article/details/51424474,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_26924703/article/details/51424474,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_26924703/article/details/51424474" target="_blank" title="大一下学期做的<em>一个</em><em>飞机</em>游戏（<em>JAVA</em>）">
+					大一下学期做的<em>一个</em><em>飞机</em>游戏（<em>JAVA</em>）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_26924703" target="_blank">
+						<img src="https://avatar.csdn.net/D/9/E/3_qq_26924703.jpg" alt="qq_26924703" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_26924703</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-16</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1170</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_26924703/article/details/51424474" target="_blank" >
+						如果你和我一样还是个菜鸟级别的程序员，但是又想自己写一个游戏来获得成就感，我想你很可能会想到诸如坦克大战类的射击游戏。
+首先不得不说设计类游戏的实现不难（我说的是简单的，哈哈），我写的里面基本上没什...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/qq_26924703/article/details/51424474">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/game/game7.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/javawz/article/details/662233,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/javawz/article/details/662233,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/javawz/article/details/662233" target="_blank" title="自己用<em>java</em>做的<em>一个</em>打<em>飞机</em>的<em>小游戏</em>">
+					自己用<em>java</em>做的<em>一个</em>打<em>飞机</em>的<em>小游戏</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/javawz" target="_blank">
+						<img src="https://avatar.csdn.net/5/5/E/3_javawz.jpg" alt="javawz" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">javawz</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-13</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1300</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/javawz/article/details/662233" target="_blank" >
+						自己用java做的一个打飞机的小游戏源代码如下  					</a>
+				</p>
+		</div>
+				</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_21057881/article/details/54616575,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_21057881/article/details/54616575,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_21057881/article/details/54616575" target="_blank" title="unity3d开发 打<em>飞机</em><em>小游戏</em>（一）（场景布置）">
+					unity3d开发 打<em>飞机</em><em>小游戏</em>（一）（场景布置）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_21057881" target="_blank">
+						<img src="https://avatar.csdn.net/1/B/E/3_qq_21057881.jpg" alt="qq_21057881" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_21057881</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">01-19</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2425</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_21057881/article/details/54616575" target="_blank" >
+						看了一下SIKI老师的课程，自己试一下做一个“打飞机”游戏，unity3d使用的版本是最新的5.5
+  首先创建工程选2D
+  
+
+
+打开之后导入一些资源包，直接拖进去就能导入的了
+
+...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/qq_21057881/article/details/54616575">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/game/game6.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_22770457/article/details/51231964,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_22770457/article/details/51231964,BlogCommendFromQuerySearch_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_22770457/article/details/51231964" target="_blank" title="<em>Java</em>版打<em>飞机</em><em>小游戏</em>">
+					<em>Java</em>版打<em>飞机</em><em>小游戏</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_22770457" target="_blank">
+						<img src="https://avatar.csdn.net/9/C/1/3_qq_22770457.jpg" alt="qq_22770457" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_22770457</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-24</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2697</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_22770457/article/details/51231964" target="_blank" >
+						放假写的一个Java端打飞机小游戏。
+
+复习到的知识点有：java图形界面，多线程，集合框架等。
+
+主要的收获是知道了处理图层的方式，即JLayeredPane层次面板，主要思路
+
+如下：...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/qq_22770457/article/details/51231964">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile19.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/liangyihuai/article/details/48466421,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/liangyihuai/article/details/48466421,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/liangyihuai/article/details/48466421" target="_blank" title="<em>java</em><em>飞机</em>游戏小项目">
+					<em>java</em><em>飞机</em>游戏小项目				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/liangyihuai" target="_blank">
+						<img src="https://avatar.csdn.net/E/2/B/3_liangyihuai.jpg" alt="liangyihuai" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">liangyihuai</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">09-15</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2581</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/liangyihuai/article/details/48466421" target="_blank" >
+						一、功能：1、实现键盘控制飞机超八个方向移动  2、碰撞事件   3、双缓冲技术消除屏幕闪烁问题     4、游戏等级的判断等等二、特点：1、本代码的结构合理清晰，重构得好（所以你会看到较多的包和工具...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/liangyihuai/article/details/48466421">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/game/game1.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_24628913/8275545,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_24628913/8275545,BlogCommendFromQuerySearch_5"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/qq_24628913/8275545" target="_blank">
+						php做的<em>一个</em>打<em>飞机</em>的<em>小游戏</em>					</a>
+				</h4>
+				<p>
+					<span class="data">2014年12月18日 </span>
+					<span class="size">518KB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/qq_24628913/8275545" target="_blank" strategy="BlogCommendFromQuerySearch_5">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/rar.svg" alt="">
+				</a>
+			</div>
+		</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/jianglihui0330/article/details/7854555,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/jianglihui0330/article/details/7854555,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/jianglihui0330/article/details/7854555" target="_blank" title="<em>java</em>写的FPS飞行射击类<em>小游戏</em>总结（附源码）">
+					<em>java</em>写的FPS飞行射击类<em>小游戏</em>总结（附源码）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/jianglihui0330" target="_blank">
+						<img src="https://avatar.csdn.net/A/2/1/3_jianglihui0330.jpg" alt="jianglihui0330" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">jianglihui0330</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-11</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1424</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/jianglihui0330/article/details/7854555" target="_blank" >
+						这段时间学习java2D写的，今天来整理总结一下。
+游戏资源是从cping1982的博客里下载的(http://blog.csdn.net/cping1982/article/details/672...					</a>
+				</p>
+		</div>
+				</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/warmdesire/8843891,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/warmdesire/8843891,BlogCommendFromQuerySearch_7"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/warmdesire/8843891" target="_blank">
+						简单的Flash AS3.0 打<em>飞机</em>游戏					</a>
+				</h4>
+				<p>
+					<span class="data">2015年06月27日 </span>
+					<span class="size">541KB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/warmdesire/8843891" target="_blank" strategy="BlogCommendFromQuerySearch_7">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/zip.svg" alt="">
+				</a>
+			</div>
+		</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/sinadrew/article/details/52858237,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/sinadrew/article/details/52858237,BlogCommendFromQuerySearch_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/sinadrew/article/details/52858237" target="_blank" title="<em>Java</em>窗体实现<em>飞机</em>躲子弹游戏">
+					<em>Java</em>窗体实现<em>飞机</em>躲子弹游戏				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/sinadrew" target="_blank">
+						<img src="https://avatar.csdn.net/A/5/2/3_sinadrew.jpg" alt="sinadrew" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">sinadrew</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">10-19</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2303</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/sinadrew/article/details/52858237" target="_blank" >
+						前几天做了Java窗体实现飞机躲子弹游戏，我觉得很有必要做个笔记方便以后自己和他人查阅。主要功能是：在一个窗体里面，用方向键盘控制飞机图片移动来躲避满屏的子弹。由于篇幅的关系，这里主要做一个整体的文字...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/sinadrew/article/details/52858237">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/game/game11.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/u013010108/6637941,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/u013010108/6637941,BlogCommendFromQuerySearch_9"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/u013010108/6637941" target="_blank">
+						Unity3D打<em>飞机</em>游戏					</a>
+				</h4>
+				<p>
+					<span class="data">2013年12月01日 </span>
+					<span class="size">29.76MB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/u013010108/6637941" target="_blank" strategy="BlogCommendFromQuerySearch_9">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/rar.svg" alt="">
+				</a>
+			</div>
+		</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/weixin_42654662">
+                <img src="https://avatar.csdn.net/A/5/B/3_weixin_42654662.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/weixin_42654662" target="_blank" class="text-truncate" id="uid">一剑光寒满堂客</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/weixin_42654662/article/details/81488689" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="1">
+                        <dt><a href="https://blog.csdn.net/weixin_42654662?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/weixin_42654662?t=1"><span class="count">1</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="0">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">0</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>喜欢</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>评论</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="1级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-1"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="2">
+                2            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="10">
+                10            </dd>
+        </dl>
+        <dl title="0">
+            <dt>排名：</dt>
+            <dd>0</dd>
+        </dl>
+    </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    		    		    		    <div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/weixin_42654662/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/weixin_42654662/article/details/81488689">基于java制作一个飞机小游戏（学习心得）</a>
+					<p class="read">阅读量：<span>0</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/avneunkwb.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "基于java制作一个飞机小游戏（学习心得）";
+    var ChannelId = 16;
+    var articleId = "81488689";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/weixin_42654662/article/details/81488689";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["\u57fa\u4e8e","java","\u5236\u4f5c","\u4e00\u4e2a","\u98de\u673a","\u5c0f\u6e38\u620f","\u5b66\u4e60\u5fc3\u5f97"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"基于java制作一个飞机小游戏（学习心得）");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-73eea35575.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+</html>

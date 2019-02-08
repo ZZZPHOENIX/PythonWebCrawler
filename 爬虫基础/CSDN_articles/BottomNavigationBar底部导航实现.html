@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/Alive_lxy/article/details/81488544"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="首先导入相关依赖
+
+
+implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.4'
+
+ 
+
+fragment 页面（这里只是示例你想要几个页面就建几个fragment 但是别忘了建对应xml）
+
+
+public class FragmentOne extends Fragment {
+    @Nullable
+    @O..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>BottomNavigationBar底部导航实现 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-8195ccbe2d.min.css">
+
+    <script type="text/javascript">
+        var username = "Alive_lxy";
+        var blog_address = "https://blog.csdn.net/alive_lxy";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/Alive_lxy/article/details/81488544"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin3-template";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/alive_lxy">Alive_lxy的博客...</a></span>
+			<i>></i>
+			<span>BottomNavigationBar底部导航实现</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">BottomNavigationBar底部导航实现</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 21:09:16</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：4</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <p>首先导入相关依赖</p>
+
+<pre class="has">
+<code>implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.4'</code></pre>
+
+<p> </p>
+
+<p>fragment 页面（这里只是示例你想要几个页面就建几个fragment 但是别忘了建对应xml）</p>
+
+<pre class="has">
+<code>public class FragmentOne extends Fragment {
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //R.layout.fragmentone显示对应的页面
+        View view = inflater.inflate(R.layout.fragmentone,container,false);
+        return view;
+    }
+}</code></pre>
+
+<p>接下来就是主页面了</p>
+
+<pre class="has">
+<code>public class HomeActivity extends AppCompatActivity implements BottomNavigationBar.OnTabSelectedListener {
+    //BottomNavigationBar 
+    private BottomNavigationBar mBottomNavigationBar;
+    //fragment（这里我只用了3个页面）
+    private FragmentOne mFragmentOne = new FragmentOne();
+    private FragmentTwo mFragmentTwo = new FragmentTwo();
+    private FragmentThree mFragmentThree = new FragmentThree();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+        navigation();
+        //设置默认页面
+        setDefaultFragment();
+    }
+
+    private void navigation() {
+        mBottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
+        mBottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
+        mBottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
+
+        mBottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.a1, getString(R.string.home)).setInactiveIconResource(R.drawable.a2).setActiveColorResource(R.color.colortrue).setInActiveColorResource(R.color.colorfalse))
+                .addItem(new BottomNavigationItem(R.drawable.c1, getString(R.string.order)).setInactiveIconResource(R.drawable.c2).setActiveColorResource(R.color.colortrue).setInActiveColorResource(R.color.colorfalse))
+                .addItem(new BottomNavigationItem(R.drawable.d2, getString(R.string.my)).setInactiveIconResource(R.drawable.d1).setActiveColorResource(R.color.colortrue).setInActiveColorResource(R.color.colorfalse))
+                .setFirstSelectedPosition(0)
+                .initialise();
+        mBottomNavigationBar.setTabSelectedListener(this);
+
+
+    }
+
+    @Override
+    public void onTabSelected(int position) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+
+        switch (position) {
+            case 0:
+
+                transaction.replace(R.id.ll_content, mFragmentOne);
+                break;
+
+            case 1:
+
+                transaction.replace(R.id.ll_content, mFragmentTwo);
+                break;
+
+            case 2:
+
+                transaction.replace(R.id.ll_content, mFragmentThree);
+                break;
+
+            default:
+                transaction.replace(R.id.ll_content, mFragmentOne);
+                break;
+        }
+        transaction.commit();
+
+    }
+
+    @Override
+    public void onTabUnselected(int position) {
+
+    }
+
+    @Override
+    public void onTabReselected(int position) {
+
+    }
+
+    private void setDefaultFragment() {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.ll_content, mFragmentOne);
+        transaction.commit();
+    }
+}
+</code></pre>
+
+<p>xml</p>
+
+<pre class="has">
+<code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.HomeActivity"&gt;
+
+    &lt;LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"/&gt;
+
+    &lt;com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/bottom_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/&gt;
+&lt;/RelativeLayout&gt;</code></pre>
+
+<p> </p>            </div>
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/Alive_lxy/article/details/81488544,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/Alive_lxy/article/details/81488544,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/Alive_lxy/article/details/81488544#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/chaoyu168/article/details/79221230,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/chaoyu168/article/details/79221230,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/chaoyu168/article/details/79221230" target="_blank" title="Android--<em>BottomNavigationBar</em><em>实现</em><em>底部导航</em>栏">
+					Android--<em>BottomNavigationBar</em><em>实现</em><em>底部导航</em>栏				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/chaoyu168" target="_blank">
+						<img src="https://avatar.csdn.net/3/7/2/3_chaoyu168.jpg" alt="chaoyu168" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">chaoyu168</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">01-31</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						3843</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/chaoyu168/article/details/79221230" target="_blank" >
+						1.BottomNavigationBar的下载地址
+
+https://github.com/Ashok-Varma/BottomNavigation
+
+2.使用的方法
+
+2.1在Grad...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/chaoyu168/article/details/79221230">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile4.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/Li_peilun/article/details/78417967,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/Li_peilun/article/details/78417967,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/Li_peilun/article/details/78417967" target="_blank" title="Android——<em>BottomNavigationBar</em><em>底部导航</em>栏的快速<em>实现</em>">
+					Android——<em>BottomNavigationBar</em><em>底部导航</em>栏的快速<em>实现</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/Li_peilun" target="_blank">
+						<img src="https://avatar.csdn.net/C/0/C/3_li_peilun.jpg" alt="Li_peilun" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">Li_peilun</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">11-01</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						826</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/Li_peilun/article/details/78417967" target="_blank" >
+						底部导航的快速实现，不用繁琐的LinearLayout或者RadioGroup等的那么多代码，简单，粗暴。1.基本使用a.在Android Studio下添加依赖：compile 'com.ashok...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/Li_peilun/article/details/78417967">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile5.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+									<!-- 第四范式广告开关 -->
+				<div class="p4courset3_target _4paradigm_box recommend-item-box clearfix" ></div>
+				<script>window.p4sdk_enable_recommendBox=true</script>
+			
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u011045726/article/details/79583423,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u011045726/article/details/79583423,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u011045726/article/details/79583423" target="_blank" title="Flutter学习笔记 - <em>底部导航</em>栏">
+					Flutter学习笔记 - <em>底部导航</em>栏				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u011045726" target="_blank">
+						<img src="https://avatar.csdn.net/1/C/9/3_u011045726.jpg" alt="u011045726" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u011045726</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">03-16</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1006</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u011045726/article/details/79583423" target="_blank" >
+						大家最近都在讨论新鲜技术-flutter，小编也在学习中，遇到大家都遇到的问题，底部导航。下面给大家贴出底部导航的编写，主要参考了lime这个项目。
+
+上代码
+
+一.在main.dart文件中 
+定义...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/u011045726/article/details/79583423">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/web/web19.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/baojie0327/article/details/78496183,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/baojie0327/article/details/78496183,BlogCommendFromQuerySearch_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/baojie0327/article/details/78496183" target="_blank" title="Android<em>底部导航</em><em>BottomNavigationBar</em>的使用">
+					Android<em>底部导航</em><em>BottomNavigationBar</em>的使用				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/baojie0327" target="_blank">
+						<img src="https://avatar.csdn.net/9/1/5/3_baojie0327.jpg" alt="baojie0327" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">baojie0327</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">11-10</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1004</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/baojie0327/article/details/78496183" target="_blank" >
+						前言Android的底部导航栏，如下图 
+ 
+其实有多种实现方式，可以用RadioGroup,LinearLayout+TextVIew,也可以用TabHost实现。Google官方一直没有现成的导航...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/baojie0327/article/details/78496183">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile30.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/qq_38250682/article/details/69945543,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/qq_38250682/article/details/69945543,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_38250682/article/details/69945543" target="_blank" title="<em>底部导航</em>控件——<em>BottomNavigationBar</em>简单使用">
+					<em>底部导航</em>控件——<em>BottomNavigationBar</em>简单使用				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_38250682" target="_blank">
+						<img src="https://avatar.csdn.net/E/8/9/3_qq_38250682.jpg" alt="qq_38250682" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_38250682</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-10</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1342</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_38250682/article/details/69945543" target="_blank" >
+						Google在自己推出的Material design中增加了Bottom Navigation导航控制。Android一直没有官方的导航控制器，自己实现确实是五花八门，有了这个规定之后，以后我们的A...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/qq_38250682/article/details/69945543">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile10.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/u010151514/article/details/52253586,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/u010151514/article/details/52253586,BlogCommendFromQuerySearch_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u010151514/article/details/52253586" target="_blank" title="炫酷的<em>底部导航</em>控件——<em>BottomNavigationBar</em>">
+					炫酷的<em>底部导航</em>控件——<em>BottomNavigationBar</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u010151514" target="_blank">
+						<img src="https://avatar.csdn.net/C/4/2/3_u010151514.jpg" alt="u010151514" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u010151514</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-19</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						6746</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u010151514/article/details/52253586" target="_blank" >
+						今天闲来无事，跟朋友一起探讨技术，不觉之间发现了一个很好用的控件，于是乎拿来和大家分享，略显粗糙，海景大家见谅，想知道更多技术类文章，请关注我的博客，小编会在不定时更新博客今天带来的一款控件是我们经藏...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/u010151514/article/details/52253586">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile18.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/student9128/article/details/53463067,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/student9128/article/details/53463067,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/student9128/article/details/53463067" target="_blank" title="Android<em>底部导航</em>栏<em>实现</em>（一）之<em>BottomNavigationBar</em>">
+					Android<em>底部导航</em>栏<em>实现</em>（一）之<em>BottomNavigationBar</em>				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/student9128" target="_blank">
+						<img src="https://avatar.csdn.net/8/1/5/3_student9128.jpg" alt="student9128" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">student9128</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-05</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						6560</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/student9128/article/details/53463067" target="_blank" >
+						BottomNavigationBar这个控件的使用之前已经写过，这里不再赘述，详情请参考BottomNavigationBar的使用。...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/student9128/article/details/53463067">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile9.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/abs1004/article/details/77330726,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/abs1004/article/details/77330726,BlogCommendFromQuerySearch_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/abs1004/article/details/77330726" target="_blank" title="安卓 <em>BottomNavigationBar</em> <em>底部导航</em>栏 最简单用法详解">
+					安卓 <em>BottomNavigationBar</em> <em>底部导航</em>栏 最简单用法详解				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/abs1004" target="_blank">
+						<img src="https://avatar.csdn.net/7/4/9/3_abs1004.jpg" alt="abs1004" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">abs1004</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-17</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						7499</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/abs1004/article/details/77330726" target="_blank" >
+						底部导航栏有各种实现方法，下面看看最新的官方定制的标准 BottomNavigationBar 的使用方法：一、前奏1、BottomNavigation Github网址（适合能翻墙的同学）： 
+ht...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/abs1004/article/details/77330726">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile31.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_33842627/10413351,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_387","con":",https://download.csdn.net/download/qq_33842627/10413351,BlogCommendFromQuerySearch_8"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/qq_33842627/10413351" target="_blank">
+						Kotlin中使用BottomNavigationView<em>实现</em><em>底部导航</em>					</a>
+				</h4>
+				<p>
+					<span class="data">2018年05月14日 </span>
+					<span class="size">30.99MB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/qq_33842627/10413351" target="_blank" strategy="BlogCommendFromQuerySearch_8">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/zip.svg" alt="">
+				</a>
+			</div>
+		</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_387","con":",https://blog.csdn.net/lkjfyy/article/details/78923895,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_387","con":",https://blog.csdn.net/lkjfyy/article/details/78923895,BlogCommendFromQuerySearch_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/lkjfyy/article/details/78923895" target="_blank" title="Android用<em>BottomNavigationBar</em><em>实现</em><em>底部导航</em>栏">
+					Android用<em>BottomNavigationBar</em><em>实现</em><em>底部导航</em>栏				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/lkjfyy" target="_blank">
+						<img src="https://avatar.csdn.net/A/1/0/3_lkjfyy.jpg" alt="lkjfyy" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">lkjfyy</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-28</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						5897</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/lkjfyy/article/details/78923895" target="_blank" >
+						之前底部导航栏的基本上都是自己通过selector来实现的，今天换上了Google推出的BottomNavigationBar，感觉效果还不错，写了一个项目上要用到的功能的demo，先上一张效果图，大...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/lkjfyy/article/details/78923895">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile12.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/Alive_lxy">
+                <img src="https://avatar.csdn.net/2/9/D/3_alive_lxy.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/Alive_lxy" target="_blank" class="text-truncate" id="uid">Android_lxy</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/Alive_lxy/article/details/81488544" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="13">
+                        <dt><a href="https://blog.csdn.net/alive_lxy?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/alive_lxy?t=1"><span class="count">13</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="4">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">4</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>喜欢</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>评论</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="2级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-2"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="4252">
+                4252            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="170">
+                170            </dd>
+        </dl>
+        <dl title="1117892">
+            <dt>排名：</dt>
+            <dd>111万+</dd>
+        </dl>
+    </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Alive_lxy/article/details/81274485" target="_blank">仿京东（搜索框流式布局+商品展示）</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Alive_lxy/article/details/80877016" target="_blank">频道管理加导航</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Alive_lxy/article/details/80796701" target="_blank">PullToRefreshListView</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Alive_lxy/article/details/80738577" target="_blank">Android Studio设置全屏Activity</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Alive_lxy/article/details/80728151" target="_blank">listview多条目加载</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/alive_lxy/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/alive_lxy/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/alive_lxy/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/alive_lxy/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/alive_lxy/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/alive_lxy/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/alive_lxy/article/details/78935548">spring,springMVC的优点和区别  spring 是是一个开源框架，是为了解决企业应用程序开发，功能如下 ◆目的：解决企业应用开发的复杂性 ◆功能：使用基本的JavaBean代替EJB，并</a>
+					<p class="read">阅读量：<span>3327</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/alive_lxy/article/details/78965156">MySQL中删除id为最小的数据</a>
+					<p class="read">阅读量：<span>528</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/alive_lxy/article/details/79176655">jQuery、html、JavaScript实现全选、反选、批量删除</a>
+					<p class="read">阅读量：<span>60</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/alive_lxy/article/details/78898565">java.io.IOException: Could not find resource SqlMapConfig.xml</a>
+					<p class="read">阅读量：<span>56</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/alive_lxy/article/details/79702740">angular js 实现简单的增删改查</a>
+					<p class="read">阅读量：<span>50</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/avneunkwb.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "BottomNavigationBar底部导航实现";
+    var ChannelId = 1;
+    var articleId = "81488544";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/Alive_lxy/article/details/81488544";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["bottomnavigationbar","\u5e95\u90e8\u5bfc\u822a","\u5b9e\u73b0"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"BottomNavigationBar底部导航实现");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-73eea35575.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+</html>

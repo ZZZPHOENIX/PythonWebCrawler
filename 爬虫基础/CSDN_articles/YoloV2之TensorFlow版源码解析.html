@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/tianguiyuyu/article/details/81488157"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content=" 
+
+ 
+
+准备阶段
+数据集的准备： ① 索引文件trainval.txt: 存放的是训练图片的名称
+                
+
+                  ② 图片文件：
+
+                  
+
+                 ③ 标签文件xml:
+
+                    
+
+ 
+
+网络的设计（分类训练与检测训练）
+ 
+
+
+
+   Train..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>YoloV2之TensorFlow版源码解析 - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-2eefd34acf.min.css">
+
+    <script type="text/javascript">
+        var username = "tianguiyuyu";
+        var blog_address = "https://blog.csdn.net/tianguiyuyu";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/tianguiyuyu/article/details/81488157"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin-yellow";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/tianguiyuyu">一路向北</a></span>
+			<i>></i>
+			<span>YoloV2之TensorFlow版源码解析</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-1 float-left">原</span>		<h1 class="title-article">YoloV2之TensorFlow版源码解析</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 20:40:53</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：4</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <p> </p>
+
+<p> </p>
+
+<ul><li>准备阶段</li>
+</ul><ol><li>数据集的准备： ① 索引文件trainval.txt: 存放的是训练图片的名称</li>
+</ol><p style="margin-left:0cm;">                <img alt="" class="has" src="https://img-blog.csdn.net/20180807204012562?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3RpYW5ndWl5dXl1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+
+<p style="margin-left:0cm;">                  ② 图片文件：</p>
+
+<p style="margin-left:0cm;">                  <img alt="" class="has" src="https://img-blog.csdn.net/20180807204012699?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3RpYW5ndWl5dXl1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+
+<p style="margin-left:0cm;">                 ③ 标签文件xml:</p>
+
+<p style="margin-left:0cm;">                    <img alt="" class="has" src="https://img-blog.csdn.net/20180807204012702?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3RpYW5ndWl5dXl1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+
+<p style="margin-left:0cm;"> </p>
+
+<ol><li>网络的设计（分类训练与检测训练）</li>
+</ol><p style="margin-left:0cm;"> </p>
+
+<p style="margin-left:0cm;"><img alt="" class="has" src="https://img-blog.csdn.net/20180807204012779?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3RpYW5ndWl5dXl1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+
+<p style="margin-left:0cm;">   <strong>Training for classification:</strong> 在上图所示的网络中，先在标准ImageNet 1000 class分类数据集上做160 epochs的预训练，此时网络输入大小为(224 * 224), 然后调整输入图片的大小，变成 (448 * 448), 再用这个分类网络在ImageNet进行fine-tuning, 论文中是这样描述的：（<span style="color:#000000;">We train the network on the standard ImageNet 1000 class classification dataset for 160 epochs using stochastic gradient descent with a starting learning rate of </span><span style="color:#000000;">0</span><em><span style="color:#000000;">:</span></em><span style="color:#000000;">1</span><span style="color:#000000;">, polynomial rate decay with a power of </span><span style="color:#000000;">4</span><span style="color:#000000;">, weight decay of </span><span style="color:#000000;">0</span><em><span style="color:#000000;">:</span></em><span style="color:#000000;">0005 </span><span style="color:#000000;">and momentum of </span><span style="color:#000000;">0</span><em><span style="color:#000000;">:</span></em><span style="color:#000000;">9 </span><span style="color:#000000;">using the Darknet neural network framework [</span><span style="color:#00FF00;">13</span><span style="color:#000000;">]. During training we use standard data augmentation tricks including random crops, rotations, and hue, saturation, and exposure shifts. As discussed above, after our initial training on images at </span><span style="color:#000000;">224 </span><em><span style="color:#000000;">× </span></em><span style="color:#000000;">224 </span><span style="color:#000000;">we fine tune our network at a larger size, </span><span style="color:#000000;">448</span><span style="color:#000000;">. For this fine tuning we train with the above parameters but for only 10 epochs and starting at a learning rate of </span><span style="color:#000000;">10</span><em><span style="color:#000000;">-</span></em><span style="color:#000000;">3</span><span style="color:#000000;">. At this higher resolution our network achieves a top-1 accuracy of </span><span style="color:#000000;">76</span><em><span style="color:#000000;">:</span></em><span style="color:#000000;">5% </span><span style="color:#000000;">and a top-5 accuracy of </span><span style="color:#000000;">93</span><em><span style="color:#000000;">:</span></em><span style="color:#000000;">3%</span><span style="color:#000000;">.</span>）</p>
+
+<p style="margin-left:0cm;"> </p>
+
+<p style="margin-left:0cm;">  <strong> Training for detection:</strong> 修改上述网络，即移除上述网络中的最后一层，然后在后面添加3层卷积数量为1024，大小为3*3的卷积层（在这里的第二个卷积层后面会有细粒度特征的处理，然后将不同大小的特征连接到第三层卷积核，具体看源码），最后再放置一个卷积层，这个最后的卷积层其卷积核的数量为B*（5+num_class）,源码中是5*（5+80）= 425，可根据需要自行调整， 卷积核大小为1*1， 步长为1， 输出大小为13*13。在检测数据集上进行训练。论文中是这样描述的：（<span style="color:#000000;">We modify this network for detection by removing the last convolutional layer and instead<br />
+adding on three</span><span style="color:#000000;">3 </span><em><span style="color:#000000;">× </span></em><span style="color:#000000;">3 </span><span style="color:#000000;">convolutional layers with </span><span style="color:#000000;">1024 </span><span style="color:#000000;">filters each followed by a final </span><span style="color:#000000;">1 </span><em><span style="color:#000000;">× </span></em><span style="color:#000000;">1 </span><span style="color:#000000;">convolutional layer with the number of outputs we need for detection. For VOC we predict 5 boxes with 5 coordinates each and 20 classes per box so 125 filters. We also add a passthrough layer from the final </span><span style="color:#000000;">3 </span><em><span style="color:#000000;">× </span></em><span style="color:#000000;">3 </span><em><span style="color:#000000;">× </span></em><span style="color:#000000;">512 </span><span style="color:#000000;">layer to the second to last convolutional layer so that our model can use fine grain features. We train the network for 160 epochs with a starting learning rate of </span><span style="color:#000000;">10</span><em><span style="color:#000000;">-</span></em><span style="color:#000000;">3</span><span style="color:#000000;">, dividing it by 10 at 60 and 90 epochs. We use a weight decay of </span><span style="color:#000000;">0</span><em><span style="color:#000000;">:</span></em><span style="color:#000000;">0005 </span><span style="color:#000000;">and momentum of </span><span style="color:#000000;">0</span><em><span style="color:#000000;">:</span></em><span style="color:#000000;">9</span><span style="color:#000000;">. We use a similar data augmentation to YOLO and SSD with random crops, color shifting, etc. We use the same training strategy on COCO and VOC</span>）</p>
+
+<p style="margin-left:0cm;"> </p>
+
+<ol><li>测试阶段：</li>
+</ol><p style="margin-left:0cm;"> </p>
+
+<p style="margin-left:0cm;">注意处理网络的输出要和训练阶段一一对应。得到网络的输出之后，要经过几步处理。</p>
+
+<p style="margin-left:0cm;">① 将网络的输出分割成类别概率，置信度，框的位置值几个字段。</p>
+
+<p style="margin-left:0cm;">② 将类别概率与置信度一一对应相乘，得到类别置信度。</p>
+
+<p style="margin-left:0cm;">③ 进行第一步筛选，类别置信度小于设定阈值的框去掉。</p>
+
+<p style="margin-left:0cm;">④ 因为每个cell只负责预测一个类别，因此如果一个cell有两个框其类别置信度都超过了指定阈值，那么去类别置信度最大的那个框所预测出来的类别作为这个cell所预测的类别（特别注意这点）</p>
+
+<p style="margin-left:0cm;">⑤ 最后运用非极大值算法进行过滤，得出最后的结果。</p>
+
+<p style="margin-left:0cm;"> </p>
+
+<p style="margin-left:0cm;">具体细节，请到我的githuh链接： <a href="https://github.com/TowardsNorth/yolov2_tensorflow_guiyu" rel="nofollow">https://github.com/TowardsNorth/yolov2_tensorflow_guiyu</a></p>
+
+<p style="margin-left:0cm;"> </p>            </div>
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/tianguiyuyu/article/details/81488157,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/tianguiyuyu/article/details/81488157,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+		<div class="article-bar-bottom">
+				<div class="article-copyright">
+			版权声明：本文为博主原创文章，未经博主允许不得转载。			https://blog.csdn.net/tianguiyuyu/article/details/81488157		</div>
+											</div>
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/tianguiyuyu/article/details/81488157#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_17550379/article/details/78831394,BlogCommendClickRateRank_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_17550379/article/details/78831394,BlogCommendClickRateRank_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_17550379/article/details/78831394" target="_blank" title="<em>YOLOv2</em><em>源码</em>分析（一）">
+					<em>YOLOv2</em><em>源码</em>分析（一）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_17550379" target="_blank">
+						<img src="https://avatar.csdn.net/D/D/A/3_qq_17550379.jpg" alt="qq_17550379" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_17550379</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-18</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2145</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_17550379/article/details/78831394" target="_blank" >
+						0x00 写在开头写这一系列文章主要是想解析yolov2的具体实现，因为在作者的论文中有很多地方没有进行详细表述，所以不看源代码的话很难知道幕后具体做了什么。另一点是学习一下别人写一个网络的思路，因为...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u013818406/article/details/73724824,BlogCommendClickRateRank_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u013818406/article/details/73724824,BlogCommendClickRateRank_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u013818406/article/details/73724824" target="_blank" title="转载SSD和yolo代码<em>解析</em>（<em>tensorflow</em>版）">
+					转载SSD和yolo代码<em>解析</em>（<em>tensorflow</em>版）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u013818406" target="_blank">
+						<img src="https://avatar.csdn.net/D/5/C/3_u013818406.jpg" alt="u013818406" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u013818406</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-25</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1.3万</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u013818406/article/details/73724824" target="_blank" >
+						SSD关键源码解析
+yolo源码解析
+yolov2和9000论文解析
+
+yolo论文解析					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/u013818406/article/details/73724824">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ai/ai3.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq_17550379/article/details/78911984,BlogCommendClickRateRank_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq_17550379/article/details/78911984,BlogCommendClickRateRank_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/qq_17550379/article/details/78911984" target="_blank" title="<em>YOLOv2</em><em>源码</em>分析（六）">
+					<em>YOLOv2</em><em>源码</em>分析（六）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/qq_17550379" target="_blank">
+						<img src="https://avatar.csdn.net/D/D/A/3_qq_17550379.jpg" alt="qq_17550379" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">qq_17550379</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-27</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1362</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/qq_17550379/article/details/78911984" target="_blank" >
+						文章全部YOLOv2源码分析我们再次回到了parse_network_cfg函数        //parse_network_cfg
+        else if(lt == ACTIVE){
+ ...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/qq_17550379/article/details/78911984">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ai/ai19.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u014524930/article/details/79475699,BlogCommendClickRateRank_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u014524930/article/details/79475699,BlogCommendClickRateRank_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u014524930/article/details/79475699" target="_blank" title="尝试使用<em>TensorFlow</em>实现yolo2遇到的问题">
+					尝试使用<em>TensorFlow</em>实现yolo2遇到的问题				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u014524930" target="_blank">
+						<img src="https://avatar.csdn.net/6/6/E/3_u014524930.jpg" alt="u014524930" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u014524930</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">03-07</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						636</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u014524930/article/details/79475699" target="_blank" >
+						以前就发现TensorFlow的模型组件中一直没有yolo，最近比较闲，想看看能不能TensorFlow试试。根据paper和linux上运行的测试结果，网络主体还是比较容易实现的。但是主要问题是损失...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/u014524930/article/details/79475699">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ai/ai25.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/wuzuyu365/article/details/71512185,BlogCommendClickRateRank_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/wuzuyu365/article/details/71512185,BlogCommendClickRateRank_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/wuzuyu365/article/details/71512185" target="_blank" title="yolo v2 android ok（<em>源码</em>）">
+					yolo v2 android ok（<em>源码</em>）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/wuzuyu365" target="_blank">
+						<img src="https://avatar.csdn.net/8/E/7/3_wuzuyu365.jpg" alt="wuzuyu365" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">wuzuyu365</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">05-09</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						3852</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/wuzuyu365/article/details/71512185" target="_blank" >
+						声明：由于本人水平有限，所提供的代码、dll、so等必然存在很多问题，仅用于学习，不适合工业级使用，请谨慎使用，如果造成损失，责任自负。
+
+就是把darknet yolo v2 移植到android手...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/wuzuyu365/article/details/71512185">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/mobile/mobile26.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/l7H9JA4/article/details/79955903,BlogCommendClickRateRank_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/l7H9JA4/article/details/79955903,BlogCommendClickRateRank_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/l7H9JA4/article/details/79955903" target="_blank" title="目标检测|<em>YOLOv2</em>原理与实现(附YOLOv3)">
+					目标检测|<em>YOLOv2</em>原理与实现(附YOLOv3)				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/l7H9JA4" target="_blank">
+						<img src="https://avatar.csdn.net/4/9/7/3_l7h9ja4.jpg" alt="l7H9JA4" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">l7H9JA4</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-16</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						4879</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/l7H9JA4/article/details/79955903" target="_blank" >
+						作者：叶虎     编辑：李雪冬              前  言在前面的一篇文章中，我们详细介绍了YOLOv1的原理以及实现过程。这篇文章接着介绍YOLOv2的原理以及实现，YOLOv2的论文全名...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/l7H9JA4/article/details/79955903">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ai/ai20.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yangdashi888/article/details/78026320,BlogCommendClickRateRank_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yangdashi888/article/details/78026320,BlogCommendClickRateRank_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/yangdashi888/article/details/78026320" target="_blank" title="yolo v2 损失函数<em>源码</em>（训练核心代码）解读和其实现原理">
+					yolo v2 损失函数<em>源码</em>（训练核心代码）解读和其实现原理				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/yangdashi888" target="_blank">
+						<img src="https://avatar.csdn.net/9/6/2/3_yangdashi888.jpg" alt="yangdashi888" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">yangdashi888</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">09-19</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						3111</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/yangdashi888/article/details/78026320" target="_blank" >
+						前提说明：
+
+    1, 关于 yolo 和 yolo v2 的详细解释请移步至如下两个链接，或者直接看论文（我自己有想写 yolo 的教程，但思前想后下面两个链接中的文章质量实在是太好了_(:з」...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/yangdashi888/article/details/78026320">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ai/ai6.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/nongfu_spring/article/details/54140453,BlogCommendClickRateRank_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/nongfu_spring/article/details/54140453,BlogCommendClickRateRank_7"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/nongfu_spring/article/details/54140453" target="_blank" title="yolo v2 <em>源码</em>分析（一）">
+					yolo v2 <em>源码</em>分析（一）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/nongfu_spring" target="_blank">
+						<img src="https://avatar.csdn.net/4/0/C/3_nongfu_spring.jpg" alt="nongfu_spring" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">nongfu_spring</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">01-06</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						6280</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/nongfu_spring/article/details/54140453" target="_blank" >
+						detector .c文件，这里仅分析train_detector  void train_detector(char *datacfg, char *cfgfile, char *weightfil...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/nongfu_spring/article/details/54140453">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ai/ai6.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/syoung9029/article/details/70338061,BlogCommendClickRateRank_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/syoung9029/article/details/70338061,BlogCommendClickRateRank_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/syoung9029/article/details/70338061" target="_blank" title="深度学习（五）<em>yolov2</em>代码分析">
+					深度学习（五）<em>yolov2</em>代码分析				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/syoung9029" target="_blank">
+						<img src="https://avatar.csdn.net/B/4/B/3_syoung9029.jpg" alt="syoung9029" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">syoung9029</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">04-21</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						7075</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/syoung9029/article/details/70338061" target="_blank" >
+						Darknet代码详解：
+上文配置好环境之后，进入darknet.c,接着进入run_detector(argc,argv)
+ if (0 == strcmp(argv[1], &quot;average&quot;))...					</a>
+				</p>
+		</div>
+						<div class="img-box float-right">
+				<a href="https://blog.csdn.net/syoung9029/article/details/70338061">
+					<img src="https://csdnimg.cn/release/phoenix/article_rand_pic/ai/ai23.jpg" alt="">	
+				</a>
+			</div>
+			</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/mafeiyu80/article/details/52212856,BlogCommendClickRateRank_9"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/mafeiyu80/article/details/52212856,BlogCommendClickRateRank_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/mafeiyu80/article/details/52212856" target="_blank" title="<em>tensorflow</em>实现基于CNN残差网络的一个简化版YOLO">
+					<em>tensorflow</em>实现基于CNN残差网络的一个简化版YOLO				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/mafeiyu80" target="_blank">
+						<img src="https://avatar.csdn.net/A/A/3/3_mafeiyu80.jpg" alt="mafeiyu80" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">mafeiyu80</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">08-15</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2796</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/mafeiyu80/article/details/52212856" target="_blank" >
+						tensorflow yolo cnn residual					</a>
+				</p>
+		</div>
+				</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/tianguiyuyu">
+                <img src="https://avatar.csdn.net/D/3/6/3_tianguiyuyu.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/tianguiyuyu" target="_blank" class="text-truncate" id="uid">tianguiyuyu</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/tianguiyuyu/article/details/81488157" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="77">
+                        <dt><a href="https://blog.csdn.net/tianguiyuyu?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/tianguiyuyu?t=1"><span class="count">77</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="5">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">5</span></dd>
+        </dl>
+        <dl class="text-center" title="1">
+            <dt>喜欢</dt>
+            <dd><span class="count">1</span></dd>
+        </dl>
+        <dl class="text-center" title="2">
+            <dt>评论</dt>
+            <dd><span class="count">2</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="3级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-3"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="8275">
+                8275            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="937">
+                937            </dd>
+        </dl>
+        <dl title="62069">
+            <dt>排名：</dt>
+            <dd>6万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/tianguiyuyu/article/details/81485268" target="_blank">YoloV1源码解析</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/tianguiyuyu/article/details/81433344" target="_blank">目标检测|YOLOv2原理与实现(附YOLOv3)</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/tianguiyuyu/article/details/81367299" target="_blank">迁移学习总结(One Shot Learning, Zero Shot Learning)</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/tianguiyuyu/article/details/81347846" target="_blank">目标检测之YoloV1论文及tensorflow实现</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/tianguiyuyu/article/details/81296659" target="_blank">tensorflow保存模型文件分析</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7400928">
+                    数字图像处理                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7400925">
+                    python与机器学习                    <span class="count float-right">57篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7401208">
+                    云计算                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7400926">
+                    java                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7401207">
+                    python                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7570991">
+                    tensorflow                    <span class="count float-right">24篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7671685">
+                    嵌入式AI                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7685393">
+                    mysql                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7692032">
+                    数学建模                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7694305">
+                    增强学习                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7719122">
+                    pandas                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7753760">
+                    python数据分析                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7764786">
+                    论文写作                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7798898">
+                    数据挖掘：概念与技术                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7897911">
+                    计算机视觉                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/category/7901562">
+                    迁移学习                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">26篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">69篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/tianguiyuyu/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/tianguiyuyu/article/details/79058509">根据下图，统计硬币的总数并估计每个硬币的面积。</a>
+					<p class="read">阅读量：<span>540</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/tianguiyuyu/article/details/80606341">Pandas.DataFrame删除行和列</a>
+					<p class="read">阅读量：<span>494</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/tianguiyuyu/article/details/79614424">多元线性回归模型中的常数项</a>
+					<p class="read">阅读量：<span>420</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/tianguiyuyu/article/details/79764399">windows下用pycharm进行tensorflow开发</a>
+					<p class="read">阅读量：<span>411</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/tianguiyuyu/article/details/80789856">假设检验之z-检验，t-检验，卡方检验</a>
+					<p class="read">阅读量：<span>385</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/mhzzpwgzj.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "YoloV2之TensorFlow版源码解析";
+    var ChannelId = 28;
+    var articleId = "81488157";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/tianguiyuyu/article/details/81488157";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["yolov2","tensorflow","\u6e90\u7801","\u89e3\u6790"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"YoloV2之TensorFlow版源码解析");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-359ea0cc8d.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+</html>

@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/qq541005640/article/details/81487355"/> 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="dubbo是什么？
+
+dubbo是一个分布式框架，远程服务调用的分布式框架，其核心部分包含：
+
+集群容错：提供基于接口方法的透明远程过程调用，包括多协议支持，以及软负载均衡，失败容错，地址路由，动态配置等集群支持。
+	远程通讯： 提供对多种基于长连接的NIO框架抽象封装，包括多种线程模型，序列化，以及“请求-响应”模式的信息交换方式。
+	自动发现：基于注册中心目录服务，使服务消费方能动态的查找服务..." />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>java面试之dubbo - CSDN博客</title>
+    
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-d18c5189a1.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-2eefd34acf.min.css">
+
+    <script type="text/javascript">
+        var username = "qq541005640";
+        var blog_address = "https://blog.csdn.net/qq541005640";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = ""; 
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/qq541005640/article/details/81487355"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin-yellow";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.0.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css"> 
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>    
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+		<div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/qq541005640">qq541005640的博客...</a></span>
+			<i>></i>
+			<span>java面试之dubbo</span>
+		</div>
+    <main>
+        <div class="blog-content-box">
+	<div class="article-title-box">
+			<span class="article-type type-2 float-left">转</span>		<h1 class="title-article">java面试之dubbo</h1>
+	</div>
+	<div class="article-info-box">
+		<div class="article-bar-top d-flex">
+												<span class="time">2018年08月07日 20:40:59</span>
+			<div class="float-right">
+				<span class="read-count">阅读数：2</span>
+											</div>
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <h2>dubbo是什么？</h2>
+
+<p>dubbo是一个分布式框架，远程服务调用的分布式框架，其核心部分包含：</p>
+
+<ul><li><strong>集群容错</strong>：提供基于接口方法的透明远程过程调用，包括多协议支持，以及软负载均衡，失败容错，地址路由，动态配置等集群支持。</li>
+	<li><strong>远程通讯</strong>： 提供对多种基于长连接的NIO框架抽象封装，包括多种线程模型，序列化，以及“请求-响应”模式的信息交换方式。</li>
+	<li><strong>自动发现</strong>：基于注册中心目录服务，使服务消费方能动态的查找服务提供方，使地址透明，使服务提供方可以平滑增加或减少机器。</li>
+</ul><h2>dubbo能做什么?</h2>
+
+<ol><li>透明化的远程方法调用，就像调用本地方法一样调用远程方法，只需简单配置，没有任何API侵入。</li>
+	<li>软负载均衡及容错机制，可在内网替代F5等硬件负载均衡器，降低成本，减少单点。</li>
+	<li>服务自动注册与发现，不再需要写死服务提供方地址，注册中心基于接口名查询服务提供者的IP地址，并且能够平滑添加或删除服务提供者。</li>
+</ol><h2>dubbo的架构</h2>
+
+<p style="text-align:center;"><img alt="" class="has" src="https://img-blog.csdn.net/20180807195902933?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNTQxMDA1NjQw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+
+<h3>节点角色说明</h3>
+
+<ol><li>Provider: 暴露服务的服务提供方。</li>
+	<li>Consumer: 调用远程服务的服务消费方。</li>
+	<li>Registry: 服务注册与发现的注册中心。</li>
+	<li>Monitor: 统计服务的调用次调和调用时间的监控中心。</li>
+	<li>Container: 服务运行容器。</li>
+</ol><h3>调用关系说明</h3>
+
+<ol><li>服务容器负责启动，加载，运行服务提供者。</li>
+	<li>服务提供者在启动时，向注册中心注册自己提供的服务。</li>
+	<li>服务消费者在启动时，向注册中心订阅自己所需的服务。</li>
+	<li>注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者。</li>
+	<li>服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</li>
+	<li>服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心。</li>
+</ol><p>Dubbo 架构具有以下几个特点，分别是<span style="color:#f33b45;">连通性、健壮性、伸缩性</span>、以及向未来架构的升级性。</p>
+
+<h3>连通性</h3>
+
+<ol><li>注册中心负责服务地址的注册与查找，相当于目录服务，服务提供者和消费者只在启动时与注册中心交互，注册中心不转发请求，压力较小</li>
+	<li>监控中心负责统计各服务调用次数，调用时间等，统计先在内存汇总后每分钟一次发送到监控中心服务器，并以报表展示</li>
+	<li>服务提供者向注册中心注册其提供的服务，并汇报调用时间到监控中心，此时间不包含网络开销</li>
+	<li>服务消费者向注册中心获取服务提供者地址列表，并根据负载算法直接调用提供者，同时汇报调用时间到监控中心，此时间包含网络开销</li>
+	<li>注册中心，服务提供者，服务消费者三者之间均为长连接，监控中心除外</li>
+	<li>注册中心通过长连接感知服务提供者的存在，服务提供者宕机，注册中心将立即推送事件通知消费者</li>
+	<li>注册中心和监控中心全部宕机，不影响已运行的提供者和消费者，消费者在本地缓存了提供者列表</li>
+	<li>注册中心和监控中心都是可选的，服务消费者可以直连服务提供者</li>
+</ol><h3>健壮性</h3>
+
+<ol><li>监控中心宕掉不影响使用，只是丢失部分采样数据</li>
+	<li>数据库宕掉后，注册中心仍能通过缓存提供服务列表查询，但不能注册新服务</li>
+	<li>注册中心对等集群，任意一台宕掉后，将自动切换到另一台</li>
+	<li>注册中心全部宕掉后，服务提供者和服务消费者仍能通过本地缓存通讯</li>
+	<li>服务提供者无状态，任意一台宕掉后，不影响使用</li>
+	<li>服务提供者全部宕掉后，服务消费者应用将无法使用，并无限次重连等待服务提供者恢复</li>
+</ol><h3>伸缩性</h3>
+
+<ol><li>注册中心为对等集群，可动态增加机器部署实例，所有客户端将自动发现新的注册中心</li>
+	<li>服务提供者无状态，可动态增加机器部署实例，注册中心将推送新的服务提供者信息给消费者</li>
+</ol><h2>dubbo默认使用什么通信协议？</h2>
+
+<p>dubbo共支持如下几种通信协议：</p>
+
+<ul><li>dubbo:// <strong>Dubbo缺省协议采用单一长连接和NIO异步通讯，适合于小数据量大并发的服务调用，以及服务消费者机器数远大于服务提供者机器数的情况。</strong></li>
+	<li>rmi:// <em><em>RMI协议采用JDK标准的java.rmi.</em>实现，采用阻塞式短连接和JDK标准序列化方式</em>*</li>
+	<li>hessian://</li>
+	<li>http://</li>
+	<li>webservice://</li>
+	<li>thrift://</li>
+	<li>memcached://</li>
+	<li>redis://</li>
+</ul><h2>服务调用超时问题怎么解决</h2>
+
+<p>dubbo在调用服务不成功时，默认是会重试两次的。这样在服务端的处理时间超过了设定的超时时间时，就会有重复请求，比如在发邮件时，可能就会发出多份重复邮件，执行注册请求时，就会插入多条重复的注册数据，那么怎么解决超时问题呢？如下</p>
+
+<ul><li><strong>对于核心的服务中心，去除dubbo超时重试机制，并重新评估设置超时时间。</strong></li>
+	<li><strong>业务处理代码必须放在服务端，客户端只做参数验证和服务调用，不涉及业务流程处理</strong></li>
+</ul><p>全局配置实例</p>
+
+<pre class="has">
+<code class="language-java">&lt;dubbo:provider delay="-1" timeout="6000" retries="0"/&gt;  </code></pre>
+
+<p>当然Dubbo的重试机制其实是非常好的QOS保证，它的路由机制，是会帮你把超时的请求路由到其他机器上，而不是本机尝试，所以 dubbo的重试机器也能一定程度的保证服务的质量。但是请一定要综合线上的访问情况，给出综合的评估。</p>
+
+<h2>一般使用什么注册中心，还有其他的选择吗？</h2>
+
+<pre class="has">
+<code class="language-java"> Multicast注册中心
+ Zookeeper注册中心
+ Redis注册中心
+ Simple注册中心</code></pre>
+
+<p style="text-align:center;"><img alt="" class="has" src="https://img-blog.csdn.net/20180807202031402?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNTQxMDA1NjQw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+
+<p style="text-indent:50px;">ZooKeeper的节点是通过像树一样的结构来进行维护的，并且每一个节点通过路径来标示以及访问。除此之外，每一个节点还拥有自身的一些信息，包括：数据、数据长度、创建时间、修改时间等等。</p>
+
+<p style="text-indent:50px;">从这样一类既含有数据，又作为路径表标示的节点的特点中，可以看出，ZooKeeper的节点既可以被看做是一个文件，又可以被看做是一个目录，它同时具有二者的特点。为了简单我们可以Znode来表示所讨论的ZooKeeper节点。</p>
+
+<p style="text-indent:50px;">具体地说，Znode维护着数据、ACL（access controllist，访问控制列表）、时间戳等交换版本号等数据结构，它通过对这些数据的管理来让缓存生效并且令协调更新。每当Znode中的数据更新后它所维护的版本号将增加，这非常类似于数据库中计数器时间戳的操作方式。</p>
+
+<p style="text-indent:50px;">另外Znode还具有原子性操作的特点：命名空间中，每一个Znode的数据将被原子地读写。读操作将读取与Znode相关的所有数据，写操作将替换掉所有的数据。除此之外，每一个节点都有一个访问控制列表，这个访问控制列表规定了用户操作的权限。</p>
+
+<p style="text-indent:50px;">ZooKeeper中同样存在临时节点。这些节点与session同时存在，当session生命周期结束，这些临时节点也将被删除。临时节点在某些场合也发挥着非常重要的作用。</p>
+
+<p style="text-indent:50px;">了解了Zookeeper的命名空间和节点之后我们需要跟上一篇文章中提到的内部逻辑联系起来.在上篇介绍到的内部流程中,拿到这里看看Zookeeper是如何处理的,流程如下图:</p>
+
+<p style="text-align:center;"><img alt="" class="has" src="https://img-blog.csdn.net/20180807202112419?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNTQxMDA1NjQw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+
+<p> </p>
+
+<p> </p>
+
+<p>1、当服务提供者启动时,Zookeeper向/dubbo/com.foo.BarService/providers目录下写入自己的URL地址。</p>
+
+<p>2、当服务消费者启动时,这时候有两个动作:</p>
+
+<pre class="has">
+<code class="language-html">订阅/dubbo/com.foo.BarService/providers目录下的提供者URL地址。
+并向/dubbo/com.foo.BarService/consumers目录下写入自己的URL地址。</code></pre>
+
+<p>3、当监控中心启动时,订阅/dubbo/com.foo.BarService目录下的所有提供者和消费者URL地址。</p>
+
+<h2>默认使用什么序列化框架，还有其他的吗？</h2>
+
+<p>Dubbo默认使用的是Hessian序列化。hessian是一个采用二进制格式传输的服务框架，相对传统soap web service，更轻量，更快速。<br /><strong>Hessian原理与协议简析：</strong><br />
+http的协议约定了数据传输的方式，hessian也无法改变太多：<br />
+1) hessian中client与server的交互，基于http-post方式。<br />
+2) hessian将辅助信息，封装在http header中，比如“授权token”等，我们可以基于http-header来封装关于“安全校验”“meta数据”等。hessian提供了简单的"校验"机制。<br />
+3) 对于hessian的交互核心数据，比如“调用的方法”和参数列表信息，将通过post请求的body体直接发送，格式为字节流。<br />
+4) 对于hessian的server端响应数据，将在response中通过字节流的方式直接输出。<br />
+hessian的协议本身并不复杂，在此不再赘言；所谓协议(protocol)就是约束数据的格式，client按照协议将请求信息序列化成字节序列发送给server端，server端根据协议，将数据反序列化成“对象”，然后执行指定的方法，并将方法的返回值再次按照协议序列化成字节流，响应给client，client按照协议将字节流反序列话成"对象"。</p>
+
+<h2>服务提供者能实现失效踢出的原理</h2>
+
+<p style="text-align:center;"><img alt="" class="has" src="https://img-blog.csdn.net/20180807202804526?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxNTQxMDA1NjQw/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+
+<p>原理如下：</p>
+
+<p style="text-indent:0;">** ConfigServer（配置中心）**</p>
+
+<p style="text-indent:50px;">每个Server/Client之间会作一个实时的心跳检测（因为它们都是建立的Socket长连接），比如几秒钟检测一次。收集每个Server提供的服务的信息，每个Client的信息，整理出一个服务列表，如：<br />
+serviceName serverAddressList clientAddressList<br />
+UserService 192.168.0.1，192.168.0.2，192.168.0.3，192.168.0.4 172.16.0.1，172.16.0.2<br />
+ProductService 192.168.0.3，192.168.0.4，192.168.0.5，192.168.0.6 172.16.0.2，172.16.0.3<br />
+OrderService 192.168.0.10，192.168.0.12，192.168.0.5，192.168.0.6 172.16.0.3，172.16.0.4</p>
+
+<p style="text-indent:50px;">当某个Server不可用，那么就更新受影响的服务对应的serverAddressList，即把这个Server从serverAddressList中踢出去（从地址列表中删除），同时将推送serverAddressList给这些受影响的服务的clientAddressList里面的所有Client。如：192.168.0.3挂了，那么UserService和ProductService的serverAddressList都要把192.168.0.3删除掉，同时把新的列表告诉对应的Client 172.16.0.1，172.16.0.2，172.16.0.3；</p>
+
+<p style="text-indent:50px;">当某个Client挂了，那么更新受影响的服务对应的clientAddressList，ConfigServer根据服务列表，就能提供一个web管理界面，来查看管理服务的提供者和使用者。</p>
+
+<p style="text-indent:50px;">新加一个Server时，由于它会主动与ConfigServer取得联系，而ConfigServer又会将这个信息主动发送给Client，所以新加一个Server时，只需要启动Server，然后几秒钟内，Client就会使用上它提供的服务</p>
+
+<p>** Client（调用服务的机器）**</p>
+
+<p style="text-indent:50px;">每个Client启动时，主动与ConfigServer建立Socket长连接，并将自己的IP等相应信息发送给ConfigServer。<br />
+Client在使用服务的时候根据服务名称去ConfigServer中获取服务提供者信息（这样ConfigServer就知道某个服务是当前哪几个Client在使用），Client拿到这些服务提供者信息后，与它们都建立连接，后面就可以直接调用服务了，当有多个服务提供者的时候，Client根据一定的规则来进行负载均衡，如轮询，随机，按权重等。<br />
+一旦Client使用的服务它对应的服务提供者有变化（服务提供者有新增，删除的情况），ConfigServer就会把最新的服务提供者列表推送给Client，Client就会依据最新的服务提供者列表重新建立连接，新增的提供者建立连接，删除的提供者丢弃连接</p>
+
+<p>** Server（真正提供服务的机器）**</p>
+
+<p style="text-indent:50px;">每个Server启动时，主动与ConfigServer建立Scoket长连接，并将自己的IP，提供的服务名称，端口等信息直接发送给ConfigServer，ConfigServer就会收集到每个Server提供的服务的信息。</p>
+
+<p>优点：</p>
+
+<ul><li>只要在Client和Server启动的时候，ConfigServer是好的，服务就可调用了，如果后面ConfigServer挂了，那只影响ConfigServer挂了以后服务提供者有变化，而Client还无法感知这一变化。</li>
+	<li>Client每次调用服务是不经过ConfigServer的，Client只是与它建立联系，从它那里获取提供服务者列表而已</li>
+	<li>调用服务-负载均衡：Client调用服务时，可以根据规则在多个服务提供者之间轮流调用服务。</li>
+	<li>服务提供者-容灾：某一个Server挂了，Client依然是可以正确的调用服务的，当前提是这个服务有至少2个服务提供者，Client能很快的感知到服务提供者的变化，并作出相应反应。</li>
+	<li>服务提供者-扩展：添加一个服务提供者很容易，而且Client会很快的感知到它的存在并使用它。</li>
+</ul><h2>服务上线怎么不影响旧版本（多版本支持）</h2>
+
+<p>dubbo的文档中说到：</p>
+
+<pre class="has">
+<code class="language-java">当一个接口实现，出现不兼容升级时，可以用版本号过渡，版本号不同的服务相互间不引用。
+ 在低压力时间段，先升级一半提供者为新版本，再将所有消费者升级为新版本，然后将剩下的一半提供者升级为新版本
+&lt;dubbo:service interface="com.foo.BarService" version="1.0.0" /&gt;
+&lt;dubbo:service interface="com.foo.BarService" version="2.0.0" /&gt;
+&lt;dubbo:reference id="barService" interface="com.foo.BarService" version="1.0.0" /&gt;
+&lt;dubbo:reference id="barService" interface="com.foo.BarService" version="2.0.0" /&gt;
+不区分版本：(2.2.0以上版本支持)
+&lt;dubbo:reference id="barService" interface="com.foo.BarService" version="*" /&gt;</code></pre>
+
+<h2>dubbo协议下的单一长连接与多线程并发如何协同工作</h2>
+
+<pre class="has">
+<code>底层采用netty。</code></pre>
+
+<h2>集群容错怎么做 </h2>
+
+<p style="text-indent:50px;">dubbo的容错方案</p>
+
+<p style="text-indent:50px;">当我们的系统中用到Dubbo的集群环境,因为各种原因在集群调用失败时，Dubbo提供了多种容错方案，缺省为failover重试。</p>
+
+<p style="text-indent:50px;">Dubbo的集群容错在这里想说说他是因为我们实际的项目中出现了此类的问题,因为依赖的第三方项目出现异常,导致dubbo调用超时,此时使用的是默认的集群容错方式,而配置的reties='3',这样前段系统连续掉用了三次服务,结果可想而知.<br />
+先说一下各节点关系：</p>
+
+<p style="text-indent:50px;">这里的Invoker是Provider的一个可调用Service的抽象，Invoker封装了Provider地址及Service接口信息。<br />
+Directory代表多个Invoker，可以把它看成List&lt;Invoker&gt;，但与List不同的是，它的值可能是动态变化的，比如注册中心推送变更。</p>
+
+<p style="text-indent:50px;">Cluster将Directory中的多个Invoker伪装成一个Invoker，对上层透明，伪装过程包含了容错逻辑，调用失败后，重试另一个。</p>
+
+<p style="text-indent:50px;">Router负责从多个Invoker中按路由规则选出子集，比如读写分离，应用隔离等。</p>
+
+<p style="text-indent:50px;">LoadBalance负责从多个Invoker中选出具体的一个用于本次调用，选的过程包含了负载均衡算法，调用失败后，需要重选。</p>
+
+<p style="text-indent:50px;"><br /><strong>集群容错模式：</strong><br /><strong>1、Failover Cluster</strong><br />
+      失败自动切换，当出现失败，重试其它服务器。(缺省)<br />
+      通常用于读操作，但重试会带来更长延迟。<br />
+      可通过retries="2"来设置重试次数(不含第一次)。正是文章刚开始说的那种情况.<br /><strong>2、Failfast Cluster</strong><br />
+      快速失败，只发起一次调用，失败立即报错。<br />
+      通常用于非幂等性的写操作，比如新增记录。<br /><strong>3、Failsafe Cluster</strong><br />
+      失败安全，出现异常时，直接忽略。<br />
+      通常用于写入审计日志等操作。<br /><strong>4、Failback Cluster</strong><br />
+      失败自动恢复，后台记录失败请求，定时重发。<br />
+      通常用于消息通知操作。<br /><strong>5、Forking Cluster</strong><br />
+      并行调用多个服务器，只要一个成功即返回。<br />
+      通常用于实时性要求较高的读操作，但需要浪费更多服务资源。<br />
+      可通过forks="2"来设置最大并行数。<br /><strong>6、Broadcast Cluster</strong><br />
+      广播调用所有提供者，逐个调用，任意一台报错则报错。(2.1.0开始支持)<br />
+      通常用于通知所有提供者更新缓存或日志等本地资源信息。</p>
+
+<p style="text-indent:50px;"><br />
+重试次数配置如：(failover集群模式生效)</p>
+
+<pre class="has">
+<code>&lt;dubbo:serviceretries="2"/&gt;
+或：&lt;dubbo:referenceretries="2"/&gt;
+或：&lt;dubbo:reference&gt;
+&lt;dubbo:methodname="findFoo"retries="2"/&gt;
+&lt;/dubbo:reference&gt;</code></pre>
+
+<p>集群模式配置如：</p>
+
+<pre class="has">
+<code>&lt;dubbo:servicecluster="failsafe"/&gt;
+或：&lt;dubbo:referencecluster="failsafe"/&gt;</code></pre>
+
+<h2>dubbo是如何实现负载均衡</h2>
+
+<p>dubbo负载均衡策略：<br />
+在集群负载均衡时，Dubbo提供了多种均衡策略，缺省为random随机调用。<br /><strong>1、RandomLoadBalance</strong><br />
+      随机，按权重设置随机概率。<br />
+      在一个截面上碰撞的概率高，但调用量越大分布越均匀，而且按概率使用权重后也比较均匀，有利于动态调整提供者权重。<br /><strong>2、RoundRobin LoadBalance</strong><br />
+      轮循，按公约后的权重设置轮循比率。<br />
+      存在慢的提供者累积请求问题，比如：第二台机器很慢，但没挂，当请求调到第二台时就卡在那，久而久之，所有请求都卡在调到第二台上。<br /><strong>3、LeastActive LoadBalance</strong><br />
+      最少活跃调用数，相同活跃数的随机，活跃数指调用前后计数差。<br />
+      使慢的提供者收到更少请求，因为越慢的提供者的调用前后计数差会越大。<br /><strong>4、ConsistentHashLoadBalance</strong><br />
+      一致性Hash，相同参数的请求总是发到同一提供者。<br />
+      当某一台提供者挂时，原本发往该提供者的请求，基于虚拟节点，平摊到其它提供者，不会引起剧烈变动。<br />
+      Dubbo的集群容错和负载均衡同样也是Dubbo本身的高级特性.正如我们在说自定义扩展的时候一样,这两个特征同样也可以进行自定义扩展,用户可以根据自己实际的需求来扩展他们从而满足项目的实际需求.</p>
+
+<h2>遇到的问题</h2>
+
+<p>场景描述：客户端远程异步调用ServiceA，ServiceA在处理客户端请求的过程中需要远程同步调用ServiceB，ServiceA从ServiceB的响应中取数据时，得到的是null。<br />
+对于上面的问题，解决办法有三个：<br />
+1.方法调用两次</p>
+
+<pre class="has">
+<code>ServiceA调用ServiceB的地方写两次一样的调用，这个方法原理就像ServiceB调用ServiceC一样，即清除attachements。
+这个方法最简单，但是可能对不了解的人来说，这块业务代码写重复了，会不小心删除掉，而且从写代码的角度来说，这个很鸡肋，所以不推荐。
+</code></pre>
+
+<p>2.修改Dubbo源码</p>
+
+<pre class="has">
+<code> 修改AbstractInvoker第137行，改成每次都对async进行实际赋值，
+ boolean isAsync = getUrl().getMethodParameter(invocation.getMethodName(), Constants.ASYNC_KEY, false);
+ invocation.setAttachment(Constants.ASYNC_KEY, String.valueOf(isAsync));
+</code></pre>
+
+<p>3.自定义Filter</p>
+
+<pre class="has">
+<code> 实现com.alibaba.dubbo.rpc.Filter，在RpcContext中清除这个async，
+ @Activate(group = {Constants.PROVIDER})
+  public class AsyncFilter implements Filter {
+ @Override
+ public Result invoke(Invoker&lt;?&gt; invoker, Invocation invocation) throws RpcException {
+     RpcContext.getContext().getAttachments().remove(Constants.ASYNC_KEY);
+ return invoker.invoke(invocation);
+ }
+ }
+ 同时在src/main/resources/META-INF/dubbo/下添加com.alibaba.dubbo.rpc.Filter文件，内容文件如下：
+ asyncFilter=com.abc.filter.AsyncFilter
+</code></pre>
+
+<p>根据n多的博客整理出来的一些，以后有其他东西再加进去</p>
+
+<p>转载地址：<a href="https://www.jianshu.com/p/9d062eceb765" rel="nofollow">https://www.jianshu.com/p/9d062eceb765</a></p>            </div>
+                </div>
+				<div class="hide-article-box text-center">
+			<a class="btn btn-red-hollow" id="btn-readmore" data-track-view='{"mod":"popu_376","con":",https://blog.csdn.net/qq541005640/article/details/81487355,"}' data-track-click='{"mod":"popu_376","con":",https://blog.csdn.net/qq541005640/article/details/81487355,"}'>阅读更多</a>
+		</div>
+        	</article>
+	
+		<div class="article-bar-bottom">
+								<div class="tags-box">
+			<span class="label">个人分类：</span>
+						<a class="tag-link" href="https://blog.csdn.net/qq541005640/article/category/7916134"  target="_blank">dubbo						</a>
+		</div>
+							</div>
+	
+	<!-- !empty($pre_next_article[0]) -->
+		</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+			"HTML-CSS": {
+					linebreaks: { automatic: true, width: "94%container" },
+					imageFont: null
+			},
+			tex2jax: {
+				preview: "none"
+			},
+			mml2jax: {
+				preview: 'none'
+			}
+	});
+</script>
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div data-track-view='{"mod":"popu_625","con": ",https://blog.csdn.net/qq541005640/article/details/81487355,from_360"}' style="margin-top: 8px;padding: 20px;background-color: #fff;overflow: hidden;" id="adt0"></div>
+            <script>
+                var adWidth = $("div.blog-content-box").outerWidth() - 40;
+                NEWS_FEED({
+                    w: adWidth,
+                    h : 130,
+                    showid : "s02a31",
+                    placeholderId: "adt0",
+                    inject : "define",
+                    define : {
+                    imagePosition : "left",
+                    imageBorderRadius : 0,
+                    imageWidth: 231,
+                    imageHeight: 130,
+                    imageFill : "clip",
+                    displayImage : true,
+                    displayTitle : true,
+                    titleFontSize: 20,
+                    titleFontColor: "#333",
+                    titleFontFamily : "Microsoft Yahei",
+                    titleFontWeight: "bold",
+                    titlePaddingTop : 0,
+                    titlePaddingRight : 0,
+                    titlePaddingBottom : 10,
+                    titlePaddingLeft : 16,
+                    displayDesc : true,
+                    descFontSize: 14,
+                    descFontColor: "#6b6b6b",
+                    descFontFamily : "Microsoft Yahei",
+                    paddingTop : 0,
+                    paddingRight : 0,
+                    paddingBottom : 0,
+                    paddingLeft : 0,
+                    backgroundColor: "#fff",
+                    hoverColor: "#ca0c16"
+                    }
+                })
+            </script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="unlogin-box text-center">
+		想对作者说点什么？
+		<!-- $curl 当前地址 -->
+		<a href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/qq541005640/article/details/81487355#commentBox" class="btn btn-sm btn-red">我来说一句</a>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zhushenghan/article/details/78756946,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zhushenghan/article/details/78756946,BlogCommendFromQuerySearch_0"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/zhushenghan/article/details/78756946" target="_blank" title="<em>java</em> 3年，最近在天津和北京<em>面试</em>的一些心得体会，简单zookeeper <em>dubbo</em> spring搭建（基础推荐）">
+					<em>java</em> 3年，最近在天津和北京<em>面试</em>的一些心得体会，简单zookeeper <em>dubbo</em> spring搭建（基础推荐）				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/zhushenghan" target="_blank">
+						<img src="https://avatar.csdn.net/5/3/D/3_zhushenghan.jpg" alt="zhushenghan" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">zhushenghan</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">12-09</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						784</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/zhushenghan/article/details/78756946" target="_blank" >
+						最近换工作，面试了一部分公司，有了些许所得，正如我前篇文章所说，北京公司现如今应用的很多技术，现如今天津用的公司不多，总觉得学习需要有一个简单规划，而不是一心思砸进去，看准一个玩命看，技术这东西，学起...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/liyanlei5858/article/details/77924407,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/liyanlei5858/article/details/77924407,BlogCommendFromQuerySearch_1"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/liyanlei5858/article/details/77924407" target="_blank" title="对于<em>Dubbo</em>一些<em>面试</em>题自己的答案">
+					对于<em>Dubbo</em>一些<em>面试</em>题自己的答案				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/liyanlei5858" target="_blank">
+						<img src="https://avatar.csdn.net/4/3/9/3_liyanlei5858.jpg" alt="liyanlei5858" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">liyanlei5858</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">09-10</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						6.5万</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/liyanlei5858/article/details/77924407" target="_blank" >
+						   Dubbo      头几天瞧到《Java顶尖口试必问-Dubbo口试题汇总》，对于内里得难点本人试着答复少许，有错误得请民众指正。      Dubbo固然大概不革新了，可是背靠阿里得措施能力...					</a>
+				</p>
+		</div>
+				</div>
+														<div class="recommend-item-box recommend-ad-box">
+						<script type="text/javascript" src="//cee1.iteye.com/pkcgstjjm.js"></script>
+					</div>
+							
+				<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/lldouble/article/details/80707950,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lldouble/article/details/80707950,BlogCommendFromQuerySearch_2"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/lldouble/article/details/80707950" target="_blank" title="<em>Java</em>高级<em>面试</em>必问—<em>Dubbo</em><em>面试</em>题汇总">
+					<em>Java</em>高级<em>面试</em>必问—<em>Dubbo</em><em>面试</em>题汇总				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/lldouble" target="_blank">
+						<img src="https://avatar.csdn.net/A/B/3/3_lldouble.jpg" alt="lldouble" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">lldouble</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-15</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1084</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/lldouble/article/details/80707950" target="_blank" >
+						1、默认使用的是什么通信框架，还有别的选择吗?    2、服务调用是阻塞的吗？    3、一般使用什么注册中心？还有别的选择吗？    4、默认使用什么序列化框架，你知道的还有哪些？    5、服务提...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/lovemf0919/article/details/78626586,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/lovemf0919/article/details/78626586,BlogCommendFromQuerySearch_3"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/lovemf0919/article/details/78626586" target="_blank" title="关于<em>dubbo</em>的一个<em>面试</em>题">
+					关于<em>dubbo</em>的一个<em>面试</em>题				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/lovemf0919" target="_blank">
+						<img src="https://avatar.csdn.net/C/6/4/3_lovemf0919.jpg" alt="lovemf0919" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">lovemf0919</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">11-24</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						7263</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/lovemf0919/article/details/78626586" target="_blank" >
+						七月份去多啦宝面试,面试官问了我一个问题,由于在传统行业待得时间久了对一些技术不是特别了解,没有答上来,问题如下:dubbo运行时,突然所有的zookeeper全部宕机,dubbo是否还会继续提供服务...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zhangxiaoyang0/article/details/79166676,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zhangxiaoyang0/article/details/79166676,BlogCommendFromQuerySearch_4"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/zhangxiaoyang0/article/details/79166676" target="_blank" title="<em>dubbo</em>&amp;&amp;zookeeper<em>面试</em>题">
+					<em>dubbo</em>&amp;&amp;zookeeper<em>面试</em>题				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/zhangxiaoyang0" target="_blank">
+						<img src="https://avatar.csdn.net/B/D/F/3_zhangxiaoyang0.jpg" alt="zhangxiaoyang0" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">zhangxiaoyang0</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">01-26</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						8961</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/zhangxiaoyang0/article/details/79166676" target="_blank" >
+						什么是dubbo 
+Dubbo是阿里巴巴SOA服务化治理方案的核心框架，是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。
+测试和生产公用一套zookee...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/luwei42768/article/details/54847427,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/luwei42768/article/details/54847427,BlogCommendFromQuerySearch_5"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/luwei42768/article/details/54847427" target="_blank" title="<em>dubbo</em> 问题整理">
+					<em>dubbo</em> 问题整理				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/luwei42768" target="_blank">
+						<img src="https://avatar.csdn.net/9/E/0/3_luwei42768.jpg" alt="luwei42768" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">luwei42768</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-03</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2.8万</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/luwei42768/article/details/54847427" target="_blank" >
+						1 面试题：Dubbo中zookeeper做注册中心，如果注册中心集群都挂掉，发布者和订阅者之间还能通信么？ 
+可以的，启动dubbo时，消费者会从zk拉取注册的生产者的地址接口等数据，缓存在本地。每...					</a>
+				</p>
+		</div>
+				</div>
+								<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+			<script>
+				var width = $("div.recommend-box").outerWidth() - 48;
+				NEWS_FEED({
+					w: width,
+					h: 60,
+					showid: 'Afihld',
+					placeholderId: 'a_d_feed_0',
+					inject: 'define',
+					define: {
+						imagePosition: 'right',
+						imageBorderRadius: 0,
+						imageWidth: 90,
+						imageHeight: 60,
+						imageFill: 'clip',
+						displayImage: true,
+						displayTitle: true,
+						titleFontSize: 20,
+						titleFontColor: '#333',
+						titleFontFamily: 'Microsoft Yahei',
+						titleFontWeight: 'bold',
+						titlePaddingTop: 0,
+						titlePaddingRight: 0,
+						titlePaddingBottom: 10,
+						titlePaddingLeft: 0,
+						displayDesc: true,
+						descFontSize: 14,
+						descPaddingLeft: 14,
+						descFontColor: '#6b6b6b',
+						descFontFamily: 'Microsoft Yahei',
+						paddingTop: 0,
+						paddingRight: 0,
+						paddingBottom: 0,
+						paddingLeft: 0,
+						backgroundColor: '#fff',
+						hoverColor: '#ca0c16'
+					}
+				})
+			</script>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u012099568/article/details/51678660,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u012099568/article/details/51678660,BlogCommendFromQuerySearch_6"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/u012099568/article/details/51678660" target="_blank" title="<em>dubbo</em>--zookeeper<em>面试</em>中问题解答">
+					<em>dubbo</em>--zookeeper<em>面试</em>中问题解答				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/u012099568" target="_blank">
+						<img src="https://avatar.csdn.net/1/1/0/3_u012099568.jpg" alt="u012099568" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">u012099568</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">06-15</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						7.8万</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/u012099568/article/details/51678660" target="_blank" >
+						前几天出去试了个不知道外面的行情怎么样了，总体感觉还可以，就是工资没有达到我想要的最低标准，回来一直忙别的交接的事情，一直也没有给对方回复，那我就先回复他提的问题吧，spring（Springmvc)...					</a>
+				</p>
+		</div>
+				</div>
+						<div class="recommend-item-box recommend-download-box clearfix" data-track-view='{"mod":"popu_614","con":",https://download.csdn.net/download/u012510443/10264809,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_614","con":",https://download.csdn.net/download/u012510443/10264809,BlogCommendFromQuerySearch_7"}'>
+			<div class="content float-left">
+				<h4 class="text-truncate oneline">
+					<a href="https://download.csdn.net/download/u012510443/10264809" target="_blank">
+						<em>面试</em>必备技能之<em>Dubbo</em>企业实战					</a>
+				</h4>
+				<p>
+					<span class="data">2018年03月01日 </span>
+					<span class="size">29.87MB</span>
+					<span class="type">下载</span>
+				</p>
+			</div>
+			<div class="img-box float-right">
+				<a href="https://download.csdn.net/download/u012510443/10264809" target="_blank" strategy="BlogCommendFromQuerySearch_7">
+					<img src="https://csdnimg.cn/release/download/old_static/images/minetype/zip.svg" alt="">
+				</a>
+			</div>
+		</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/LD799989470LD/article/details/79729222,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/LD799989470LD/article/details/79729222,BlogCommendFromQuerySearch_8"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/LD799989470LD/article/details/79729222" target="_blank" title="<em>dubbo</em>常见<em>面试</em>题整理">
+					<em>dubbo</em>常见<em>面试</em>题整理				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/LD799989470LD" target="_blank">
+						<img src="https://avatar.csdn.net/9/C/8/3_ld799989470ld.jpg" alt="LD799989470LD" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">LD799989470LD</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">03-28</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						2274</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/LD799989470LD/article/details/79729222" target="_blank" >
+						1、测试和生产公用一套zookeeper，怎么保证消费不冲突服务发布的group设置为不同即可&amp;amp;lt;!--consumer.xml--&amp;amp;gt;
+&amp;amp;lt;dubbo:refer...					</a>
+				</p>
+		</div>
+				</div>
+					<div class="recommend-item-box type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/belvine/article/details/79398064,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/belvine/article/details/79398064,BlogCommendFromQuerySearch_9"}'>
+		<div class="float-left">
+			<h4 class="text-truncate oneline">
+				<a href="https://blog.csdn.net/belvine/article/details/79398064" target="_blank" title="<em>Dubbo</em><em>面试</em>专题">
+					<em>Dubbo</em><em>面试</em>专题				</a>
+			</h4>
+			<div class="info-box d-flex align-content-center">
+				<p>
+					<a class="avatar" src="https://blog.csdn.net/belvine" target="_blank">
+						<img src="https://avatar.csdn.net/E/2/B/3_belvine.jpg" alt="belvine" class="avatar-pic">
+						<span class="namebox">
+							<span class="name">belvine</span>
+							<span class="triangle"></span>
+						</span>
+					</a>
+				</p>
+				<p class="date-and-readNum">
+					<span class="date hover-show">02-28</span>
+					<span class="read-num hover-hide">
+						<svg class="icon csdnc-yuedushu" aria-hidden="true">
+							<use xlink:href="#csdnc-yuedushu"></use>
+						</svg>
+						1000</span>
+					</p>
+				</div>
+				<p class="content oneline">
+					<a class="oneline" href="https://blog.csdn.net/belvine/article/details/79398064" target="_blank" >
+						Dubbo面试专题1. 什么是dubbo Dubbo是阿里巴巴SOA服务化治理方案的核心框架，是一个分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。2. Du...					</a>
+				</p>
+		</div>
+				</div>
+			
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/qq541005640">
+                <img src="https://avatar.csdn.net/5/C/6/3_qq541005640.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/qq541005640" target="_blank" class="text-truncate" id="uid">qq541005640</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" href="https://passport.csdn.net/account/login?from=https://blog.csdn.net/qq541005640/article/details/81487355" target="_self">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="48">
+                        <dt><a href="https://blog.csdn.net/qq541005640?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/qq541005640?t=1"><span class="count">48</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="1">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">1</span></dd>
+        </dl>
+        <dl class="text-center" title="5">
+            <dt>喜欢</dt>
+            <dd><span class="count">5</span></dd>
+        </dl>
+        <dl class="text-center" title="0">
+            <dt>评论</dt>
+            <dd><span class="count">0</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="3级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-3"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="16781">
+                1万+            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="694">
+                694            </dd>
+        </dl>
+        <dl title="85003">
+            <dt>排名：</dt>
+            <dd>8万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 -->
+                      <script type="text/javascript" src="//cee1.iteye.com/lgyyovfyh.js"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq541005640/article/details/81478947" target="_blank">Spring面试题</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq541005640/article/details/81449107" target="_blank">JAVA设计模式之代理模式</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq541005640/article/details/81240742" target="_blank">工厂模式--抽象工厂模式</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq541005640/article/details/81240458" target="_blank">工厂模式--工厂方法模式</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/qq541005640/article/details/81240140" target="_blank">工厂模式--简单工厂模式</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    <div id="asideColumn" class="aside-box">
+    <h3 class="aside-title">博主专栏</h3>
+    <div class="aside-content">
+        <ul class="column-box csdn-tracking-statistics tracking-click" data-mod="popu_520" >
+                            <li class="clearfix">
+                    <div class="img-box float-left">
+                        <a class="d-flex align-items-center" href="https://blog.csdn.net/column/details/25420.html">
+                            <img src="//img-blog.csdn.net/20180727155850240?imageView2/5/w/120/h/120" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <p class="title"><a href="https://blog.csdn.net/column/details/25420.html">设计模式</a></p>
+                        <div class="data">阅读量：<span>0</span><span class="count">0 篇</span></div>
+                    </div>
+                </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/6859937">
+                    SSM框架                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/6859938">
+                    java基础                    <span class="count float-right">16篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/6859986">
+                    log4j                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7197748">
+                    redis                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7230329">
+                    命令行--CMD                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7259805">
+                    htt协议                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7470836">
+                    mybatis                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7474728">
+                    jQuery                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7495491">
+                    spring mvc                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7711261">
+                    多线程                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7734952">
+                    缓存                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7799239">
+                    安全                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7817864">
+                    读书笔记                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7879541">
+                    设计模式                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7915564">
+                    spring                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/qq541005640/article/category/7916134">
+                    dubbo                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box flexible-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2018/02">
+                    2018年2月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2018/01">
+                    2018年1月                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2017/11">
+                    2017年11月                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2017/10">
+                    2017年10月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2017/09">
+                    2017年9月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2017/08">
+                    2017年8月                    <span class="count float-right">13篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2017/07">
+                    2017年7月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2017/06">
+                    2017年6月                    <span class="count float-right">9篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2017/05">
+                    2017年5月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/qq541005640/article/month/2017/04">
+                    2017年4月                    <span class="count float-right">7篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+							<li>
+					<a href="https://blog.csdn.net/qq541005640/article/details/78204580">idea中控制台和代码不自动换行</a>
+					<p class="read">阅读量：<span>2537</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq541005640/article/details/74996102">List&lt;Map&lt;String, Object&gt;&gt;直接取出每个对象中固定的key值</a>
+					<p class="read">阅读量：<span>1823</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq541005640/article/details/79502696">SpringMVC 的 Controller 返回各种视图的处理方式</a>
+					<p class="read">阅读量：<span>1041</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq541005640/article/details/73459933">取出List&lt;String&gt;中的数据加到StringBuffer中去</a>
+					<p class="read">阅读量：<span>1020</span></p>
+				</li>
+							<li>
+					<a href="https://blog.csdn.net/qq541005640/article/details/79884672">今日头条 CEO 张一鸣：面试了 2000 个年轻人，混得好的都有这 5 种特质</a>
+					<p class="read">阅读量：<span>892</span></p>
+				</li>
+					</ul>
+	</div>
+</div>
+		    		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//cee1.iteye.com/mhzzpwgzj.js"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="pulllog-box" style="display: block;">
+	<div class="pulllog clearfix">
+		<span class="text float-left">
+			<!-- 广告位：PC-博客内页底通 文字链位置 -->
+			<script>
+			(function() {
+				var s = "_" + Math.random().toString(36).slice(2);
+				document.write('<div id="baidufooter_0001"></div>');
+				(window.slotbydup=window.slotbydup || []).push({
+					id: '5851901',
+					container: 'baidufooter_0001',
+					size: '520,40',
+					display: 'inlay-fix'
+				});
+			})();
+			</script>
+			<script src="https://dup.baidustatic.com/js/os.js"></script>
+			<style>
+				#baidufooter_0001{
+					display: none !important;
+				}
+			</style>
+		</span>
+		<div class="pulllog-btn float-right clearfix">
+            <button class="pulllog-login float-left csdn-tracking-statistics tracking-click" data-mod="popu_557">
+                登录
+            </button>
+            <div class="pulllog-sigin float-left csdn-tracking-statistics tracking-click" data-mod="popu_558">
+                <a href="https://passport.csdn.net/account/mobileregister" target="_blank">注册</a>
+            </div>
+            <button class="btn-close">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#csdnc-times"></use>
+                </svg>
+            </button>
+		</div>
+	</div>
+</div>
+<div id="loginWrap" style="display:none"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="btn-like " title="点赞">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+			<a class="btn-comments" title="写评论" href="#commentBox">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg><br>写评论			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc" title="目录">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg><br>目录
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark" title="收藏">
+				<svg class="icon active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg><svg class="icon no-active" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg><br>收藏
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg><br>微信
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-weibo"></use>
+				</svg><br>微博
+			</a>
+		</li>
+		<li class="bdsharebuttonbox">
+			<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#csdnc-qq"></use>
+				</svg><br>QQ
+			</a>
+		</li>
+	</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "java面试之dubbo";
+    var ChannelId = 15;
+    var articleId = "81487355";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/qq541005640/article/details/81487355";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["java","\u9762\u8bd5","dubbo"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"java面试之dubbo");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-a4f198c74c.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-bb796c2d26.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-359ea0cc8d.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/mhzzjepzz.js"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//cee1.iteye.com/idvveasfs.js"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+</html>
