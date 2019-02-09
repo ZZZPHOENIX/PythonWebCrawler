@@ -12,6 +12,7 @@ from selenium.webdriver import ChromeOptions
 from selenium.common import exceptions
 import datetime
 
+
 class Crawler():
     def __init__(self):
         self.s = requests.session()
@@ -29,7 +30,8 @@ class Crawler():
         }
 
     def get_code(self):
-        CAPCHAImage = self.browser.find_element_by_xpath('//*[@class="codeImg"]')
+        CAPCHAImage = self.browser.find_element_by_xpath(
+            '//*[@class="codeImg"]')
         left = CAPCHAImage.location['x']
         top = CAPCHAImage.location['y']
         right = left + CAPCHAImage.size['width']
@@ -69,9 +71,15 @@ class Crawler():
 
         self.browser.get('http://classroom.csu.edu.cn')
         wait = WebDriverWait(self.browser, 5)
-        inputAccount = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="_easyui_textbox_input1"]')))
-        inputPassword = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="_easyui_textbox_input2"]')))
-        inputCAPCHA = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="_easyui_textbox_input3"]')))
+        inputAccount = wait.until(
+            EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="_easyui_textbox_input1"]')))
+        inputPassword = wait.until(
+            EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="_easyui_textbox_input2"]')))
+        inputCAPCHA = wait.until(
+            EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="_easyui_textbox_input3"]')))
         loginBtn = self.browser.find_element_by_xpath('//*[@id="btn_login"]')
 
         inputAccount.send_keys('0902170117')
@@ -81,7 +89,9 @@ class Crawler():
         retry_counting = 0
         while True:
             try:
-                wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="自习教室"]')))
+                wait.until(
+                    EC.presence_of_element_located((By.XPATH,
+                                                    '//*[@name="自习教室"]')))
                 break
             except exceptions.TimeoutException:
                 print("登录失败，重试...")
@@ -89,18 +99,20 @@ class Crawler():
                 if retry_counting > 5:
                     self.login_selenium()
                 try:
-                    alert_ok_btn = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@class="alert_ok_btn"]')))
+                    alert_ok_btn = wait.until(
+                        EC.presence_of_element_located(
+                            (By.XPATH, '//*[@class="alert_ok_btn"]')))
                     alert_ok_btn.click()
                     inputCAPCHA.send_keys(self.get_code())
                     loginBtn.click()
                 except exceptions.TimeoutException:
                     self.login_selenium()
 
-
         self.cookies = self.browser.get_cookies()
         self.browser.close()
         for i in self.cookies:
-            requests.utils.add_dict_to_cookiejar(self.s.cookies, {i['name']: i['value']})
+            requests.utils.add_dict_to_cookiejar(self.s.cookies,
+                                                 {i['name']: i['value']})
 
         print("登陆成功...")
         os.remove('screenshot.png')
@@ -108,7 +120,8 @@ class Crawler():
     def login(self):
         main_url = 'http://classroom.csu.edu.cn'
         response = self.s.get(main_url)
-        time_stamp = re.compile('data-timestamp="(.*?)"').findall(response.text)[0]
+        time_stamp = re.compile('data-timestamp="(.*?)"').findall(
+            response.text)[0]
 
         logincode_url = 'http://classroom.csu.edu.cn/logincode.do'
         params = {'t1': time_stamp}
@@ -134,8 +147,8 @@ class Crawler():
     def choose(self):
         print("选择教学楼：")
         for i in range(len(list(self.buildings.keys()))):
-            print("序号：%s 教学楼：%s" % (i+1, list(self.buildings.keys())[i]))
-        building = list(self.buildings.keys())[int(input('  >>>'))-1]
+            print("序号：%s 教学楼：%s" % (i + 1, list(self.buildings.keys())[i]))
+        building = list(self.buildings.keys())[int(input('  >>>')) - 1]
         month = input("月份：")
         day = input("日：")
         date = "2018-" + month + "-" + day
@@ -178,8 +191,10 @@ class Crawler():
 
         for i in a['obj']['roomlist']:
             for period in i['record']:
-                if 1 <= period['room_period'] <= 5 and period['room_state'] == '0':
-                    leisure_room[str(period['room_period'])].append(i['room_name'])
+                if 1 <= period['room_period'] <= 5 and period[
+                        'room_state'] == '0':
+                    leisure_room[str(period['room_period'])].append(
+                        i['room_name'])
 
         for item in leisure_room:
             print(periods[item], end='\t')
@@ -204,7 +219,8 @@ class Crawler():
         now = datetime.datetime.now()
         time.append(now.strftime('%Y-%m-%d'))
         for i in range(1, 7):
-            time.append((now + datetime.timedelta(days=i)).strftime('%Y-%m-%d'))
+            time.append(
+                (now + datetime.timedelta(days=i)).strftime('%Y-%m-%d'))
         for building in self.buildings:
             for date in time:
                 print("正在爬取%s %s的空闲教室信息..." % (building, date))
@@ -212,10 +228,12 @@ class Crawler():
 
         print("全部爬取完成！！")
 
+
 def main():
     spyder = Crawler()
     #spyder.download_all_info()
     spyder.search()
+
 
 if __name__ == '__main__':
     main()
