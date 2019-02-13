@@ -11,7 +11,7 @@ class AutoStudent():
 
         self.courseList = list()
 
-        self.db = pymysql.connect(host='127.0.0.1', user='root', password='Zwp0816...', db='ChaoXingStuInfo')
+        self.db = pymysql.connect(host='127.0.0.1', user='root', password='***', db='ChaoXingStuInfo')
         self.cursor = self.db.cursor()
         self.cursor.execute('CREATE TABLE IF NOT EXISTS StudentInfo(账号 VARCHAR(30), 密码 VARCHAR(20));')
         self.db.commit()

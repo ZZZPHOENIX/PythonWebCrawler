@@ -12,6 +12,8 @@ from selenium.webdriver import ChromeOptions
 from selenium.common import exceptions
 import datetime
 
+id_no = '学号'
+passwd = '密码(初始密码为：出生年+月(2位) )'
 
 class Crawler():
     def __init__(self):
@@ -82,8 +84,8 @@ class Crawler():
                 (By.XPATH, '//*[@id="_easyui_textbox_input3"]')))
         loginBtn = self.browser.find_element_by_xpath('//*[@id="btn_login"]')
 
-        inputAccount.send_keys('0902170117')
-        inputPassword.send_keys('199908')
+        inputAccount.send_keys(id_no)
+        inputPassword.send_keys(passwd)
         inputCAPCHA.send_keys(self.get_code())
         loginBtn.click()
         retry_counting = 0
