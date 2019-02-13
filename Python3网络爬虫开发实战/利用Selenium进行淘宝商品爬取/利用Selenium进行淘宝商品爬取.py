@@ -10,7 +10,7 @@ import threading
 
 Max_Page = 100
 
-connection = pymysql.connect(user='root', password='Zwp0816...', host='127.0.0.1', db='taobaogoods')
+connection = pymysql.connect(user='root', password='***', host='127.0.0.1', db='taobaogoods')
 cursor = connection.cursor()
 cursor.execute('drop table if exists Goods;')
 cursor.execute('create table Goods (名称 varchar(100), 价格 float, 成交量 varchar(100), 店铺 varchar(100), 地址 varchar(100));')

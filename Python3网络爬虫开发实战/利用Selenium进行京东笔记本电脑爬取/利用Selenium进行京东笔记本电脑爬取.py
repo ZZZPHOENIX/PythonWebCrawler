@@ -5,7 +5,7 @@ import pymysql
 import re
 import urllib.request
 
-connection = pymysql.connect(user='root', password='Zwp0816...', host='127.0.0.1', db='JD_Goods')
+connection = pymysql.connect(user='root', password='***', host='127.0.0.1', db='JD_Goods')
 cursor = connection.cursor()
 #cursor.execute('drop table if exists pcinfo;')
 #cursor.execute('create table pcinfo(名称 varchar(100), 价格 float, 评论 int, 内存 varchar(100), CPU类型 varchar(100), CPU型号 varchar(100), CPU速度 varchar(100), CPU核心 varchar(100), 硬盘容量 varchar(100), 固态硬盘 varchar(100), 显卡类型 varchar(100), 显示芯片 varchar(100), 显存容量 varchar(100), 尺寸 varchar(100), 重量 varchar(100), 链接 varchar(100));')

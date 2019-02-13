@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore")
 class Book_Ticket():
 
     def connect_database(self):
-        self.db = pymysql.connect(host='localhost', user='root', password='Zwp0816...', db='Qunar')
+        self.db = pymysql.connect(host='localhost', user='root', password='****', db='Qunar')
         self.cursor = self.db.cursor()
         self.cursor.execute('CREATE TABLE IF NOT EXISTS PassengerInfo(乘客姓名 VARCHAR(50), 乘客身份证号 VARCHAR(100));')
         self.cursor.execute('CREATE TABLE IF NOT EXISTS ContactInfo(联系人姓名 VARCHAR(50), 联系人电话 VARCHAR(20));')
